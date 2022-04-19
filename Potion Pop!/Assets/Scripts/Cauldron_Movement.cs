@@ -5,7 +5,8 @@ using UnityEngine;
 public class Cauldron_Movement : MonoBehaviour
 {
     private float cauldronPosY;
-    
+
+
     [Range(-2f, 5f)]
     [SerializeField] private float cauldronForceCameraBoundsOffset; //How far from camera edge can the cauldron be? 0 = half can be invisible 
 
@@ -15,7 +16,8 @@ public class Cauldron_Movement : MonoBehaviour
         cauldronPosY = transform.position.y; //Saves Y start position
     }
 
-    void Update() {
+    void Update()
+    {
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector2(mousePosition.x, cauldronPosY); //Cauldron follows cursor's x-pos 
@@ -28,7 +30,7 @@ public class Cauldron_Movement : MonoBehaviour
 
        
 
-        //Debug/Testing här vvv
+        //Debug/Testing h?r vvv
 
     }
 }
