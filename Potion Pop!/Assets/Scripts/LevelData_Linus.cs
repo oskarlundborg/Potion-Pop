@@ -9,7 +9,7 @@ public class LevelData_Linus : MonoBehaviour
 {
     public float levelTimeLimit;
 
-    [Header("2 star = 1.5x, 3 star = 2x")]
+    [Header("2 stars = 1.5x, 3 stars = 2x")]
     public int oneStarGoal;
 
     public GameObject[] ingredientsToSpawn;

@@ -10,4 +10,8 @@ public class Ingredient : MonoBehaviour
     private void Start() {
         timesCollected = 0;
     }
+
+    private void IncreaseTimesCollected() {
+        timesCollected++;
+    }
 }
