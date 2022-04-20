@@ -371,7 +371,7 @@ MonoBehaviour:
   - {fileID: 152213716}
   - {fileID: 1593810896}
   - {fileID: 574831020}
-  ingredientGoal: 
+  ingredientGoal: 010000000000000000000000
 --- !u!4 &422777928
 Transform:
   m_ObjectHideFlags: 0
