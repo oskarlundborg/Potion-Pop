@@ -5,8 +5,7 @@ using UnityEngine;
 public class Cauldron_Mouth : MonoBehaviour
 {
 
-    public Level_Modifier level;
-    [HideInInspector] public ArrayList collectedIngredients;
+    public LevelData level;
 
     void Start()
     {
@@ -22,7 +21,6 @@ public class Cauldron_Mouth : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Ingredient")) {
             Debug.Log(collision);
-            collectedIngredients.Add(collision.gameObject.name);
 
             }
 

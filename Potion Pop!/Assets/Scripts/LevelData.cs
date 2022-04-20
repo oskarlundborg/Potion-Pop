@@ -12,12 +12,16 @@ public class LevelData : MonoBehaviour
     public int twoStarGoal;
     public int threeStarGoal;
 
+    public GameObject[] ingredientsToSpawn;
+
     public GameObject typeOneIngredient;
     public GameObject typeTwoIngredient;
     public GameObject typeThreeIngredient;
     public int ingredientOneGoal;
     public int ingredientTwoGoal;
     public int ingredientThreeGoal;
+
+
 
     //mängd,
     //ingredienstyper,

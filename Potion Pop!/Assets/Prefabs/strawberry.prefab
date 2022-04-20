@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 267610842127320815}
   m_Layer: 0
   m_Name: strawberry
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4618159553007802104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.7692056, y: -4.261336, z: 69.316696}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95487, y: 0.95487, z: 1.3641}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1783563427
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a9e43256aa67a294c8917d1ea4afb3a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.6
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -121,9 +121,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.019145966, y: -0.04786402}
+  m_Offset: {x: 0, y: -0.06}
   serializedVersion: 2
-  m_Radius: 0.28211212
+  m_Radius: 0.35
 --- !u!114 &116454937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,4 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c537f022d4e18fb4f88bf58b005fd05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terminalVelocity: 2
+  terminalVelocity: 3
