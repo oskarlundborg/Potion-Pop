@@ -17,17 +17,16 @@ public class Quest
     private int animalsSaved;
     private LevelData ld;
 
-    private void ResetQuest()
+
+    private void Update()
     {
         if (isComplete) {
             ingredientOneAmount = 0;
             ingredientTwoAmount = 0;
             ingredientThreeAmount = 0;
-            isComplete = false;
-            Debug.Log("quest reset");
+            //öka animalsaved med 1 i levelState
         }
     }
-
     public Quest(LevelData levelData)
     {
         this.ld = levelData;
@@ -52,7 +51,7 @@ public class Quest
 
     public void AddIngredientTwo()
     {
-        if (ingredientTwoAmount < ingredientTwoGoal) {
+        if (ingredientOneAmount < ingredientOneGoal) {
             ingredientTwoAmount++;
             Debug.Log("berry added");
             CheckGoals();
@@ -61,7 +60,7 @@ public class Quest
 
     public void AddIngredientThree()
     {
-        if (ingredientThreeAmount < ingredientThreeGoal) {
+        if (ingredientOneAmount < ingredientOneGoal) {
             ingredientThreeAmount++;
             Debug.Log("moss added");
             CheckGoals();
@@ -75,7 +74,6 @@ public class Quest
             isComplete = true;
             animalsSaved++;
             Debug.Log("animals saved" + animalsSaved);
-            ResetQuest();
   
         }
     }

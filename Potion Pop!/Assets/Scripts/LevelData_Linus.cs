@@ -3,31 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//en f√∂r varje level
+//en fˆr varje level
 [System.Serializable]
-public class LevelData : MonoBehaviour
+public class LevelData_Linus : MonoBehaviour
 {
     public float levelTimeLimit;
+
+    [Header("2 stars = 1.5x, 3 stars = 2x")]
     public int oneStarGoal;
-    public int twoStarGoal;
-    public int threeStarGoal;
 
     public GameObject[] ingredientsToSpawn;
-
-    public GameObject typeOneIngredient;
-    public GameObject typeTwoIngredient;
-    public GameObject typeThreeIngredient;
+    public GameObject[] ingredientsToCollect;
+    
     public int ingredientOneGoal;
     public int ingredientTwoGoal;
     public int ingredientThreeGoal;
 
 
-
-    //m√§ngd,
+    //m‰ngd,
     //ingredienstyper,
-    //m√§ngdkr√§vd per ingrediens,
-    //antal r√§ddade djur som kr√§vs per stj√§rna,
-    //tidsgr√§ns
+    //m‰ngdkr‰vd per ingrediens,
+    //antal r‰ddade djur som kr‰vs per stj‰rna,
+    //tidsgr‰ns
 
     public float getTimer()
     {
