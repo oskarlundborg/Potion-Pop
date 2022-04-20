@@ -17,6 +17,7 @@ public class Cauldron_Mouth : MonoBehaviour
                 //Testar om ingrediensen som hamnade i cauldronen finns i ingrediensToCollect
                 if (level.ingredientsToCollect[i].GetComponent<Ingredient>().ingredientName == collision.GetComponent<Ingredient>().ingredientName) {
                     level.ingredientsToCollect[i].GetComponent<Ingredient>().IncreaseTimesCollected();
+                    level.CheckGoal();
                     
                     Debug.Log("Rätt!");
 

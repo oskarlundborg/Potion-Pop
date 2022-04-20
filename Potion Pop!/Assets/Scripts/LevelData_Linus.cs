@@ -15,16 +15,26 @@ public class LevelData_Linus : MonoBehaviour
     public GameObject[] ingredientsToSpawn;
     public GameObject[] ingredientsToCollect;
     
-    public int ingredientOneGoal;
-    public int ingredientTwoGoal;
-    public int ingredientThreeGoal;
+    [Header("0 för att ej ha goal. SÄTT TILL 3")]
+    [Header("Samma ordning som array av ingredientsToCollect.")]
+    public int[] ingredientGoal;
 
+    public void CheckGoal() {
+        bool goalOneReached = false, goalTwoReached = false, goalThreeReached = false;
 
-    //mängd,
-    //ingredienstyper,
-    //mängdkrävd per ingrediens,
-    //antal räddade djur som krävs per stjärna,
-    //tidsgräns
+        if (ingredientsToCollect[0].GetComponent<Ingredient>().timesCollected >= ingredientGoal[0] || ingredientGoal[0] == 0) {
+            goalOneReached = true;
+        }
+        if (ingredientsToCollect[1].GetComponent<Ingredient>().timesCollected >= ingredientGoal[1] || ingredientGoal[1] == 0) {
+            goalTwoReached = true;
+        }
+        if (ingredientsToCollect[2].GetComponent<Ingredient>().timesCollected >= ingredientGoal[2] || ingredientGoal[2] == 0) {
+            goalThreeReached = true;
+        }
+        if(goalOneReached && goalTwoReached && goalThreeReached) { //Goal reached
+            Debug.Log("Goal!!!");
+        }
+    }
 
     public float getTimer()
     {
