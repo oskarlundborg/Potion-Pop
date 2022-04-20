@@ -5,23 +5,22 @@ using UnityEngine.UI;
 
 public class Debug_AmountCollected : MonoBehaviour
 {
-
+    [Header("Räknas endast om rätt ingrediens till receptet")]
+    public Ingredient ingredientToDisplay;
     private Text amountCollectedText;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        if(ingredientToDisplay == null) {
+            gameObject.SetActive(false);
+        }
         amountCollectedText = GetComponent<Text>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void IncreaseAmountCollected(int i) {
-
+    void Update() {
+        amountCollectedText.text = (ingredientToDisplay.ingredientName + ":" + ingredientToDisplay.timesCollected);
     }
 
 }

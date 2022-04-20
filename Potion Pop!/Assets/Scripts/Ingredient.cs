@@ -11,7 +11,7 @@ public class Ingredient : MonoBehaviour
         timesCollected = 0;
     }
 
-    private void IncreaseTimesCollected() {
+    public void IncreaseTimesCollected() {
         timesCollected++;
     }
 }
