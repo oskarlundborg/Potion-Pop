@@ -10,15 +10,22 @@ public class Cauldron_Mouth : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         //Testar om det är sorten Ingredient
         if (collision.CompareTag("Ingredient")) {
+            bool correctWasFound = false;
+
             for (int i = 0; i < level.ingredientsToCollect.Length; i++) { //loopar genom ingredientsToCollect
+
                 //Testar om ingrediensen som hamnade i cauldronen finns i ingrediensToCollect
-                if (level.ingredientsToCollect[i].GetComponent<Ingredient>().ingredientName == collision.GetComponent<Ingredient>().ingredientName) { 
+                if (level.ingredientsToCollect[i].GetComponent<Ingredient>().ingredientName == collision.GetComponent<Ingredient>().ingredientName) {
+                    level.ingredientsToCollect[i].GetComponent<Ingredient>().IncreaseTimesCollected();
+                    
                     Debug.Log("Rätt!");
-                    level.ingredientsToCollect[i].GetComponent<Ingredient>().timesCollected++;
-                } else {
-                    Debug.Log("Fel!");
-                    //negativ effekt
+
+                    correctWasFound = true;
                 }
+            }
+            if(!correctWasFound) {
+                Debug.Log("Fel!");
+                //negativ effekt
             }
         }
 

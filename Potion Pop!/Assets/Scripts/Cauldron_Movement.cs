@@ -30,7 +30,7 @@ public class Cauldron_Movement : MonoBehaviour
 
        
 
-        //Debug/Testing h?r vvv
+        //Debug/Testing här vvv
 
     }
 }
