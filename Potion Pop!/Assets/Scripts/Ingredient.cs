@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
+    public string ingredientName;
+    public int timesCollected;
 
     private void Start() {
-
+        timesCollected = 0;
     }
-
-    void Update()
-    {
-
-    }
-    
 }

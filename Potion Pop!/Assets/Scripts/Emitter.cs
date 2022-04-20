@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Emitter : MonoBehaviour {
-    public LevelData level;
+
+    //public LevelData level;
+    public LevelData_Linus level;
+
 
     private Transform spawnPos;
     private float timer;

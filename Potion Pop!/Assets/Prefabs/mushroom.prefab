@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6378051614011006565}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.05, y: -4.261336, z: 0}
   m_LocalScale: {x: 0.14586, y: 0.14586, z: 0.14586}
   m_Children: []
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ceb383e96b44142842f48f0b9e904d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientName: mushroom
 --- !u!114 &6378051614011006566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,4 +163,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c537f022d4e18fb4f88bf58b005fd05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terminalVelocity: 2
+  terminalVelocity: 3

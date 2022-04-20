@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ceb383e96b44142842f48f0b9e904d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientName: apple
 --- !u!114 &5237113392578537739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd20bbe3985394d9d9b183290c0746ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  minSpeed: 40
+  maxSpeed: 150
 --- !u!114 &7582764566879973553
 MonoBehaviour:
   m_ObjectHideFlags: 0
