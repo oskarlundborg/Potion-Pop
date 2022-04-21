@@ -371,7 +371,7 @@ MonoBehaviour:
   - {fileID: 152213716}
   - {fileID: 1593810896}
   - {fileID: 574831020}
-  ingredientGoal: 010000000000000000000000
+  ingredientGoal: 010000000200000002000000
 --- !u!4 &422777928
 Transform:
   m_ObjectHideFlags: 0
@@ -1790,6 +1790,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 422777927}
+  minSpawnTime: 1
+  maxSpawnTime: 6
+  chanceForSpawnFrenzy: 100
+  spawnFrenzyTime: 3
+  spawnFrenzyAmount: 10
 --- !u!212 &2041377719
 SpriteRenderer:
   m_ObjectHideFlags: 0
