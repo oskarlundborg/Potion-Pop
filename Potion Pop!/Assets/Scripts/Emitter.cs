@@ -55,7 +55,6 @@ public class Emitter : MonoBehaviour {
 
     private void RandomChecks() { //Ska det bli frenzy eller byta spawn ställe?
         if (emitter_Movement.chanceForNewRandomSpawnPoint >= Random.Range(0, 100)) { //Randomly väljer om det ska bli en ny spawn plats
-            emitter_Movement.RandomizeSpawn();
         }
 
         if (chanceForSpawnFrenzy >= Random.Range(0, 100)) { //Randomly väljer om det blir frenzy

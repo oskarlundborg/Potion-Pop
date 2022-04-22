@@ -16,16 +16,13 @@ public class Cauldron_Movement : MonoBehaviour
     void Start() 
     {
         mouth = transform.GetChild(0).gameObject;
-        cauldronPosY = transform.position.y; //Saves Y start position
-        
+        cauldronPosY = transform.position.y; //Saves Y start position        
     }
 
     void Update()
     {
-
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector2(mousePosition.x, cauldronPosY); //Cauldron follows cursor's x-pos 
-
 
         //Force cauldron in camera view
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
@@ -34,12 +31,12 @@ public class Cauldron_Movement : MonoBehaviour
 
     }
 
-    //****ALLT HÄR HAR MED TRIGGER ATT GÖRA
+    //**ALLT HÄR HAR MED TRIGGER ATT GÖRA
     private void OnTriggerEnter2D(Collider2D collision) {
         //Testar om det är sorten Ingredient
         if (collision.CompareTag("Ingredient")) {
+            collision.GetComponent<Ingredient>().AnimationCaught();
             //levelState.AddIngredient(collision.GetComponent<Ingredient>().ingredientName);
-            Debug.Log("Hallo");
         }
 
         //Istället för destroy, gör det flesta av spelobjektets egenskaper inaktiva för animation            
