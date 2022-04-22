@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 6378051614011006587}
   - component: {fileID: 6378051614011006584}
   - component: {fileID: 6378051614011006585}
-  - component: {fileID: 6378051614011006566}
-  - component: {fileID: 6378051614011006567}
   m_Layer: 0
   m_Name: mushroom
   m_TagString: Ingredient
@@ -137,30 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientName: mushroom
---- !u!114 &6378051614011006566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6378051614011006565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd20bbe3985394d9d9b183290c0746ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   minSpeed: 40
   maxSpeed: 150
---- !u!114 &6378051614011006567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6378051614011006565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c537f022d4e18fb4f88bf58b005fd05f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terminalVelocity: 3
+  terminalVelocity: 2

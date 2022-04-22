@@ -34,11 +34,11 @@ public class Emitter_Movement : MonoBehaviour
     //lite udda sätt men var lättast för mig, detta ändrar speedet på emitter så att nästa ingrediens spawnar på ett nytt ställe och inte alltid följer samma våg-rörelse
     public void RandomizeSpawn() {
         speed = Random.Range(10, 300);
-        Debug.Log("RandomizeSpawn");
-        Debug.Log(speed);
+        //Debug.Log("RandomizeSpawn");
+        //Debug.Log(speed);
         StartCoroutine(Waiter());
         speed = startSpeed;
-        Debug.Log(speed);
+        //Debug.Log(speed);
     }
     IEnumerator Waiter() {
         yield return new WaitForSeconds(0.2f);

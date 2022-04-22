@@ -9,7 +9,6 @@ public class Debug_AmountCollected : MonoBehaviour
     public Ingredient ingredientToDisplay;
     private Text amountCollectedText;
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -20,7 +19,7 @@ public class Debug_AmountCollected : MonoBehaviour
     }
 
     void Update() {
-        amountCollectedText.text = (ingredientToDisplay.ingredientName + ":" + ingredientToDisplay.timesCollected);
+        amountCollectedText.text = (ingredientToDisplay.ingredientName + ":");
     }
 
 }

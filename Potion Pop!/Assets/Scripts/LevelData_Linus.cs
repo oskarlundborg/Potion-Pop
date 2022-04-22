@@ -19,7 +19,7 @@ public class LevelData_Linus : MonoBehaviour
     [Header("Samma ordning som array av ingredientsToCollect.")]
     public int[] ingredientGoal;
 
-    public void CheckGoal() {
+    /*public void CheckGoal() {
         bool goalOneReached = false, goalTwoReached = false, goalThreeReached = false;
 
         if (ingredientsToCollect[0].GetComponent<Ingredient>().timesCollected >= ingredientGoal[0] || ingredientGoal[0] == 0) {
@@ -34,7 +34,7 @@ public class LevelData_Linus : MonoBehaviour
         if(goalOneReached && goalTwoReached && goalThreeReached) { //Goal reached
             Debug.Log("Goal!!!");
         }
-    }
+    }*/
 
     public float getTimer()
     {
