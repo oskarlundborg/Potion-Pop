@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 116454936}
   - component: {fileID: 116454938}
   - component: {fileID: 116454937}
-  - component: {fileID: 2459014274384912213}
-  - component: {fileID: 267610842127320815}
   m_Layer: 0
   m_Name: strawberry
   m_TagString: Ingredient
@@ -137,30 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientName: strawberry
---- !u!114 &2459014274384912213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4618159553007802104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd20bbe3985394d9d9b183290c0746ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   minSpeed: 40
-  maxSpeed: 120
---- !u!114 &267610842127320815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4618159553007802104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c537f022d4e18fb4f88bf58b005fd05f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terminalVelocity: 3
+  maxSpeed: 150
+  terminalVelocity: 2

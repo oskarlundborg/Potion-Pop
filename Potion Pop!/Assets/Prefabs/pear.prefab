@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 1672510721434808668}
   - component: {fileID: 1672510721434808671}
   - component: {fileID: 1672510721434808670}
-  - component: {fileID: 1672510721434808641}
-  - component: {fileID: 1672510721434808640}
   m_Layer: 0
   m_Name: pear
   m_TagString: Ingredient
@@ -137,30 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientName: pear
---- !u!114 &1672510721434808641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672510721434808642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd20bbe3985394d9d9b183290c0746ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   minSpeed: 40
   maxSpeed: 150
---- !u!114 &1672510721434808640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672510721434808642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c537f022d4e18fb4f88bf58b005fd05f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terminalVelocity: 3
+  terminalVelocity: 2

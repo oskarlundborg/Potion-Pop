@@ -5,15 +5,19 @@ using UnityEngine;
 public class Cauldron_Movement : MonoBehaviour
 {
     private float cauldronPosY;
+    private GameObject mouth;
 
+    public LevelState levelState;
 
     [Range(-2f, 5f)]
     [SerializeField] private float cauldronForceCameraBoundsOffset; //How far from camera edge can the cauldron be? 0 = half can be invisible 
 
 
     void Start() 
-    { 
+    {
+        mouth = transform.GetChild(0).gameObject;
         cauldronPosY = transform.position.y; //Saves Y start position
+        
     }
 
     void Update()
@@ -28,9 +32,19 @@ public class Cauldron_Movement : MonoBehaviour
         pos.x = Mathf.Clamp(pos.x, (cauldronForceCameraBoundsOffset / 10), 1 - (cauldronForceCameraBoundsOffset / 10));
         transform.position = Camera.main.ViewportToWorldPoint(pos);
 
-       
+    }
 
-        //Debug/Testing här vvv
+    //****ALLT HÄR HAR MED TRIGGER ATT GÖRA
+    private void OnTriggerEnter2D(Collider2D collision) {
+        //Testar om det är sorten Ingredient
+        if (collision.CompareTag("Ingredient")) {
+            //levelState.AddIngredient(collision.GetComponent<Ingredient>().ingredientName);
+            Debug.Log("Hallo");
+        }
+
+        //Istället för destroy, gör det flesta av spelobjektets egenskaper inaktiva för animation            
+        //Animation exempel. Krymp ingrediensen           
+        Destroy(collision.gameObject);
 
     }
 }
