@@ -5,7 +5,9 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour
 {
     public string ingredientName;
-   
+
+    private Animator animator;
+
     [Header("Rotate")]
     public float minSpeed = 40f;
     public float maxSpeed = 150f;
@@ -18,6 +20,7 @@ public class Ingredient : MonoBehaviour
     private Rigidbody2D rb;
 
     void Start() {
+        animator = gameObject.GetComponent<Animator>();
 
         //Väljer randomly hur snabbt objektet ska rotera
         speed = Random.Range(minSpeed, maxSpeed);
@@ -48,4 +51,16 @@ public class Ingredient : MonoBehaviour
             rb.velocity = Vector2.ClampMagnitude(rb.velocity, terminalVelocity);
         }
     }
+
+    //**ANIMATIONS
+    //Feel free att även ändra saker som terminalVelocity, rotating osv för att få en bra animation! <<<<<<<<<<<<<
+
+    public void AnimationDie() { 
+        animator.SetTrigger("Die"); 
+    }
+
+    public void AnimationCaught() {
+        animator.SetTrigger("Caught"); 
+    }
+
 }

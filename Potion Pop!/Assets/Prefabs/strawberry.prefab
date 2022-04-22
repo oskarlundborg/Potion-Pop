@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 116454936}
   - component: {fileID: 116454938}
   - component: {fileID: 116454937}
+  - component: {fileID: 7913233877328544526}
   m_Layer: 0
   m_Name: strawberry
   m_TagString: Ingredient
@@ -138,3 +139,22 @@ MonoBehaviour:
   minSpeed: 40
   maxSpeed: 150
   terminalVelocity: 2
+--- !u!95 &7913233877328544526
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4618159553007802104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
