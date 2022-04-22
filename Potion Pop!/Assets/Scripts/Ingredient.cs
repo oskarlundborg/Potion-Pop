@@ -55,11 +55,13 @@ public class Ingredient : MonoBehaviour
     //**ANIMATIONS
     //Feel free att även ändra saker som terminalVelocity, rotating osv för att få en bra animation! <<<<<<<<<<<<<
 
-    public void AnimationDie() { 
+    public void AnimationDie() {
+        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 0.3f); //temporärt innan animation finns
         animator.SetTrigger("Die"); 
     }
 
-    public void AnimationCaught() {
+    public void AnimationCaught() { //Ingredienser blir destroyed innan denna animation blir spelad så det måste fixas om det ska animeras, skriv till Linus :)
         animator.SetTrigger("Caught"); 
     }
 
