@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// SKA BORT
+/// </summary>
+//tar emot datan från sin leveldata 
 public class Quest 
 {
     private bool isComplete;

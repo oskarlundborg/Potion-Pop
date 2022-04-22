@@ -14,4 +14,5 @@ public class Ingredient : MonoBehaviour
     public void IncreaseTimesCollected() {
         timesCollected++;
     }
+    
 }
