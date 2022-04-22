@@ -6,7 +6,7 @@ public class Emitter : MonoBehaviour {
 
     //public LevelData level;
     public LevelData_Linus level;
-
+    private Emitter_Movement emitter_Movement;
 
     private Transform spawnPos;
     private float timer;
@@ -15,21 +15,19 @@ public class Emitter : MonoBehaviour {
     public float minSpawnTime;
     public float maxSpawnTime;
 
-    public float chanceForSpawnFrenzy;
-    public float spawnFrenzyTime = 3f;
-    public float spawnFrenzyAmount = 10f;
+    [Tooltip("Hur stor chans (av 100) att det blir frenzy efter varje spawn")] public float chanceForSpawnFrenzy = 3f;
+    [Tooltip("Tid mellan varje spawn i frenzy")] public float spawnFrenzyTime = 3f;
+    [Tooltip("Hur många saker som ska spawna i frenzy")] public float spawnFrenzyAmount = 10f;
     private float spawnFrenzyCount = 0f;
     private bool isFrenzy = false;
 
-
-    // Start is called before the first frame update
     void Start() {
+        emitter_Movement = GetComponent<Emitter_Movement>();
         spawnPos = GetComponent<Transform>();
-
         spawnTime = minSpawnTime;
 
-        if (spawnFrenzyTime == 0) {
-            spawnFrenzyTime = minSpawnTime / 2;
+        if (spawnFrenzyTime <= 0) {
+            spawnFrenzyTime = minSpawnTime / 3;
         }
 
         //Debug feedback
@@ -39,32 +37,44 @@ public class Emitter : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
     void Update() {
         timer += Time.deltaTime;
+
+        //Spawnblocket
         if (timer > spawnTime && level.ingredientsToSpawn[0] != null && !isFrenzy) {
-            Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation);
-
-            spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
-            Debug.Log("Test"); 
-            
-
-            timer = 0f;
-            if (chanceForSpawnFrenzy >= Random.Range(0,100)) {
-                isFrenzy = true;
-                Debug.Log("frenzy!");
-            }
+            Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
+            spawnTime = Random.Range(minSpawnTime, maxSpawnTime); //Ny random spawnTime    
+            timer = 0f; //Reset time
+            RandomChecks();
         }
 
-        if(isFrenzy && (timer > spawnFrenzyTime)) {
-            Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation);
-            spawnFrenzyCount++;
-            timer = 0f;
-            if (spawnFrenzyCount >= spawnFrenzyAmount) {
-                isFrenzy = false;
-                spawnFrenzyCount = 0;
-                Debug.Log("not frenzy!");
-            }
+        if (isFrenzy && (timer > spawnFrenzyTime)) { //Om det är frenzy och timer överskrider spawnFrenzyTime
+            FrenzyTime();
         }
     }
+
+    private void RandomChecks() { //Ska det bli frenzy eller byta spawn ställe?
+        if (emitter_Movement.chanceForNewRandomSpawnPoint >= Random.Range(0, 100)) { //Randomly väljer om det ska bli en ny spawn plats
+            emitter_Movement.RandomizeSpawn();
+        }
+
+        if (chanceForSpawnFrenzy >= Random.Range(0, 100)) { //Randomly väljer om det blir frenzy
+            isFrenzy = true;
+            Debug.Log("Frenzy!");
+        }
+    }
+
+    private void FrenzyTime() {
+        Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
+        spawnFrenzyCount++; //När detta blir lika med spawnFrenzyAmount(som väljs i inspector) - 1 så slutar frenzy
+        timer = 0f;
+
+        if (spawnFrenzyCount >= spawnFrenzyAmount - 1) {
+            isFrenzy = false;
+            spawnFrenzyCount = 0;
+            Debug.Log("Not frenzy!");
+
+        }
+    }
+
 }

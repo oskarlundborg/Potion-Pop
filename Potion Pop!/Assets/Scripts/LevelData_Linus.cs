@@ -15,7 +15,7 @@ public class LevelData_Linus : MonoBehaviour
     public GameObject[] ingredientsToSpawn;
     public GameObject[] ingredientsToCollect;
     
-    [Header("0 för att ej ha goal. SÄTT TILL 3")]
+    [Header("0 för att ej ha goal. Sätt array length till 3")]
     [Header("Samma ordning som array av ingredientsToCollect.")]
     public int[] ingredientGoal;
 

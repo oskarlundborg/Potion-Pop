@@ -1473,6 +1473,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple
       objectReference: {fileID: 0}
+    - target: {fileID: 7582764566879973553, guid: 031ab4e82bc25174c90c17313b5ad962, type: 3}
+      propertyPath: terminalVelocity
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 031ab4e82bc25174c90c17313b5ad962, type: 3}
 --- !u!1 &1593810896 stripped
@@ -1790,10 +1794,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 422777927}
-  minSpawnTime: 1
-  maxSpawnTime: 6
-  chanceForSpawnFrenzy: 100
-  spawnFrenzyTime: 3
+  minSpawnTime: 0.8
+  maxSpawnTime: 1.25
+  chanceForSpawnFrenzy: 5
+  spawnFrenzyTime: 0.3
   spawnFrenzyAmount: 10
 --- !u!212 &2041377719
 SpriteRenderer:
@@ -1858,6 +1862,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ffdd9d2cbbfd741a60175102ce3a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chanceForNewRandomSpawnPoint: 30
+  yOffset: 0.1
+  xOffset: 0.05
   speed: 1
 --- !u!1 &2444374750244355236 stripped
 GameObject:
