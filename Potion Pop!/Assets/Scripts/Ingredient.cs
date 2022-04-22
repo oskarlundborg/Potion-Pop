@@ -22,10 +22,10 @@ public class Ingredient : MonoBehaviour
     void Start() {
         animator = gameObject.GetComponent<Animator>();
 
-        //Väljer randomly hur snabbt objektet ska rotera
+        //VÃ¤ljer randomly hur snabbt objektet ska rotera
         speed = Random.Range(minSpeed, maxSpeed);
 
-        //Väljer randomly vilket håll objektet ska rotera
+        //VÃ¤ljer randomly vilket hÃ¥ll objektet ska rotera
         int temp = Random.Range(1, 10);
         if (temp % 2 == 0) {
             rotatesClockwise = false;
@@ -53,16 +53,15 @@ public class Ingredient : MonoBehaviour
     }
 
     //**ANIMATIONS
-    //Feel free att även ändra saker som terminalVelocity, rotating osv för att få en bra animation! <<<<<<<<<<<<<
+    //Feel free att Ã¤ven Ã¤ndra saker som terminalVelocity, rotating osv fÃ¶r att fÃ¥ en bra animation! <<<<<<<<<<<<<
 
     public void AnimationDie() {
         GetComponent<CircleCollider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 0.3f); //temporärt innan animation finns
+        GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 0.3f); //temporÃ¤rt innan animation finns
         animator.SetTrigger("Die"); 
     }
 
-    public void AnimationCaught() { //Ingredienser blir destroyed innan denna animation blir spelad så det måste fixas om det ska animeras, skriv till Linus :)
+    public void AnimationCaught() { //Ingredienser blir destroyed innan denna animation blir spelad sÃ¥ det mÃ¥ste fixas om det ska animeras, skriv till Linus :)
         animator.SetTrigger("Caught"); 
     }
-
 }

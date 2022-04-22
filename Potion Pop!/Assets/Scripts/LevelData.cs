@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//en för varje level
+//FÖR SAVE-Files
 [System.Serializable]
 public class LevelData : MonoBehaviour
 {
@@ -20,14 +20,6 @@ public class LevelData : MonoBehaviour
     public int ingredientOneGoal;
     public int ingredientTwoGoal;
     public int ingredientThreeGoal;
-
-
-
-    //mängd,
-    //ingredienstyper,
-    //mängdkrävd per ingrediens,
-    //antal räddade djur som krävs per stjärna,
-    //tidsgräns
 
     public float getTimer()
     {
