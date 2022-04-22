@@ -153,7 +153,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelData: {fileID: 719828447}
+  animalSavedOneStar: 0
+  animalSavedTwoStar: 0
+  animalSavedThreeStar: 0
+  starsUnlocked: 0
+  levelTimeLimit: 0
   animalsText: {fileID: 668108288}
+  recipeIngredientGoals: 
+  ingredientsToSpawn: []
+  ingredientsToCollect: []
+  recipeIngredients: []
+  badIngrdients: []
+  powerups: []
 --- !u!4 &239507214
 Transform:
   m_ObjectHideFlags: 0
@@ -550,6 +561,7 @@ MonoBehaviour:
   oneStarGoal: 1
   twoStarGoal: 2
   threeStarGoal: 3
+  ingredientsToSpawn: []
   typeOneIngredient: {fileID: 0}
   typeTwoIngredient: {fileID: 0}
   typeThreeIngredient: {fileID: 0}
