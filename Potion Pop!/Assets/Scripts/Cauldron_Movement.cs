@@ -31,15 +31,15 @@ public class Cauldron_Movement : MonoBehaviour
 
     }
 
-    //**ALLT HÄR HAR MED TRIGGER ATT GÖRA
+    //**ALLT H?R HAR MED TRIGGER ATT G?RA
     private void OnTriggerEnter2D(Collider2D collision) {
-        //Testar om det är sorten Ingredient
+        //Testar om det ?r sorten Ingredient
         if (collision.CompareTag("Ingredient")) {
             collision.GetComponent<Ingredient>().AnimationCaught();
-            //levelState.AddIngredient(collision.GetComponent<Ingredient>().ingredientName);
+            levelState.AddIngredient(collision.GetComponent<Ingredient>().GetIngredientName());
         }
 
-        //Istället för destroy, gör det flesta av spelobjektets egenskaper inaktiva för animation            
+        //Ist?llet f?r destroy, g?r det flesta av spelobjektets egenskaper inaktiva f?r animation            
         //Animation exempel. Krymp ingrediensen           
         Destroy(collision.gameObject);
 

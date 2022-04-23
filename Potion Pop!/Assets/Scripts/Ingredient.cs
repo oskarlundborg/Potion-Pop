@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    public string ingredientName;
+    private string ingredientName;
 
     private Animator animator;
 
@@ -52,6 +52,9 @@ public class Ingredient : MonoBehaviour
         }
     }
 
+    public string GetIngredientName() {
+        return ingredientName;
+    }
     //**ANIMATIONS
     //Feel free att även ändra saker som terminalVelocity, rotating osv för att få en bra animation! <<<<<<<<<<<<<
 

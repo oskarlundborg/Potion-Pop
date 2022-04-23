@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Debug_AmountCollected : MonoBehaviour
 {
-    [Header("Räknas endast om rätt ingrediens till receptet")]
+    [Header("R?knas endast om r?tt ingrediens till receptet")]
     public Ingredient ingredientToDisplay;
     private Text amountCollectedText;
 
@@ -19,7 +19,7 @@ public class Debug_AmountCollected : MonoBehaviour
     }
 
     void Update() {
-        amountCollectedText.text = (ingredientToDisplay.ingredientName + ":");
+        amountCollectedText.text = (ingredientToDisplay.GetIngredientName() + ":");
     }
 
 }
