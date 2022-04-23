@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    private string ingredientName;
+    public string ingredientName;
 
     private Animator animator;
 
@@ -55,9 +55,9 @@ public class Ingredient : MonoBehaviour
     public string GetIngredientName() {
         return ingredientName;
     }
+
     //**ANIMATIONS
     //Feel free att även ändra saker som terminalVelocity, rotating osv för att få en bra animation! <<<<<<<<<<<<<
-
     public void AnimationDie() {
         GetComponent<CircleCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 0.3f); //temporärt innan animation finns

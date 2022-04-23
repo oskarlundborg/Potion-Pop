@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 422777928}
   - component: {fileID: 422777927}
   m_Layer: 0
-  m_Name: Level Data
+  m_Name: Level State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,21 +357,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 422777926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4d8188995b57340a48aa10aa98b8b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ec2cde114dcbf44af915879b4b2360c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTimeLimit: 0
   oneStarGoal: 0
+  twoStarGoal: 0
+  threeStarGoal: 0
+  levelTimeLimit: 0
+  recipeCounters: []
   ingredientsToSpawn:
   - {fileID: 152213716}
   - {fileID: 1593810896}
   - {fileID: 574831020}
   - {fileID: 2444374750244355236}
-  ingredientsToCollect:
-  - {fileID: 152213716}
-  - {fileID: 1593810896}
-  - {fileID: 574831020}
-  ingredientGoal: 010000000200000002000000
+  recipeIngredients: []
+  badIngrdients: []
+  powerups: []
 --- !u!4 &422777928
 Transform:
   m_ObjectHideFlags: 0

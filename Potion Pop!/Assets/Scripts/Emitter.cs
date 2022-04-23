@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Emitter : MonoBehaviour {
 
-    public LevelData_Linus level;
+    public LevelState level;
     private Emitter_Movement emitter_Movement;
 
     private Transform spawnPos;
