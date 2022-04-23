@@ -6,51 +6,68 @@ using UnityEngine.UI;
 //levels faktiskt tilltåld
 public class LevelState : MonoBehaviour
 {
-    //kan heta som objekten senare
-    //kanske hashmap av ingredienser och goalAmount?
-    public LevelData levelData;
-    private int levelSavedAnimalsAmount;
+    private int savedAnimalsAmount;
     // mål för att få stjärnor
     [Header("2 stars = 1.5x, 3 stars = 2x")]
-    [SerializeField] private int animalSavedOneStar;
-    [SerializeField] private int animalSavedTwoStar;
-    [SerializeField] private int animalSavedThreeStar;
-    [SerializeField] private int starsUnlocked;
+    [SerializeField] private int oneStarGoal;
+    [SerializeField] private int twoStarGoal;
+    [SerializeField] private int threeStarGoal;
+
+    private bool isOneStarReached;
+    private bool isTwoStarReached;
+    private bool isThreeStarReached;
 
     [SerializeField] private float levelTimeLimit;
-    
-    [SerializeField] private Text animalsText;
-    [Header("0 f?r att ej ha goal. S?TT TILL 3")]
-    [Header("Samma ordning som array av ingredientsToCollect.")]
-    [SerializeField] private int[] recipeIngredientGoals;
+    [SerializeField] private GameObject[] recipeCounters;
     [SerializeField] private GameObject[] ingredientsToSpawn;
-    [SerializeField] private GameObject[] ingredientsToCollect;
     [SerializeField] private GameObject[] recipeIngredients;
     [SerializeField] private GameObject[] badIngrdients;
     [SerializeField] private GameObject[] powerups;
-    
 
-    private void Update()
-    {
-        
-        animalsText.text = levelSavedAnimalsAmount.ToString();
-
-    }
-
+  
     public int GetSavedAnimals() {
-        return levelSavedAnimalsAmount;
+        return savedAnimalsAmount;
+        Debug.Log("animals saved" + savedAnimalsAmount);
     }
 
-    //ska få ingredients to Spawn 
+    public void AddIngredient(string name) {
+        foreach (GameObject recipeCounter in recipeCounters) {
+            if (name.Equals(recipeCounter.GetComponent<RecipeCounter>().GetIngredientName())) {
+                recipeCounter.GetComponent<RecipeCounter>().AddIngredient();
+                if (IsRecipeComplete()) {
+                    savedAnimalsAmount++;
+                    UpdateStarsStatus();
+                    
+                }
+            } //else kör bad ingredient
+        }
+    }
 
-    /*
-     * Cauldron ska kommunicera med:
-     * - AddIngredient(string name)
-     * vad det är för ingrediens, via namn
-     * om den finns i receptet (loop ingredientsToCollect)
-     * om dens depå är fylld eller inte
-     * counter för ingrediens ++, och UI 
-     * */
+    private void BadIngredient() {
+        //
+    }
+
+    private bool IsRecipeComplete() {
+        bool isComplete = true;
+        foreach (GameObject recipeCounter in recipeCounters) {
+            if (recipeCounter.GetComponent<RecipeCounter>().IsFull() == false) {
+                isComplete = false;
+            }
+        }
+        return isComplete;
+    }
+
+    private void UpdateStarsStatus() {
+        if (savedAnimalsAmount == threeStarGoal) {
+            isThreeStarReached = true;
+        } else if (savedAnimalsAmount == twoStarGoal) {
+            isTwoStarReached = true;
+        } else if (savedAnimalsAmount == oneStarGoal) {
+            isOneStarReached = true;
+        }
+    }
+
+
 }
 
 /*
