@@ -37,8 +37,4 @@ public class RecipeCounter : MonoBehaviour
     }
 }
 
-/*
- * Säga till Linus;
- * ha en metod som returnerar Ingredient name i Ingredient, namnet bör vara private
- * Numera en counter för varje ingredient , och en array
- */
+
