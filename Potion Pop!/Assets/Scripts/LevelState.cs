@@ -19,7 +19,7 @@ public class LevelState : MonoBehaviour
 
     [SerializeField] private float levelTimeLimit;
     [SerializeField] private GameObject[] recipeCounters;
-    [SerializeField] private GameObject[] ingredientsToSpawn;
+    public GameObject[] ingredientsToSpawn;
     [SerializeField] private GameObject[] recipeIngredients;
     [SerializeField] private GameObject[] badIngrdients;
     [SerializeField] private GameObject[] powerups;
