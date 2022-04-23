@@ -1303,11 +1303,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 422777927}
-  minSpawnTime: 0.8
-  maxSpawnTime: 1.25
-  chanceForSpawnFrenzy: 10
+  minSpawnTime: 0.6
+  maxSpawnTime: 1.3
+  chanceSwitchToWave: 5
+  chanceSwitchToRandom: 20
+  chanceForDouble: 5
+  chanceForTriple: 5
+  chanceForSpawnFrenzy: 2
   spawnFrenzyTime: 0.3
-  spawnFrenzyAmount: 6
+  spawnFrenzyAmount: 5
 --- !u!212 &2041377719
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1372,6 +1376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chanceForNewRandomSpawnPoint: 30
+  leftTopCorner: {x: 0, y: 0, z: 0}
+  rightTopCorner: {x: 0, y: 0, z: 0}
   yOffset: 0.1
   xOffset: 0.05
   speed: 1
