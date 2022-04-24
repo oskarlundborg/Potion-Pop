@@ -28,6 +28,12 @@ public class Emitter : MonoBehaviour {
     private float spawnFrenzyCount = 0f;
     private bool isFrenzy = false;
 
+    [Header("Power-ups/debuffs")]
+    [Tooltip("Chance (out of 100) that the next spawn is a special item")] public float chanceToSpawnSpecial = 1f;
+    [Tooltip("Chance (out of 100) that the special spawn is a power-up")] public float powerupToDebuffRatio = 50f;
+    private bool isSpecial = false;
+
+
     void Start() {
         emitter_Movement = GetComponent<Emitter_Movement>();
         spawnPos = GetComponent<Transform>();
@@ -41,16 +47,19 @@ public class Emitter : MonoBehaviour {
 
         //Debug feedback
         if (level.ingredientsToSpawn[0] == null) {
-            Debug.Log("ERROR: Fyll GameObject \"Emitter\" med ingredienser");
+            Debug.Log("ERROR: Fyll \"Emitter\" med ingredienser!");
+        }
+        if (level.powerups[0] == null || level.debuffs[0]) {
+            Debug.Log("ERROR: Fill \"Emitter\" with at least one debuff and powerup. Set chanceToSpawnSpecial to 0 if none should spawn!");
         }
 
     }
 
     void Update() {
         timer += Time.deltaTime;
-        
-        if (timer > spawnTime && level.ingredientsToSpawn[0] != null && !isFrenzy) { //Spawnblocket
-            RandomChecks();
+        //Spawnblocket
+        if (timer > spawnTime && level.ingredientsToSpawn[0] != null && !isFrenzy) { 
+            RandomChecks(); //Should special event happen
 
             if(!isWaveSpawn) {
                 RandomSpawn();
@@ -71,6 +80,10 @@ public class Emitter : MonoBehaviour {
         if (chanceSwitchToWave >= Random.Range(0, 100) && isWaveSpawn == false) { isWaveSpawn = true; }
 
         if (chanceForSpawnFrenzy >= Random.Range(0, 100)) { isFrenzy = true; }
+
+        if (chanceToSpawnSpecial >= Random.Range(0, 100)) {
+
+        }
     }
    
     private void RandomSpawn() {

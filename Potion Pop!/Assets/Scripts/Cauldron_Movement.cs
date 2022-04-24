@@ -5,7 +5,6 @@ using UnityEngine;
 public class Cauldron_Movement : MonoBehaviour
 {
     private float cauldronPosY;
-    private GameObject mouth;
 
     public LevelState levelState;
 
@@ -15,7 +14,6 @@ public class Cauldron_Movement : MonoBehaviour
 
     void Start() 
     {
-        mouth = transform.GetChild(0).gameObject;
         cauldronPosY = transform.position.y; //Saves Y start position        
     }
 
