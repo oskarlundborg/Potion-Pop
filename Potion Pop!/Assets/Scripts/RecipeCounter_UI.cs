@@ -8,14 +8,17 @@ public class RecipeCounter_UI : MonoBehaviour
     public Text valueText;
     public Slider slider;
 
-    /*
+    
     private void Start()
     {
-        valueText.text = gameObject.GetComponent<>
-
-    public void OnSliderValueChange(int currAmount) {
-        slider.value = currAmount;
-        valueText.text = cu
+        valueText = gameObject.GetComponentInChildren<Text>();
+        slider = gameObject.GetComponentInChildren<Slider>();
     }
-    */
+
+    public void UpdateProgress(int value)
+    {
+        valueText.text = value.ToString();
+        slider.value = value;
+    }
+
 }
