@@ -19,10 +19,10 @@ public class LevelState : MonoBehaviour
 
     [SerializeField] private float levelTimeLimit;
     [SerializeField] private GameObject[] recipeCounters;
-    public GameObject[] ingredientsToSpawn;
     [SerializeField] private GameObject[] recipeIngredients;
-    [SerializeField] private GameObject[] badIngrdients;
-    [SerializeField] private GameObject[] powerups;
+    public GameObject[] ingredientsToSpawn;
+    public GameObject[] debuffs;
+    public GameObject[] powerups;
 
   
     public int GetSavedAnimals() {
@@ -32,19 +32,21 @@ public class LevelState : MonoBehaviour
 
     public void AddIngredient(string name) {
         foreach (GameObject recipeCounter in recipeCounters) {
-            if (name.Equals(recipeCounter.GetComponent<RecipeCounter>().GetIngredientName())) {
+            if (name.Equals(recipeCounter.GetComponent<RecipeCounter>().GetIngredientName()))
+            {
                 recipeCounter.GetComponent<RecipeCounter>().AddIngredient();
-                if (IsRecipeComplete()) {
+                if (IsRecipeComplete())
+                {
                     savedAnimalsAmount++;
                     UpdateStarsStatus();
-                    
-                }
-            } //else kör bad ingredient
-        }
-    }
 
-    private void BadIngredient() {
-        //
+                }
+            }
+            else
+            {
+                recipeCounter.GetComponent<RecipeCounter>().HandleWrongIngredient();
+            }
+        }
     }
 
     private bool IsRecipeComplete() {
