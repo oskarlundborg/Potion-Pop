@@ -16,6 +16,7 @@ public class LevelState : MonoBehaviour
     private bool isOneStarReached;
     private bool isTwoStarReached;
     private bool isThreeStarReached;
+    private int starsUnlocked;
 
     [SerializeField] private float levelTimeLimit;
     [SerializeField] private GameObject[] recipeCounters;
@@ -24,27 +25,35 @@ public class LevelState : MonoBehaviour
     public GameObject[] debuffs;
     public GameObject[] powerups;
 
+    //tillfälligt för test
+    public Text animalSavedText;
+    public Text starsCollectedText;
   
     public int GetSavedAnimals() {
-        return savedAnimalsAmount;
         Debug.Log("animals saved" + savedAnimalsAmount);
+        return savedAnimalsAmount;
     }
 
     public void AddIngredient(string name) {
+        bool isCorrectIngredient = false;
         foreach (GameObject recipeCounter in recipeCounters) {
             if (name.Equals(recipeCounter.GetComponent<RecipeCounter>().GetIngredientName()))
             {
+                isCorrectIngredient = true;
                 recipeCounter.GetComponent<RecipeCounter>().AddIngredient();
+                Debug.Log("added ingredient in " + recipeCounter.GetComponent<RecipeCounter>().GetIngredientName());
                 if (IsRecipeComplete())
                 {
                     savedAnimalsAmount++;
                     UpdateStarsStatus();
+                    RecipeCompleted();
 
                 }
             }
-            else
-            {
-                recipeCounter.GetComponent<RecipeCounter>().HandleWrongIngredient();
+        }
+        if (isCorrectIngredient == false) {
+            foreach (GameObject recipeCounter in recipeCounters) {
+                recipeCounter.GetComponent<RecipeCounter>().SubtractIngredient();
             }
         }
     }
@@ -62,13 +71,25 @@ public class LevelState : MonoBehaviour
     private void UpdateStarsStatus() {
         if (savedAnimalsAmount == threeStarGoal) {
             isThreeStarReached = true;
+            starsUnlocked = 3;
         } else if (savedAnimalsAmount == twoStarGoal) {
             isTwoStarReached = true;
+            starsUnlocked = 2;
         } else if (savedAnimalsAmount == oneStarGoal) {
             isOneStarReached = true;
+            starsUnlocked = 1;
         }
     }
 
+    
+    private void RecipeCompleted() {
+        // när timern är slut, sammanställ alla stjärnor som uppnåtts
+        int animalsSaved = GetSavedAnimals();
+        animalSavedText.text = "Animals saved: " + animalsSaved.ToString();
+        // script som sitter på objekt med 3 stjärnor, skicka int häifrån som säger hur många stjärnor som ska visa
+
+    }
+    
 
 }
 

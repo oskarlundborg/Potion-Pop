@@ -8,25 +8,25 @@ public class RecipeCounter : MonoBehaviour
     private bool isFull;
     [SerializeField] private GameObject ingredient;
     [SerializeField] private int ingredientGoal;
-    [SerializeField] private Slider slider;
+    [SerializeField] private RecipeCounter_UI ui;
     private int currentIngredientAmount;
 
     public void AddIngredient() {
         if (currentIngredientAmount < ingredientGoal) {
             currentIngredientAmount++;
-            //(valueText.text = currentIngredientAmount.ToString();
-            slider.value = currentIngredientAmount;
-            Debug.Log("ingredient added" + currentIngredientAmount);
+            ui.UpdateProgress(currentIngredientAmount);
+            Debug.Log( "current amount = " + currentIngredientAmount);
         }
         if (currentIngredientAmount == ingredientGoal) {
             isFull = true;
         }
     }
 
-    public void HandleWrongIngredient() {
-        currentIngredientAmount--;
-       // valueText.text = currentIngredientAmount.ToString();
-        slider.value = currentIngredientAmount;
+    public void SubtractIngredient() {
+        if (currentIngredientAmount > 0) {
+            currentIngredientAmount--;
+        }
+        ui.UpdateProgress(currentIngredientAmount);
     }
 
     public string GetIngredientName() {
