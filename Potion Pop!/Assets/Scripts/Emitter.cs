@@ -47,10 +47,10 @@ public class Emitter : MonoBehaviour {
 
         //Debug feedback
         if (level.ingredientsToSpawn[0] == null) {
-            Debug.Log("ERROR: Fyll \"Emitter\" med ingredienser!");
+            Debug.Log("ERROR: Fyll \"Level State\" med ingredienser!");
         }
-        if (level.powerups[0] == null || level.debuffs[0]) {
-            Debug.Log("ERROR: Fill \"Emitter\" with at least one debuff and powerup. Set chanceToSpawnSpecial to 0 if none should spawn!");
+        if (level.powerups[0] == null || level.debuffs[0] == null) {
+            Debug.Log("ERROR: Fill \"Level State\" with at least one debuff and powerup. Set chanceToSpawnSpecial to 0 if none should spawn!");
         }
 
     }
@@ -58,17 +58,25 @@ public class Emitter : MonoBehaviour {
     void Update() {
         timer += Time.deltaTime;
         //Spawnblocket
-        if (timer > spawnTime && level.ingredientsToSpawn[0] != null && !isFrenzy) { 
+        Debug.Log(timer);
+        if (timer > spawnTime && level.ingredientsToSpawn[0] != null && !isFrenzy) {
+            Debug.Log("-0");
             RandomChecks(); //Should special event happen
-
-            if(!isWaveSpawn) {
+            Debug.Log("0");
+            if (isSpecial) {
+                Debug.Log("1");
+                SpawnSpecial();
+                Debug.Log("2");
+            } else if (!isWaveSpawn) {
                 RandomSpawn();
             } else {
                 Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
-            }                        
-            spawnTime = Random.Range(minSpawnTime, maxSpawnTime); //Ny random spawnTime                
-            timer = 0f; //Reset time
+            }
+        Debug.Log("3");
+        spawnTime = Random.Range(minSpawnTime, maxSpawnTime); //Ny random spawnTime                
+        timer = 0f; //Reset time
         }
+
         if (isFrenzy && (timer > spawnFrenzyTime)) { //Om det är frenzy och timer överskrider spawnFrenzyTime
             FrenzyTime();
         }
@@ -81,24 +89,33 @@ public class Emitter : MonoBehaviour {
 
         if (chanceForSpawnFrenzy >= Random.Range(0, 100)) { isFrenzy = true; }
 
-        if (chanceToSpawnSpecial >= Random.Range(0, 100)) {
-
-        }
+        if (chanceToSpawnSpecial >= Random.Range(0, 100)) { isSpecial = true; }
     }
-   
+
     private void RandomSpawn() {
         Vector3 randomizedPos = RandomSpawnPos();
         Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], randomizedPos, spawnPos.rotation);
 
-        if(chanceForDouble >= Random.Range(0, 100)) {
+        if (chanceForDouble >= Random.Range(0, 100)) {
             randomizedPos = RandomSpawnPos();
             Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], randomizedPos, spawnPos.rotation);
 
-            if(chanceForTriple >= Random.Range(0, 100)) {
+            if (chanceForTriple >= Random.Range(0, 100)) {
                 randomizedPos = RandomSpawnPos();
                 Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], randomizedPos, spawnPos.rotation);
             }
         }
+    }
+
+    private void SpawnSpecial() {
+        Vector3 randomizedPos = RandomSpawnPos();
+        Debug.Log("Was here");
+        if (powerupToDebuffRatio >= Random.Range(0, 100)) {
+            Instantiate(level.powerups[Random.Range(0, level.powerups.Length)], randomizedPos, spawnPos.rotation);
+        } else {
+            Instantiate(level.debuffs[Random.Range(0, level.debuffs.Length)], randomizedPos, spawnPos.rotation);
+        }
+        isSpecial = false;
     }
 
     private void FrenzyTime() {
