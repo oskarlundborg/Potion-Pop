@@ -57,22 +57,17 @@ public class Emitter : MonoBehaviour {
 
     void Update() {
         timer += Time.deltaTime;
+        
         //Spawnblocket
-        Debug.Log(timer);
         if (timer > spawnTime && level.ingredientsToSpawn[0] != null && !isFrenzy) {
-            Debug.Log("-0");
             RandomChecks(); //Should special event happen
-            Debug.Log("0");
             if (isSpecial) {
-                Debug.Log("1");
                 SpawnSpecial();
-                Debug.Log("2");
             } else if (!isWaveSpawn) {
                 RandomSpawn();
             } else {
                 Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
             }
-        Debug.Log("3");
         spawnTime = Random.Range(minSpawnTime, maxSpawnTime); //Ny random spawnTime                
         timer = 0f; //Reset time
         }
@@ -109,7 +104,6 @@ public class Emitter : MonoBehaviour {
 
     private void SpawnSpecial() {
         Vector3 randomizedPos = RandomSpawnPos();
-        Debug.Log("Was here");
         if (powerupToDebuffRatio >= Random.Range(0, 100)) {
             Instantiate(level.powerups[Random.Range(0, level.powerups.Length)], randomizedPos, spawnPos.rotation);
         } else {

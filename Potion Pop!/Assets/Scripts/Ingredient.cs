@@ -16,7 +16,7 @@ public class Ingredient : MonoBehaviour
     private float speed;
 
     [Header("Falling speed")]
-    public float terminalVelocity = 2f;
+    public float fallingSpeed = 2f;
     private Rigidbody2D rb;
 
     void Start() {
@@ -43,13 +43,11 @@ public class Ingredient : MonoBehaviour
         } else {
             transform.Rotate(Vector3.forward * Time.deltaTime * (speed * -1));
         }
-
+        
     }
 
-    void FixedUpdate() { 
-        if (rb.velocity.magnitude > terminalVelocity) { //Falling
-            rb.velocity = Vector2.ClampMagnitude(rb.velocity, terminalVelocity);
-        }
+    void FixedUpdate() {
+        rb.velocity = new Vector3(0, -fallingSpeed, 0);
     }
 
     public string GetIngredientName() {

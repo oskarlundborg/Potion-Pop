@@ -138,7 +138,7 @@ MonoBehaviour:
   ingredientName: apple
   minSpeed: 40
   maxSpeed: 150
-  terminalVelocity: 2
+  fallingSpeed: 2
 --- !u!95 &-2029413550795792841
 Animator:
   serializedVersion: 3
