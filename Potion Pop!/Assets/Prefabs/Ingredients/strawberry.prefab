@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4618159553007802107}
   - component: {fileID: 4618159553007802106}
+  - component: {fileID: 116454937}
   - component: {fileID: 116454936}
   - component: {fileID: 116454938}
-  - component: {fileID: 116454937}
   - component: {fileID: 7913233877328544526}
   m_Layer: 0
   m_Name: strawberry
@@ -86,6 +86,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &116454937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4618159553007802104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ceb383e96b44142842f48f0b9e904d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: strawberry
+  minSpeed: 40
+  maxSpeed: 150
+  fallingSpeed: 3
+  newFallingSpeed: 0
 --- !u!50 &116454936
 Rigidbody2D:
   serializedVersion: 4
@@ -117,28 +134,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.06}
   serializedVersion: 2
   m_Radius: 0.35
---- !u!114 &116454937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4618159553007802104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82ceb383e96b44142842f48f0b9e904d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: strawberry
-  minSpeed: 40
-  maxSpeed: 150
-  terminalVelocity: 2
 --- !u!95 &7913233877328544526
 Animator:
   serializedVersion: 3
