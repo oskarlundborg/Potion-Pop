@@ -17,10 +17,12 @@ public class Ingredient : MonoBehaviour
 
     [Header("Falling speed")]
     public float fallingSpeed = 2f;
+    [HideInInspector] public float newFallingSpeed;
     private Rigidbody2D rb;
 
     void Start() {
         animator = gameObject.GetComponent<Animator>();
+        newFallingSpeed = fallingSpeed;
 
         //Väljer randomly hur snabbt objektet ska rotera
         speed = Random.Range(minSpeed, maxSpeed);
@@ -47,7 +49,7 @@ public class Ingredient : MonoBehaviour
     }
 
     void FixedUpdate() {
-        rb.velocity = new Vector3(0, -fallingSpeed, 0);
+        rb.velocity = new Vector3(0, -newFallingSpeed, 0);
     }
 
     public string GetIngredientName() {
