@@ -33,11 +33,14 @@ public class PowerUpState : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision) {
         if(powerUpState == 1) {
-
+            collision.GetComponent<Ingredient>().newFallingSpeed = collision.GetComponent<Ingredient>().fallingSpeed; //reset fallingSpeed
+            collision.GetComponent<Ingredient>().newRotateSpeed = collision.GetComponent<Ingredient>().rotateSpeed;
         } else if(powerUpState == 2) {
-
+            collision.GetComponent<Ingredient>().newFallingSpeed = collision.GetComponent<Ingredient>().fallingSpeed / 2;
+            collision.GetComponent<Ingredient>().newRotateSpeed = collision.GetComponent<Ingredient>().rotateSpeed / 2;
         } else if(powerUpState == 3) {
             collision.GetComponent<Ingredient>().newFallingSpeed = collision.GetComponent<Ingredient>().fallingSpeed + 3;
+            collision.GetComponent<Ingredient>().newRotateSpeed = collision.GetComponent<Ingredient>().rotateSpeed * 2;
         }
 
     }
