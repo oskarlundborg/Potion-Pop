@@ -13,7 +13,8 @@ public class Ingredient : MonoBehaviour
     public float maxSpeed = 150f;
 
     private bool rotatesClockwise;
-    private float speed;
+    [HideInInspector] public float rotateSpeed;
+    [HideInInspector] public float newRotateSpeed;
 
     [Header("Falling speed")]
     public float fallingSpeed = 2f;
@@ -25,7 +26,8 @@ public class Ingredient : MonoBehaviour
         newFallingSpeed = fallingSpeed;
 
         //Väljer randomly hur snabbt objektet ska rotera
-        speed = Random.Range(minSpeed, maxSpeed);
+        rotateSpeed = Random.Range(minSpeed, maxSpeed);
+        newRotateSpeed = rotateSpeed;
 
         //Väljer randomly vilket håll objektet ska rotera
         int temp = Random.Range(1, 10);
@@ -41,9 +43,9 @@ public class Ingredient : MonoBehaviour
 
     void Update() { 
         if (rotatesClockwise) { //Rotating
-            transform.Rotate(Vector3.forward * Time.deltaTime * speed);
+            transform.Rotate(Vector3.forward * Time.deltaTime * newRotateSpeed);
         } else {
-            transform.Rotate(Vector3.forward * Time.deltaTime * (speed * -1));
+            transform.Rotate(Vector3.forward * Time.deltaTime * (newRotateSpeed * -1));
         }
         
     }
