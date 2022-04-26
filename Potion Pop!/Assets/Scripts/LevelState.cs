@@ -12,11 +12,15 @@ public class LevelState : MonoBehaviour
     [SerializeField] private int oneStarGoal;
     [SerializeField] private int twoStarGoal;
     [SerializeField] private int threeStarGoal;
+    [SerializeField] private GameObject countdownBar;
 
     private bool isOneStarReached;
     private bool isTwoStarReached;
     private bool isThreeStarReached;
     private int starsUnlocked;
+    private float maxTime;
+    private float timeLeft;
+
 
     [SerializeField] private float levelTimeLimit;
     [SerializeField] private GameObject[] recipeCounters;
@@ -25,12 +29,23 @@ public class LevelState : MonoBehaviour
     public GameObject[] debuffs;
     public GameObject[] powerups;
 
-    //tillfälligt för test
-    public Text animalSavedText;
-    public Text starsCollectedText;
-  
+    [SerializeField] Text animalSavedText;
+    [SerializeField] Text starsCollectedText;
+    [SerializeField] GameObject levelCompletePanel;
+
+
+    private void Start()
+    {
+        maxTime = levelTimeLimit;
+        timeLeft = maxTime;
+    }
+
+    private void Update()
+    {
+        UpdateTimer();
+    }
+
     public int GetSavedAnimals() {
-        Debug.Log("animals saved" + savedAnimalsAmount);
         return savedAnimalsAmount;
     }
 
@@ -41,11 +56,8 @@ public class LevelState : MonoBehaviour
             {
                 isCorrectIngredient = true;
                 recipeCounter.GetComponent<RecipeCounter>().AddIngredient();
-                Debug.Log("added ingredient in " + recipeCounter.GetComponent<RecipeCounter>().GetIngredientName());
                 if (IsRecipeComplete())
                 {
-                    savedAnimalsAmount++;
-                    UpdateStarsStatus();
                     RecipeCompleted();
 
                 }
@@ -81,16 +93,39 @@ public class LevelState : MonoBehaviour
         }
     }
 
-    
-    private void RecipeCompleted() {
-        // när timern är slut, sammanställ alla stjärnor som uppnåtts
-        int animalsSaved = GetSavedAnimals();
-        animalSavedText.text = "Animals saved: " + animalsSaved.ToString();
-        // script som sitter på objekt med 3 stjärnor, skicka int häifrån som säger hur många stjärnor som ska visa
-
+    private void RecipeCompleted()
+    {
+        savedAnimalsAmount++;
+        UpdateStarsStatus();
+        animalSavedText.text = "Animals saved: " + savedAnimalsAmount.ToString();
+        foreach (GameObject recipeCounter in recipeCounters) {
+            recipeCounter.GetComponent<RecipeCounter>().ResetCounter();
+        }
     }
-    
 
+    private void UpdateTimer() {
+        //kolla powerupstate
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            countdownBar.GetComponent<Image>().fillAmount = timeLeft / maxTime;
+        }
+        else
+        {
+            LevelComplete();
+        }
+    }
+
+    private void LevelComplete() {
+        Time.timeScale = 0;
+        foreach (GameObject recipeCounter in recipeCounters) {
+            recipeCounter.SetActive(false);
+        }
+        levelCompletePanel.SetActive(true);
+        levelCompletePanel.GetComponent<LevelComplete>().ShowLevelProgression(starsUnlocked);
+        // Visar alla stjärnor + knapp till nästa level
+        // spara stjärnor - inte här
+    }
 }
 
 /*
