@@ -34,6 +34,7 @@ public class LevelState : MonoBehaviour
     private void Start()
     {
         maxTime = levelTimeLimit;
+        timeLeft = maxTime;
     }
 
     private void Update()
@@ -90,7 +91,6 @@ public class LevelState : MonoBehaviour
         }
     }
 
-
     private void RecipeCompleted()
     {
         savedAnimalsAmount++;
@@ -102,6 +102,7 @@ public class LevelState : MonoBehaviour
     }
 
     private void UpdateTimer() {
+        //kolla powerupstate
         if (timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
@@ -109,10 +110,11 @@ public class LevelState : MonoBehaviour
         }
         else
         {
-            //LevelComplete()
             Time.timeScale = 0;
         }
     }
+
+
 
     private void LevelComplete() {
         // Spelet slutar, går inte att röra cauldron

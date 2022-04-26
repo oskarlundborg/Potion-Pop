@@ -24,7 +24,7 @@ public class Emitter : MonoBehaviour {
     [Header("Frenzy!")]
     [Tooltip("Hur stor chans (av 100) att det blir frenzy efter varje spawn")] public float chanceForSpawnFrenzy = 3f;
     [Tooltip("Tid mellan varje spawn i frenzy")] public float spawnFrenzyTime = 3f;
-    [Tooltip("Hur många saker som ska spawna i frenzy")] public float spawnFrenzyAmount = 10f;
+    [Tooltip("Hur m?nga saker som ska spawna i frenzy")] public float spawnFrenzyAmount = 10f;
     private float spawnFrenzyCount = 0f;
     private bool isFrenzy = false;
 
@@ -79,30 +79,30 @@ public class Emitter : MonoBehaviour {
         timer = 0f; //Reset time
         }
 
-        if (isFrenzy && (timer > spawnFrenzyTime)) { //Om det är frenzy och timer överskrider spawnFrenzyTime
+        if (isFrenzy && (timer > spawnFrenzyTime)) { //Om det ?r frenzy och timer ?verskrider spawnFrenzyTime
             FrenzyTime();
         }
     }
 
-    private void RandomChecks() { //Ska det bli frenzy eller byta spawn mönster?
-        if (chanceSwitchToRandom >= Random.Range(0, 100) && isWaveSpawn == true) { isWaveSpawn = false; }
+    private void RandomChecks() { //Ska det bli frenzy eller byta spawn m?nster?
+        if (chanceSwitchToRandom > Random.Range(0, 100) && isWaveSpawn == true) { isWaveSpawn = false; }
 
-        if (chanceSwitchToWave >= Random.Range(0, 100) && isWaveSpawn == false) { isWaveSpawn = true; }
+        if (chanceSwitchToWave > Random.Range(0, 100) && isWaveSpawn == false) { isWaveSpawn = true; }
 
-        if (chanceForSpawnFrenzy >= Random.Range(0, 100)) { isFrenzy = true; }
+        if (chanceForSpawnFrenzy > Random.Range(0, 100)) { isFrenzy = true; }
 
-        if (chanceToSpawnSpecial >= Random.Range(0, 100)) { isSpecial = true; }
+        if (chanceToSpawnSpecial > Random.Range(0, 100)) { isSpecial = true; }
     }
 
     private void RandomSpawn() {
         Vector3 randomizedPos = RandomSpawnPos();
         Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], randomizedPos, spawnPos.rotation);
 
-        if (chanceForDouble >= Random.Range(0, 100)) {
+        if (chanceForDouble > Random.Range(0, 100)) {
             randomizedPos = RandomSpawnPos();
             Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], randomizedPos, spawnPos.rotation);
 
-            if (chanceForTriple >= Random.Range(0, 100)) {
+            if (chanceForTriple > Random.Range(0, 100)) {
                 randomizedPos = RandomSpawnPos();
                 Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], randomizedPos, spawnPos.rotation);
             }
@@ -111,7 +111,7 @@ public class Emitter : MonoBehaviour {
 
     private void SpawnSpecial() {
         Vector3 randomizedPos = RandomSpawnPos();
-        if (powerupToDebuffRatio >= Random.Range(0, 100)) {
+        if (powerupToDebuffRatio > Random.Range(0, 100)) {
             Instantiate(level.powerups[Random.Range(0, level.powerups.Length)], randomizedPos, spawnPos.rotation);
         } else {
             Instantiate(level.debuffs[Random.Range(0, level.debuffs.Length)], randomizedPos, spawnPos.rotation);
@@ -121,7 +121,7 @@ public class Emitter : MonoBehaviour {
 
     private void FrenzyTime() {
         Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
-        spawnFrenzyCount++; //När detta blir lika med spawnFrenzyAmount(som väljs i inspector) - 1 så slutar frenzy
+        spawnFrenzyCount++; //N?r detta blir lika med spawnFrenzyAmount(som v?ljs i inspector) - 1 s? slutar frenzy
         timer = 0f;
 
         if (spawnFrenzyCount >= spawnFrenzyAmount - 1) {
