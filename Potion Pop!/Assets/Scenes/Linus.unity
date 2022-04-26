@@ -309,18 +309,15 @@ MonoBehaviour:
   oneStarGoal: 0
   twoStarGoal: 0
   threeStarGoal: 0
-  levelTimeLimit: 0
+  levelTimeLimit: 5.88
   recipeCounters: []
   recipeIngredients: []
   ingredientsToSpawn:
-  - {fileID: 3070088473808281766, guid: 031ab4e82bc25174c90c17313b5ad962, type: 3}
-  - {fileID: 6378051614011006565, guid: fccbcacd15015ed4ba87f9fa0d4b1d85, type: 3}
-  - {fileID: 1672510721434808642, guid: 92d19e231b8f8674cb03f7d1b6fa5ca0, type: 3}
-  - {fileID: 4618159553007802104, guid: e89c58eba9893af4094cb7c84609c9fc, type: 3}
+  - {fileID: 0}
   debuffs:
-  - {fileID: 6470761090040827119, guid: ad2baa935bd6d4341bdeea7f787f6dab, type: 3}
+  - {fileID: 0}
   powerups:
-  - {fileID: 4277610883332879693, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
+  - {fileID: 0}
   animalSavedText: {fileID: 0}
   starsCollectedText: {fileID: 0}
 --- !u!4 &422777928
@@ -464,67 +461,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1945566826
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4277610883332879693, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_Name
-      value: debuff_ice
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517237760678107423, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8039499669642786521, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
-      propertyPath: ingredientName
-      value: slow
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
 --- !u!1 &2041377716
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,8 +507,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 422777927}
-  minSpawnTime: 0.3
-  maxSpawnTime: 0.5
+  minSpawnTime: 0.5
+  maxSpawnTime: 1.6
   chanceSwitchToWave: 5
   chanceSwitchToRandom: 20
   chanceForDouble: 5
