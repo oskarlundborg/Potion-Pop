@@ -47,12 +47,20 @@ public class Emitter : MonoBehaviour {
 
         //Debug feedback
         if (level.ingredientsToSpawn[0] == null) {
-            Debug.Log("ERROR: Fyll \"Level State\" med ingredienser!");
+            Debug.Log("Fyll \"Level State\" med ingredienser!");
+            level.ingredientsToSpawn[0] = new GameObject("empty");
         }
-        if (level.powerups[0] == null || level.debuffs[0] == null) {
-            Debug.Log("ERROR: Fill \"Level State\" with at least one debuff and powerup. Set chanceToSpawnSpecial to 0 if none should spawn!");
+        if (level.powerups[0] == null && level.debuffs[0] == null) {
+            chanceToSpawnSpecial = 0;
         }
-
+        if (level.powerups[0] == null) {
+            level.powerups[0] = new GameObject("empty");
+            powerupToDebuffRatio = 0;
+        }
+        if (level.debuffs[0] == null) {
+            level.debuffs[0] = new GameObject("empty");
+            powerupToDebuffRatio = 100;
+        }
     }
 
     void Update() {
