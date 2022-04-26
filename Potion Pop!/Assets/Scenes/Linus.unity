@@ -313,7 +313,10 @@ MonoBehaviour:
   recipeCounters: []
   recipeIngredients: []
   ingredientsToSpawn:
-  - {fileID: 0}
+  - {fileID: 3070088473808281766, guid: 031ab4e82bc25174c90c17313b5ad962, type: 3}
+  - {fileID: 6378051614011006565, guid: fccbcacd15015ed4ba87f9fa0d4b1d85, type: 3}
+  - {fileID: 1672510721434808642, guid: 92d19e231b8f8674cb03f7d1b6fa5ca0, type: 3}
+  - {fileID: 4618159553007802104, guid: e89c58eba9893af4094cb7c84609c9fc, type: 3}
   debuffs:
   - {fileID: 0}
   powerups:

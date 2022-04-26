@@ -33,7 +33,6 @@ public class Emitter : MonoBehaviour {
     [Tooltip("Chance (out of 100) that the special spawn is a power-up")] public float powerupToDebuffRatio = 50f;
     private bool isSpecial = false;
 
-
     void Start() {
         emitter_Movement = GetComponent<Emitter_Movement>();
         spawnPos = GetComponent<Transform>();
