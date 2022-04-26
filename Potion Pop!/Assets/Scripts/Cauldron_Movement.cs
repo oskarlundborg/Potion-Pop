@@ -16,6 +16,7 @@ public class Cauldron_Movement : MonoBehaviour {
         powerUpState = FindObjectOfType<PowerUpState>();
         cauldronPosY = transform.position.y; //Saves Y start position    
         cauldron_Magnet = GameObject.Find("Cauldron_Magnet").GetComponent<Cauldron_Magnet>();
+        levelState = GameObject.Find("LevelState").GetComponent<LevelState>();
     }
 
     void Update() {

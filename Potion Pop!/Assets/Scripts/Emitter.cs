@@ -37,7 +37,7 @@ public class Emitter : MonoBehaviour {
         emitter_Movement = GetComponent<Emitter_Movement>();
         spawnPos = GetComponent<Transform>();
         spawnTime = minSpawnTime;
-        level = GameObject.Find("Level State").GetComponent<LevelState>();
+        level = GameObject.Find("LevelState").GetComponent<LevelState>();
 
         if (spawnFrenzyTime <= 0) {
             spawnFrenzyTime = minSpawnTime / 3;
