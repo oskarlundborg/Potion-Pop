@@ -12,6 +12,8 @@ public class Cauldron_Movement : MonoBehaviour {
     [Range(-2f, 5f)]
     [SerializeField] private float cauldronForceCameraBoundsOffset; //How far from camera edge can the cauldron be? 0 = half can be invisible 
 
+    private bool isCauldronActive = true;
+
     void Start() {
         powerUpState = FindObjectOfType<PowerUpState>();
         cauldronPosY = transform.position.y; //Saves Y start position    
@@ -20,24 +22,23 @@ public class Cauldron_Movement : MonoBehaviour {
     }
 
     void Update() {
-        if (powerUpState.powerUpState != 1) { //Om den inte är frysen av is
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector2(mousePosition.x, cauldronPosY); //Cauldron follows cursor's x-pos 
+        if (powerUpState.powerUpState != 1 || !isCauldronActive) { //Not frozen or not active
+            MoveCauldron();
         }
+    }
+
+    private void MoveCauldron() {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(mousePosition.x, cauldronPosY); //Cauldron follows cursor's x-pos 
 
         //Force cauldron in camera view
-
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
         pos.x = Mathf.Clamp(pos.x, (cauldronForceCameraBoundsOffset / 10), 1 - (cauldronForceCameraBoundsOffset / 10));
         transform.position = Camera.main.ViewportToWorldPoint(pos);
-
-
     }
 
-    //**TRIGGER METHODS
     private void OnTriggerEnter2D(Collider2D collision) {
-        //Testar om det ?r sorten Ingredient
-        if (collision.CompareTag("Ingredient")) {
+        if (collision.CompareTag("Ingredient")) { //Tests for ingredient
             collision.GetComponent<Ingredient>().AnimationCaught();
             levelState.AddIngredient(collision.GetComponent<Ingredient>().GetIngredientName());
 
@@ -45,17 +46,18 @@ public class Cauldron_Movement : MonoBehaviour {
             SpecialIdentifier(collision.GetComponent<Ingredient>().ingredientName);
         }
 
-        //Ist?llet f?r destroy, g?r det flesta av spelobjektets egenskaper inaktiva f?r animation            
-        //Animation exempel. Krymp ingrediensen           
+        //Bad for animation, fix later :P
         Destroy(collision.gameObject);
 
     }
 
     public void EnableCauldron() {
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        isCauldronActive = true;
     }
     public void DisableCauldron() {
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        isCauldronActive = false;
     }
 
     private void SpecialIdentifier(string name) {
@@ -65,7 +67,7 @@ public class Cauldron_Movement : MonoBehaviour {
             powerUpState.SetSlow();
         } else if (name == "fast") { //3
             powerUpState.SetFast();
-        } else if (name == "magnet") {
+        } else if (name == "magnet") { //4
             powerUpState.SetMagnet();
         }
 
