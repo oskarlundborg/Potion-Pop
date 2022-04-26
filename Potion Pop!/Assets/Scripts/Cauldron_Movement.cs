@@ -51,6 +51,10 @@ public class Cauldron_Movement : MonoBehaviour {
 
     }
 
+    public void DisableCauldronCollider() {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+    }
+
     private void SpecialIdentifier(string name) {
         if (name == "ice") { //1
             powerUpState.SetIce();
