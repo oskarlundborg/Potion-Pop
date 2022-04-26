@@ -20,7 +20,7 @@ public class Cauldron_Movement : MonoBehaviour {
     }
 
     void Update() {
-        if (powerUpState.powerUpState != 1) {
+        if (powerUpState.powerUpState != 1) { //Om den inte är frysen av is
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x, cauldronPosY); //Cauldron follows cursor's x-pos 
         }
@@ -51,7 +51,10 @@ public class Cauldron_Movement : MonoBehaviour {
 
     }
 
-    public void DisableCauldronCollider() {
+    public void EnableCauldron() {
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+    public void DisableCauldron() {
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 
