@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//FÖR SAVE-Files
+// FÖR SAVE-Files
+// stjärnor per level
+// 
 [System.Serializable]
 public class LevelData : MonoBehaviour
 {

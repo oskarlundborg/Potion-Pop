@@ -15,7 +15,6 @@ public class RecipeCounter : MonoBehaviour
         if (currentIngredientAmount < ingredientGoal) {
             currentIngredientAmount++;
             ui.UpdateProgress(currentIngredientAmount);
-            Debug.Log( "current amount = " + currentIngredientAmount);
         }
         if (currentIngredientAmount == ingredientGoal) {
             isFull = true;
@@ -34,7 +33,10 @@ public class RecipeCounter : MonoBehaviour
     }
 
     public void ResetCounter() {
+        
         currentIngredientAmount = 0;
+        ui.UpdateProgress(currentIngredientAmount);
+        isFull = false;
     }
 
     public bool IsFull() {

@@ -21,6 +21,7 @@ public class LevelState : MonoBehaviour
     private float maxTime;
     private float timeLeft;
 
+
     [SerializeField] private float levelTimeLimit;
     [SerializeField] private GameObject[] recipeCounters;
     [SerializeField] private GameObject[] recipeIngredients;
@@ -28,8 +29,10 @@ public class LevelState : MonoBehaviour
     public GameObject[] debuffs;
     public GameObject[] powerups;
 
-    public Text animalSavedText;
-    public Text starsCollectedText;
+    [SerializeField] Text animalSavedText;
+    [SerializeField] Text starsCollectedText;
+    [SerializeField] GameObject levelCompletePanel;
+
 
     private void Start()
     {
@@ -53,7 +56,6 @@ public class LevelState : MonoBehaviour
             {
                 isCorrectIngredient = true;
                 recipeCounter.GetComponent<RecipeCounter>().AddIngredient();
-                Debug.Log("added ingredient in " + recipeCounter.GetComponent<RecipeCounter>().GetIngredientName());
                 if (IsRecipeComplete())
                 {
                     RecipeCompleted();
@@ -110,17 +112,19 @@ public class LevelState : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0;
+            LevelComplete();
         }
     }
 
-
-
     private void LevelComplete() {
-        // Spelet slutar, går inte att röra cauldron
-        // Sammanfattar alla stjärnor
+        Time.timeScale = 0;
+        foreach (GameObject recipeCounter in recipeCounters) {
+            recipeCounter.SetActive(false);
+        }
+        levelCompletePanel.SetActive(true);
+        levelCompletePanel.GetComponent<LevelComplete>().ShowLevelProgression(starsUnlocked);
         // Visar alla stjärnor + knapp till nästa level
-
+        // spara stjärnor - inte här
     }
 }
 
