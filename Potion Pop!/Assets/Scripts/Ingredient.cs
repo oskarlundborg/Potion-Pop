@@ -21,7 +21,11 @@ public class Ingredient : MonoBehaviour
     [HideInInspector] public float newFallingSpeed;
     private Rigidbody2D rb;
 
+    private PowerUpState powerUpState;
+
     void Start() {
+        powerUpState = GameObject.FindGameObjectWithTag("PowerUpState").GetComponent<PowerUpState>();
+
         animator = gameObject.GetComponent<Animator>();
         newFallingSpeed = fallingSpeed;
 
@@ -47,11 +51,19 @@ public class Ingredient : MonoBehaviour
         } else {
             transform.Rotate(Vector3.forward * Time.deltaTime * (newRotateSpeed * -1));
         }
-        
+
+        //Keep ingredients in bounds
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        pos.x = Mathf.Clamp(pos.x, 0, 1 );
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
 
     void FixedUpdate() {
-        rb.velocity = new Vector3(0, -newFallingSpeed, 0);
+        if (powerUpState.powerUpState == 4) { //isMagnetState? 
+            rb.velocity = new Vector3(rb.velocity.x, -newFallingSpeed, 0);
+        } else {
+            rb.velocity = new Vector3(0, -newFallingSpeed, 0);
+        }
     }
 
     public string GetIngredientName() {
@@ -63,6 +75,7 @@ public class Ingredient : MonoBehaviour
     public void AnimationDie() {
         GetComponent<CircleCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 0.3f); //temporärt innan animation finns
+        newFallingSpeed = 1;
         animator.SetTrigger("Die"); 
     }
 
