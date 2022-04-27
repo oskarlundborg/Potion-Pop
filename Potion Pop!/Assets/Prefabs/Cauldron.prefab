@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1283dcdc4d4714584eb873a5b6dfa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceFactor: 200
-  multiplier: 20
   rbs: []
 --- !u!70 &240365380
 CapsuleCollider2D:
@@ -186,5 +184,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9289024, y: 0.4221561}
+  m_Size: {x: 2.03, y: 0.4221561}
   m_EdgeRadius: 0
