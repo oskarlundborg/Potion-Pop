@@ -64,8 +64,14 @@ public class Emitter : MonoBehaviour {
     }
 
     void Update() {
+        if(level.GetIsLevelStarted()) {
+            UpdateEmitter();
+        }
+    }
+
+    private void UpdateEmitter() {
         timer += Time.deltaTime;
-        
+
         //Spawnblocket
         if (timer > spawnTime && level.ingredientsToSpawn[0] != null && !isFrenzy) {
             RandomChecks(); //Should special event happen
@@ -76,8 +82,8 @@ public class Emitter : MonoBehaviour {
             } else {
                 Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
             }
-        spawnTime = Random.Range(minSpawnTime, maxSpawnTime); //Ny random spawnTime                
-        timer = 0f; //Reset time
+            spawnTime = Random.Range(minSpawnTime, maxSpawnTime); //Ny random spawnTime                
+            timer = 0f; //Reset time
         }
 
         if (isFrenzy && (timer > spawnFrenzyTime)) { //Om det ?r frenzy och timer ?verskrider spawnFrenzyTime
