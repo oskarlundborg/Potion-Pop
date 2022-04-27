@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class LevelComplete : MonoBehaviour
 {
     [SerializeField] Text starsCollectedText;
-    [SerializeField] Button buttonToNextLevel;
+    [SerializeField] Button buttonToMainLevel;
+    [SerializeField] Button replayButton;
     [SerializeField] GameObject star1;
     [SerializeField] GameObject star2;
     [SerializeField] GameObject star3;
