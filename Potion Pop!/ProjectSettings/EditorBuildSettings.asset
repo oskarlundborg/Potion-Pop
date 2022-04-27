@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Oskar2.unity
     guid: 1d60ff517a55e6340ad18950df04d5e0
+  - enabled: 1
+    path: Assets/Scenes/IsabelsTestScen.unity
+    guid: 10ef8078873144c10ac4d3af5eeaae00
   m_configObjects: {}

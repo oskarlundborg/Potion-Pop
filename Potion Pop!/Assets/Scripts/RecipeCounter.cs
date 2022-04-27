@@ -8,24 +8,39 @@ public class RecipeCounter : MonoBehaviour
     private bool isFull;
     [SerializeField] private GameObject ingredient;
     [SerializeField] private int ingredientGoal;
-    [SerializeField] private RecipeCounter_UI ui;
+    //[SerializeField] private RecipeCounter_UI ui;
+    [SerializeField] private Text valueText;
+    [SerializeField] private Image image;
+
     private int currentIngredientAmount;
+
+    private void Start()
+    {
+        SetUpCounter();
+    }
 
     public void AddIngredient() {
         if (currentIngredientAmount < ingredientGoal) {
             currentIngredientAmount++;
-            ui.UpdateProgress(currentIngredientAmount);
+            UpdateProgress();
         }
         if (currentIngredientAmount == ingredientGoal) {
             isFull = true;
         }
     }
 
+    public void SetUpCounter() {
+        valueText = gameObject.GetComponentInChildren<Text>();
+        image = gameObject.GetComponentInChildren<Image>();
+        valueText.text = "0/" + ingredientGoal;
+        
+    }
+
     public void SubtractIngredient() {
         if (currentIngredientAmount > 0) {
             currentIngredientAmount--;
         }
-        ui.UpdateProgress(currentIngredientAmount);
+        UpdateProgress();
     }
 
     public string GetIngredientName() {
@@ -35,12 +50,17 @@ public class RecipeCounter : MonoBehaviour
     public void ResetCounter() {
         
         currentIngredientAmount = 0;
-        ui.UpdateProgress(currentIngredientAmount);
+        UpdateProgress();
         isFull = false;
     }
 
     public bool IsFull() {
         return isFull;
+    }
+
+    public void UpdateProgress()
+    {
+        valueText.text = currentIngredientAmount + "/" + ingredientGoal;
     }
 }
 

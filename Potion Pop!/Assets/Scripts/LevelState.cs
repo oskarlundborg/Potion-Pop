@@ -14,7 +14,6 @@ public class LevelState : MonoBehaviour
     [SerializeField] private int threeStarGoal;
     [SerializeField] private GameObject countdownBar;
 
-    private GameObject cauldron;
     private bool isOneStarReached;
     private bool isTwoStarReached;
     private bool isThreeStarReached;
@@ -44,7 +43,6 @@ public class LevelState : MonoBehaviour
 
     private void Start()
     {
-        //cauldron = GameObject.Find("Cauldron");
         SetUpTimer();
         pickUpScore = basePickUpScore;
     }
@@ -53,7 +51,6 @@ public class LevelState : MonoBehaviour
     {
         isLevelStarted = true;
         startLevelButton.SetActive(false);
-        //cauldron.GetComponent<Cauldron_Movement>().EnableCauldron();
     }
 
     public void SetUpTimer()
@@ -149,7 +146,6 @@ public class LevelState : MonoBehaviour
 
     private void LevelComplete() {
         isLevelStarted = false;
-        cauldron.GetComponent<Cauldron_Movement>().DisableCauldron();
         foreach (GameObject recipeCounter in recipeCounters) {
             recipeCounter.SetActive(false);
         }
