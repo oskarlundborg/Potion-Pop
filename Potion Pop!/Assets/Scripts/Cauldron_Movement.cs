@@ -22,7 +22,7 @@ public class Cauldron_Movement : MonoBehaviour {
     }
 
     void Update() {
-        if (powerUpState.powerUpState != 1 || !isCauldronActive) { //Not frozen or not active
+        if (powerUpState.powerUpState != 1 && levelState.GetIsLevelStarted()) { //Not frozen and game is started
             MoveCauldron();
         }
     }
@@ -38,26 +38,18 @@ public class Cauldron_Movement : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Ingredient")) { //Tests for ingredient
-            collision.GetComponent<Ingredient>().AnimationCaught();
-            levelState.AddIngredient(collision.GetComponent<Ingredient>().GetIngredientName());
+        if(levelState.GetIsLevelStarted()) {
+            if (collision.CompareTag("Ingredient")) { //Tests for ingredient
+                collision.GetComponent<Ingredient>().AnimationCaught();
+                levelState.AddIngredient(collision.GetComponent<Ingredient>().GetIngredientName());
 
-        } else if (collision.CompareTag("Special")) {
-            SpecialIdentifier(collision.GetComponent<Ingredient>().ingredientName);
+            } else if (collision.CompareTag("Special")) {
+                SpecialIdentifier(collision.GetComponent<Ingredient>().ingredientName);
+            }
+
+            //Bad for animation, fix later :P
+            Destroy(collision.gameObject);
         }
-
-        //Bad for animation, fix later :P
-        Destroy(collision.gameObject);
-
-    }
-
-    public void EnableCauldron() {
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        isCauldronActive = true;
-    }
-    public void DisableCauldron() {
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        isCauldronActive = false;
     }
 
     private void SpecialIdentifier(string name) {
