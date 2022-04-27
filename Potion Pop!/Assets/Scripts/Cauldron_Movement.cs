@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cauldron_Movement : MonoBehaviour {
     private float cauldronPosY;
+    private Vector2 pos;
 
     private PowerUpState powerUpState;
     public LevelState levelState;
@@ -22,19 +23,20 @@ public class Cauldron_Movement : MonoBehaviour {
     }
 
     void Update() {
-        if (powerUpState.powerUpState != 1 && levelState.GetIsLevelStarted()) { //Not frozen and game is started
+        if (powerUpState.powerUpState != 1 && levelState.GetIsLevelStarted() && Input.GetMouseButton(0)) { //Not frozen AND game is started AND touching
             MoveCauldron();
         }
     }
 
-    private void MoveCauldron() {
+    private void MoveCauldron() {     
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector2(mousePosition.x, cauldronPosY); //Cauldron follows cursor's x-pos 
-
+        
         //Force cauldron in camera view
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        pos.x = Mathf.Clamp(pos.x, (cauldronForceCameraBoundsOffset / 10), 1 - (cauldronForceCameraBoundsOffset / 10));
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
+        Vector3 posCam = Camera.main.WorldToViewportPoint(transform.position);
+        posCam.x = Mathf.Clamp(posCam.x, (cauldronForceCameraBoundsOffset / 10), 1 - (cauldronForceCameraBoundsOffset / 10));
+        transform.position = Camera.main.ViewportToWorldPoint(posCam);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
