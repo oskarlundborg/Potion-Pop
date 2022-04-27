@@ -22,6 +22,7 @@ public class LevelState : MonoBehaviour
     private float maxTime;
     private float timeLeft;
     private bool isLevelStarted;
+    [SerializeField] private int levelNumber;
 
     [SerializeField] private int basePickUpScore;
     private int pickUpScore;
@@ -43,7 +44,7 @@ public class LevelState : MonoBehaviour
 
     private void Start()
     {
-        cauldron = GameObject.Find("Cauldron");
+        //cauldron = GameObject.Find("Cauldron");
         SetUpTimer();
         pickUpScore = basePickUpScore;
     }
@@ -52,7 +53,7 @@ public class LevelState : MonoBehaviour
     {
         isLevelStarted = true;
         startLevelButton.SetActive(false);
-        cauldron.GetComponent<Cauldron_Movement>().EnableCauldron();
+        //cauldron.GetComponent<Cauldron_Movement>().EnableCauldron();
     }
 
     public void SetUpTimer()
@@ -163,7 +164,10 @@ public class LevelState : MonoBehaviour
         if (levelScore > highScore) { //highscore ska vi spara, det högsta spelaren har fått på leveln
             highScore = levelScore;    // levelscore är de poängen som man fått under den aktiva spelrundan//när dessa är = så uppdaterar vi 
         }
-        Debug.Log("level score = " + levelScore + "high Score = " + highScore);
+    }
+
+    public bool GetIsLevelStarted() {
+        return isLevelStarted;
     }
 
     public void ResetCombo() {
@@ -177,6 +181,20 @@ public class LevelState : MonoBehaviour
     public int GetLevelScore() {
         return levelScore;
     }
+
+    public int GetStarsUnlocked() {
+        return starsUnlocked;
+    }
+
+    public int GetLevelNumber() {
+        return levelNumber;
+    }
+
+    
+    /*
+     * Levelstate skickar highScore och antal stjärnor till leveldata, och inten för levelnumber
+     */
+    
 }
 
 /*

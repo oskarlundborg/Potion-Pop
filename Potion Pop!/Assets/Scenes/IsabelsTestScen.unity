@@ -865,6 +865,7 @@ MonoBehaviour:
   twoStarGoal: 2
   threeStarGoal: 3
   countdownBar: {fileID: 1361758966}
+  levelNumber: 0
   basePickUpScore: 10
   levelTimeLimit: 30
   recipeCounters:
