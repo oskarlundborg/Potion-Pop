@@ -7,24 +7,29 @@ using UnityEngine;
 // stjärnor per level
 // 
 [System.Serializable]
-public class LevelData : MonoBehaviour
+public class LevelData 
 {
-    public float levelTimeLimit;
-    public int oneStarGoal;
-    public int twoStarGoal;
-    public int threeStarGoal;
+    public int levelStarCollectedAmount;
+    public int levelHighScore;
+    public int levelNumber;
 
-    public GameObject[] ingredientsToSpawn;
-
-    public GameObject typeOneIngredient;
-    public GameObject typeTwoIngredient;
-    public GameObject typeThreeIngredient;
-    public int ingredientOneGoal;
-    public int ingredientTwoGoal;
-    public int ingredientThreeGoal;
-
-    public float getTimer()
-    {
-        return levelTimeLimit;
+    public LevelData(LevelState levelState) {
+        
     }
+    
+
 }
+
+/*
+ * Vi ska spara:
+ * - highscore för varje level
+ * - antal vunna stjärnor för varje level
+ * - am i the latest played level
+ * 
+ * Ett annat script som har:
+ * - totala vunna stjärnor för alla spelade levels 
+ * - senast spelade level
+ * 
+ */
+
+
