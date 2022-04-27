@@ -23,21 +23,15 @@ public class Cauldron_Movement : MonoBehaviour {
     }
 
     void Update() {
-        if (powerUpState.powerUpState != 1 && levelState.GetIsLevelStarted() && Input.touchCount > 0) { //Not frozen and game is started and touchcount > 0
+        if (powerUpState.powerUpState != 1 && levelState.GetIsLevelStarted() && Input.GetMouseButton(0)) { //Not frozen AND game is started AND touching
             MoveCauldron();
         }
     }
 
-    private void MoveCauldron() {
-
-        pos = Camera.main.ScreenToWorldPoint(new Vector2(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y));
-        transform.position = new Vector2(pos.x, pos.y);
-
-        /* gamla movement
+    private void MoveCauldron() {     
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector2(mousePosition.x, cauldronPosY); //Cauldron follows cursor's x-pos 
-
-        */
+        
         //Force cauldron in camera view
         Vector3 posCam = Camera.main.WorldToViewportPoint(transform.position);
         posCam.x = Mathf.Clamp(posCam.x, (cauldronForceCameraBoundsOffset / 10), 1 - (cauldronForceCameraBoundsOffset / 10));
