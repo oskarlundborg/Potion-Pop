@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    public string ingredientName;
+    [SerializeField] private string ingredientName;
 
     private Animator animator;
 

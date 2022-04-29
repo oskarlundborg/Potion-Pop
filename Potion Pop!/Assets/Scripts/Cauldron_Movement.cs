@@ -46,7 +46,7 @@ public class Cauldron_Movement : MonoBehaviour {
                 levelState.AddIngredient(collision.GetComponent<Ingredient>().GetIngredientName());
 
             } else if (collision.CompareTag("Special")) {
-                SpecialIdentifier(collision.GetComponent<Ingredient>().ingredientName);
+                SpecialIdentifier(collision.GetComponent<Ingredient>().GetIngredientName());
             }
 
             //Bad for animation, fix later :P

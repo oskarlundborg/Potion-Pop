@@ -64,18 +64,22 @@ public class LevelState : MonoBehaviour
         UpdateTimer();
     }
 
-    public bool GetLevelStarted() {
+    public bool GetLevelStarted()
+    {
         return isLevelStarted;
     }
 
-    public int GetSavedAnimals() {
+    public int GetSavedAnimals()
+    {
         return savedAnimalsAmount;
     }
 
-    public void AddIngredient(string name) {
+    public void AddIngredient(string name)
+    {
         bool isCorrectIngredient = false;
         foreach (GameObject recipeCounter in recipeCounters)
         {
+            Debug.Log("Do we loop?");
             if (name.Equals(recipeCounter.GetComponent<RecipeCounter>().GetIngredientName()))
             {
                 isCorrectIngredient = true;
@@ -90,31 +94,40 @@ public class LevelState : MonoBehaviour
         if (isCorrectIngredient == false)
         {
             ResetCombo();
-            foreach (GameObject recipeCounter in recipeCounters)
-            {
-                recipeCounter.GetComponent<RecipeCounter>().SubtractIngredient();
-            }
+            //foreach (GameObject recipeCounter in recipeCounters)
+            //{
+            //    recipeCounter.GetComponent<RecipeCounter>().SubtractIngredient();
+            //}
         }
     }
 
-    private bool IsRecipeComplete() {
+    private bool IsRecipeComplete()
+    {
         bool isComplete = true;
-        foreach (GameObject recipeCounter in recipeCounters) {
-            if (recipeCounter.GetComponent<RecipeCounter>().IsFull() == false) {
+        foreach (GameObject recipeCounter in recipeCounters)
+        {
+            if (recipeCounter.GetComponent<RecipeCounter>().IsFull() == false)
+            {
                 isComplete = false;
             }
         }
         return isComplete;
     }
 
-    private void UpdateStarsStatus() {
-        if (savedAnimalsAmount == threeStarGoal) {
+    private void UpdateStarsStatus()
+    {
+        if (savedAnimalsAmount == threeStarGoal)
+        {
             isThreeStarReached = true;
             starsUnlocked = 3;
-        } else if (savedAnimalsAmount == twoStarGoal) {
+        }
+        else if (savedAnimalsAmount == twoStarGoal)
+        {
             isTwoStarReached = true;
             starsUnlocked = 2;
-        } else if (savedAnimalsAmount == oneStarGoal) {
+        }
+        else if (savedAnimalsAmount == oneStarGoal)
+        {
             isOneStarReached = true;
             starsUnlocked = 1;
         }
@@ -125,13 +138,16 @@ public class LevelState : MonoBehaviour
         savedAnimalsAmount++;
         UpdateStarsStatus();
         animalSavedText.text = "Animals saved: " + savedAnimalsAmount.ToString();
-        foreach (GameObject recipeCounter in recipeCounters) {
+        foreach (GameObject recipeCounter in recipeCounters)
+        {
             recipeCounter.GetComponent<RecipeCounter>().ResetCounter();
         }
     }
 
-    private void UpdateTimer() {
-        if (isLevelStarted) {
+    private void UpdateTimer()
+    {
+        if (isLevelStarted)
+        {
             if (timeLeft > 0)
             {
                 timeLeft -= Time.deltaTime;
@@ -144,9 +160,11 @@ public class LevelState : MonoBehaviour
         }
     }
 
-    private void LevelComplete() {
+    private void LevelComplete()
+    {
         isLevelStarted = false;
-        foreach (GameObject recipeCounter in recipeCounters) {
+        foreach (GameObject recipeCounter in recipeCounters)
+        {
             recipeCounter.SetActive(false);
         }
         levelCompletePanel.SetActive(true);
@@ -154,43 +172,51 @@ public class LevelState : MonoBehaviour
         levelCompletePanel.GetComponent<LevelComplete>().ShowLevelProgression(starsUnlocked);
     }
 
-    private void UpdateScore() {
+    private void UpdateScore()
+    {
         levelScore += pickUpScore;
         pickUpScore = pickUpScore * 2;
-        if (levelScore > highScore) { //highscore ska vi spara, det högsta spelaren har fått på leveln
+        if (levelScore > highScore)
+        { //highscore ska vi spara, det högsta spelaren har fått på leveln
             highScore = levelScore;    // levelscore är de poängen som man fått under den aktiva spelrundan//när dessa är = så uppdaterar vi 
         }
     }
 
-    public bool GetIsLevelStarted() {
+    public bool GetIsLevelStarted()
+    {
         return isLevelStarted;
     }
 
-    public void ResetCombo() {
+    public void ResetCombo()
+    {
         pickUpScore = basePickUpScore;
     }
 
-    public int GetLevelHighScore() {
+    public int GetLevelHighScore()
+    {
         return highScore;
     }
 
-    public int GetLevelScore() {
+    public int GetLevelScore()
+    {
         return levelScore;
     }
 
-    public int GetStarsUnlocked() {
+    public int GetStarsUnlocked()
+    {
         return starsUnlocked;
     }
 
-    public int GetLevelNumber() {
+    public int GetLevelNumber()
+    {
         return levelNumber;
     }
 
-    
+
     /*
      * Levelstate skickar highScore och antal stjärnor till leveldata, och inten för levelnumber
      */
-    
+
 }
 
 /*

@@ -8,7 +8,6 @@ public class RecipeCounter : MonoBehaviour
     private bool isFull;
     [SerializeField] private GameObject ingredient;
     [SerializeField] private int ingredientGoal;
-    //[SerializeField] private RecipeCounter_UI ui;
     [SerializeField] private Text valueText;
     [SerializeField] private Image image;
 
@@ -44,7 +43,7 @@ public class RecipeCounter : MonoBehaviour
     }
 
     public string GetIngredientName() {
-        return ingredient.name;
+        return ingredient.GetComponent<Ingredient>().GetIngredientName();
     }
 
     public void ResetCounter() {
