@@ -6,6 +6,7 @@ using UnityEngine;
 // FÖR SAVE-Files
 // stjärnor per level
 // 
+/*
 [System.Serializable]
 public class LevelData 
 {
@@ -19,7 +20,7 @@ public class LevelData
     
 
 }
-
+*/
 /*
  * Vi ska spara:
  * - highscore för varje level
