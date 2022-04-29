@@ -53,7 +53,7 @@ public class Cauldron_Movement : MonoBehaviour {
             Destroy(collision.gameObject);
         }
     }
-
+    //POWERUPS
     private void SpecialIdentifier(string name) {
         if (name == "ice") { //1
             powerUpState.SetIce();
@@ -67,4 +67,10 @@ public class Cauldron_Movement : MonoBehaviour {
 
     }
 
+    public void setFrozen() {
+        GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.82f, 1f);
+    }
+    public void setUnfrozen() {
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+    }
 }
