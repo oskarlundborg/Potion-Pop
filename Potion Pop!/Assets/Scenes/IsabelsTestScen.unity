@@ -431,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: chanceToSpawnSpecial
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
@@ -800,7 +800,7 @@ MonoBehaviour:
   countdownBar: {fileID: 1361758966}
   levelNumber: 0
   basePickUpScore: 10
-  levelTimeLimit: 30
+  levelTimeLimit: 60
   recipeCounters:
   - {fileID: 262037617}
   - {fileID: 1650042286}
