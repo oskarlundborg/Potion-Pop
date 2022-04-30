@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cauldron_Movement : MonoBehaviour {
+
+    [SerializeField] private GameObject splashEffect;
     private float cauldronPosY;
     private Vector2 pos;
-
     private PowerUpState powerUpState;
     public LevelState levelState;
     private Cauldron_Magnet cauldron_Magnet;
@@ -44,7 +45,7 @@ public class Cauldron_Movement : MonoBehaviour {
             if (collision.CompareTag("Ingredient")) { //Tests for ingredient
                 collision.GetComponent<Ingredient>().AnimationCaught();
                 levelState.AddIngredient(collision.GetComponent<Ingredient>().GetIngredientName());
-
+                ActivateSplash();
             } else if (collision.CompareTag("Special")) {
                 SpecialIdentifier(collision.GetComponent<Ingredient>().GetIngredientName());
             }
@@ -72,5 +73,10 @@ public class Cauldron_Movement : MonoBehaviour {
     }
     public void setUnfrozen() {
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+    }
+
+    private void ActivateSplash()
+    {
+        splashEffect.GetComponent<SplashEffect>().Splash();
     }
 }
