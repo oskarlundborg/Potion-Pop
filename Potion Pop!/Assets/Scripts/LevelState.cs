@@ -79,7 +79,6 @@ public class LevelState : MonoBehaviour
         bool isCorrectIngredient = false;
         foreach (GameObject recipeCounter in recipeCounters)
         {
-            Debug.Log("Do we loop?");
             if (name.Equals(recipeCounter.GetComponent<RecipeCounter>().GetIngredientName()))
             {
                 isCorrectIngredient = true;
