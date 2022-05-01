@@ -17,13 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 5ba58e9ebc9f9485589c91c10639c2f9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Oskar.unity
     guid: 990acd4d95faf5e4dbcb8f2ac1634d91
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Oskar2.unity
     guid: 1d60ff517a55e6340ad18950df04d5e0
   - enabled: 1
