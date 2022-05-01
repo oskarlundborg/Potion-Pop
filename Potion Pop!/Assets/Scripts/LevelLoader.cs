@@ -16,12 +16,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        StartCoroutine(LoadLevel(0));
-    }
-
-    public void LoadSpecificLevel(int i)
-    {
-        StartCoroutine(LoadLevel(i));
+        StartCoroutine(LoadLevel(1));
     }
 
     public void LoadOptionsMenu()
@@ -31,7 +26,11 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevelSelect()
     {
-        StartCoroutine(LoadLevel(1));
+        StartCoroutine(LoadLevel(3));
+    }
+    public void LoadSpecificLevel(int i)
+    {
+        StartCoroutine(LoadLevel(i));
     }
 
     IEnumerator LoadLevel(int levelIndex)

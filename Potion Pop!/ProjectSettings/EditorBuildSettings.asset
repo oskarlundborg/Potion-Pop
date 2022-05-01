@@ -6,26 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SplashScreen.unity
+    guid: 58cf782e179dbfb419bba9f6ed9f8d04
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 44a1d969d4fa0e24ab0d9b694284b7e3
-  - enabled: 0
-    path: Assets/Scenes/Agnes.unity
-    guid: 97667b84245814a6a803b6ef1bf2edc4
-  - enabled: 1
-    path: Assets/Scenes/Levels.unity
-    guid: af4e4a1b89e0e43b68ba57fed5d79b60
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 5ba58e9ebc9f9485589c91c10639c2f9
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/Oskar.unity
-    guid: 990acd4d95faf5e4dbcb8f2ac1634d91
-  - enabled: 0
-    path: Assets/Scenes/Oskar2.unity
-    guid: 1d60ff517a55e6340ad18950df04d5e0
+  - enabled: 1
+    path: Assets/Scenes/Levels.unity
+    guid: af4e4a1b89e0e43b68ba57fed5d79b60
   - enabled: 1
     path: Assets/Scenes/IsabelsTestScen.unity
     guid: 10ef8078873144c10ac4d3af5eeaae00
