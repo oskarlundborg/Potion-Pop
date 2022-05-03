@@ -16,6 +16,9 @@ public class LevelState : MonoBehaviour
     private bool isLevelStarted;
     private bool isLevelPaused;
 
+
+    // vilka djur som ska räddas och hur många!!!
+    
     // mål för att få stjärnor
     [Header("2 stars = 1.5x, 3 stars = 2x")]
     [SerializeField] private int oneStarGoal;
@@ -30,6 +33,7 @@ public class LevelState : MonoBehaviour
     [SerializeField] private GameObject[] recipeIngredients;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject unpauseButton;
+    [SerializeField] private GameObject quitToLevelSelectButton;
 
     public GameObject[] ingredientsToSpawn;
     public GameObject[] debuffs;
@@ -58,25 +62,13 @@ public class LevelState : MonoBehaviour
         Time.timeScale = 0;
         isLevelStarted = false;
         unpauseButton.SetActive(true);
-        /*
-        isLevelPaused = true;
-        
-        
-        */
-
-
-        /*
-         * När man trycker på knappen ska 
-         * - playAgainKnappen visas
-         * - Emittern ska sluta göra saker
-         * - timern stoppas
-         * - cauldron ska non-interactable
-         */
+        quitToLevelSelectButton.SetActive(true);
     }
 
     public void UnpauseGame() {
         Time.timeScale = 1;
         unpauseButton.SetActive(false);
+        quitToLevelSelectButton.SetActive(false);
         isLevelStarted = true;
     }
 
