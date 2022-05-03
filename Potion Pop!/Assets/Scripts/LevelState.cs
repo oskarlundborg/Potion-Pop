@@ -13,9 +13,8 @@ public class LevelState : MonoBehaviour
     private int combo = 1;
     private float maxTime;
     private float timeLeft;
+    //ska bli private bool isLevelRunning;
     private bool isLevelStarted;
-    private bool isLevelPaused;
-
 
     // vilka djur som ska räddas och hur många!!!
     

@@ -6,8 +6,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem 
 {
-
     public static void SaveLevel(LevelState levelState) {
+
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "levelstate" + levelState.GetLevelNumber() + ".pop";
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -19,7 +19,9 @@ public static class SaveSystem
     }
 
     public static LevelData LoadLevel(int levelToLoad) {
+
         string path = Application.persistentDataPath + "levelstate" + levelToLoad + ".pop";
+
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -29,12 +31,11 @@ public static class SaveSystem
             stream.Close();
             return levelData;
         }
+
         else
         {
             Debug.LogError("Save file not found in " + path);
             return null;
         }
     }
-
-
 }
