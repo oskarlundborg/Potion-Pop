@@ -5,22 +5,19 @@ using UnityEngine;
 
 // FÖR SAVE-Files
 // stjärnor per level
-// 
-/*
+
 [System.Serializable]
 public class LevelData 
 {
-    public int levelStarCollectedAmount;
-    public int levelHighScore;
-    public int levelNumber;
+    public int starsUnlocked;
+    public int highScore;
 
     public LevelData(LevelState levelState) {
-        
+        highScore = levelState.GetLevelHighScore();
+        starsUnlocked = levelState.GetStarsUnlocked();
     }
-    
-
 }
-*/
+
 /*
  * Vi ska spara:
  * - highscore för varje level

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//kanske ta bort
 public class GameData : MonoBehaviour
 {
     // Start is called before the first frame update
