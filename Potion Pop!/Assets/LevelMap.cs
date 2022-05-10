@@ -10,7 +10,8 @@ using UnityEngine.UI;
 public class LevelMap : MonoBehaviour
 {
 
-
+    //tot num of stars.
+    //levelobj kolla om högre än unlocked recuirement. 
    
 
 
