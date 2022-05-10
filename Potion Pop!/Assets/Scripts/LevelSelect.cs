@@ -28,6 +28,8 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] Sprite[] setIngredients;
     [SerializeField] int score;
 
+    private int starsUnlocked; // 0-3
+
     private int counter = 0;
    
     private bool levelCompleted;
@@ -41,8 +43,9 @@ public class LevelSelect : MonoBehaviour
 
     public void Start()
     {
-        PopUpPlay.gameObject.SetActive(false);
-        updatePopUp();
+
+        //updatePopUp();
+        // kör loadData
     }
 
     public void updatePopUp()
