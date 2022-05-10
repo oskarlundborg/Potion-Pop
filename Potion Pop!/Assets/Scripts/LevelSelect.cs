@@ -2,23 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelSelect : MonoBehaviour
 {
-    [SerializeField] bool locked;
+    
+    public bool isOpen;
     [SerializeField] Image locker;
     [SerializeField] Sprite starAwake;
     [SerializeField] Image[] stars;
+    public Button levelButton;
     
     
 
     [SerializeField] GameObject PopUpPlay;
-    [SerializeField] Text levelTxt;
+    public TextMeshProUGUI uiLevelText;
+    public TextMeshProUGUI uiButtonText;
+    public TextMeshProUGUI uiScoreText;
+
     [SerializeField] Text time;
     [SerializeField] Text goal;
-    [SerializeField] Text goalText;
+   
     [SerializeField] Button play;
-    [SerializeField] Text buttonText;
+   
     [SerializeField] Image[] popUpStars;
     [SerializeField] Image[] boxIngredients;  
  
@@ -28,12 +34,13 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] Sprite[] setIngredients;
     [SerializeField] int score;
 
-    private int starsUnlocked; // 0-3
 
-    private int counter = 0;
+
+ 
    
     private bool levelCompleted;
     private int scoreLimit = 20;
+    private bool isOn;
 
 
 
@@ -44,49 +51,20 @@ public class LevelSelect : MonoBehaviour
     public void Start()
     {
 
-        //updatePopUp();
+        UpdateLevelImage();
+
         // kör loadData
     }
 
     public void updatePopUp()
     {
+        
         setPopUpValues();
-        UpdateLevelImage();
         SetIngredients();
         setStarsAktive(popUpStars);
         setStarsAktive(stars);
+       
     }
-
-    public void setStarsAktive(Image[] imageArray)
-    {
-
-        for (int i = 0; i < imageArray.Length; i++)
-        {
-            if (score >= scoreLimit + (i * scoreLimit))
-            {
-                imageArray[i].GetComponent<Image>().sprite = starAwake;
-                levelCompleted = true;
-            }
-        }
-
-    }
-
-    private void setPopUpValues()
-    {
-        if (score >= scoreLimit)
-        {
-            setScoreBoard();
-           
-        }
-        else
-        {
-            levelTxt.text = "Level " + setLevelNumber;
-            time.text = setGameTime;
-            goal.text = "x" + setGoal;
-            buttonText.text = "PLAY";
-        }
-    }
-
 
     void SetIngredients()
     {
@@ -97,61 +75,87 @@ public class LevelSelect : MonoBehaviour
     }
 
 
-    public void UpdateLevelImage()
+    public void setStarsAktive(Image[] imageArray)
     {
 
-      
-
-        LevelState(counter++);
-
-     }
-
-    public void LevelState(int i)
-    {
-        switch (i)
+        for (int i = 0; i < imageArray.Length; i++)
         {
-            case 0:
-                locker.gameObject.SetActive(true);
-                break;
-            case 1:
-                LevelOpen();
-                LevelPopUp(false);
-                break;
-            case 2:
-                updatePopUp();
-                LevelPopUp(true);
-                counter = 1;
-                break;
+            imageArray[i].gameObject.SetActive(isOpen);
+            if (score >= scoreLimit + (i * scoreLimit))
+            {
+                imageArray[i].GetComponent<Image>().sprite = starAwake;
+                
+            }
+             
+          
         }
 
     }
 
-    private void LevelOpen()
+    private void setPopUpValues()
     {
-        locker.gameObject.SetActive(false);
-        for (int i = 0; i < stars.Length; i++)
-        {
-            stars[i].gameObject.SetActive(true);
-        }
-    }
 
-    private void LevelPopUp(bool toggle)
-    {
-        PopUpPlay.gameObject.SetActive(toggle);
-        
+        uiScoreText.SetText(score.ToString());
+        uiLevelText.SetText( "Level ");
+        time.text = setGameTime;
+        if (score >= scoreLimit)
+        {
+            setScoreBoard();          
+        }
+        else
+        {
+            goal.text = "x" + setGoal.ToString();
+            uiButtonText.SetText("PLAY");
+            
+        }
     }
 
     private void setScoreBoard()
     {
-        //       20       /     2 = 10
-        int n = setGoal; // = 2
-        int m = score / scoreLimit;
-        goalText.text = (m + n) + "/" + n;
-        goal.text = "";
-        buttonText.text = "REPLAY";
-        time.text = "SCORE";
+        uiScoreText.SetText(score.ToString()+"000");
+        uiButtonText.SetText("replay");
         levelCompleted = true;
     }
+
+
+
+    public void UpdateLevelImage()
+    {
+  
+        if (isOpen)
+        {
+            LevelOpen();          
+        }
+        else
+        {
+            
+            LevelLocked();
+        }
+     }
+
+    private void LevelLocked()
+    {
+        locker.gameObject.SetActive(!isOpen);
+        setStarsAktive(stars);
+
+    }
+
+
+
+    public void LevelOpen()
+    {
+        LevelLocked();
+        updatePopUp();
+        
+        PopUpPlay.gameObject.SetActive(isOn);
+
+        isOn = !isOn;
+
+    }
+
+
+
+
 
 
 
