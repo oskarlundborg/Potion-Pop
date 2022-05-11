@@ -407,11 +407,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: maxSpawnTime
-      value: 1.06
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: minSpawnTime
-      value: 0.67
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: chanceForDouble
@@ -431,11 +431,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: chanceToSpawnSpecial
-      value: 2
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: powerupToDebuffRatio
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
@@ -823,6 +823,7 @@ MonoBehaviour:
   - {fileID: 6470761090040827119, guid: ad2baa935bd6d4341bdeea7f787f6dab, type: 3}
   powerups:
   - {fileID: 2047935671141100263, guid: d3809c2e4692e6044a83cf56f85e7d51, type: 3}
+  - {fileID: 6609024563039099520, guid: 1790a19483ac1f54d913d7fc31007bcf, type: 3}
   animalSavedText: {fileID: 857090862}
   starsCollectedText: {fileID: 994799093}
   levelCompletePanel: {fileID: 1322431523}
@@ -2763,19 +2764,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 240365380, guid: d102efb9107b4504cbbec8ee00fddb18, type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 5.583214
       objectReference: {fileID: 0}
     - target: {fileID: 240365380, guid: d102efb9107b4504cbbec8ee00fddb18, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 9.163849
       objectReference: {fileID: 0}
     - target: {fileID: 240365380, guid: d102efb9107b4504cbbec8ee00fddb18, type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: 0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 240365380, guid: d102efb9107b4504cbbec8ee00fddb18, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 4.0819244
       objectReference: {fileID: 0}
     - target: {fileID: 413037269685919767, guid: d102efb9107b4504cbbec8ee00fddb18, type: 3}
       propertyPath: m_Size.x
