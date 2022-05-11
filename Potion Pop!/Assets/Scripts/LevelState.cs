@@ -7,30 +7,33 @@ using UnityEngine.UI;
 public class LevelState : MonoBehaviour
 {
     private int savedAnimalsAmount;
+    private int levelScore;
+    private int highScore;
+    private int starsUnlocked;
+    private int combo = 1;
+    private float maxTime;
+    private float timeLeft;
+    //ska bli private bool isLevelRunning;
+    private bool isLevelStarted;
+
+    // vilka djur som ska räddas och hur många!!!
+    
     // mål för att få stjärnor
     [Header("2 stars = 1.5x, 3 stars = 2x")]
     [SerializeField] private int oneStarGoal;
     [SerializeField] private int twoStarGoal;
     [SerializeField] private int threeStarGoal;
-    [SerializeField] private GameObject countdownBar;
-
-    private bool isOneStarReached;
-    private bool isTwoStarReached;
-    private bool isThreeStarReached;
-    private int starsUnlocked;
-    private float maxTime;
-    private float timeLeft;
-    private bool isLevelStarted;
     [SerializeField] private int levelNumber;
-
-    [SerializeField] private int basePickUpScore;
-    private int pickUpScore;
-    private int levelScore;
-    private int highScore;
-
+    [SerializeField] private int pickUpScore;
     [SerializeField] private float levelTimeLimit;
+
+    [SerializeField] private GameObject countdownBar;
     [SerializeField] private GameObject[] recipeCounters;
     [SerializeField] private GameObject[] recipeIngredients;
+    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject unpauseButton;
+    [SerializeField] private GameObject quitToLevelSelectButton;
+
     public GameObject[] ingredientsToSpawn;
     public GameObject[] debuffs;
     public GameObject[] powerups;
@@ -43,14 +46,29 @@ public class LevelState : MonoBehaviour
 
     private void Start()
     {
+        LoadLevelState();
         SetUpTimer();
-        pickUpScore = basePickUpScore;
     }
 
     public void StartGame()
     {
         isLevelStarted = true;
         startLevelButton.SetActive(false);
+    }
+
+    public void PauseGame() {
+
+        Time.timeScale = 0;
+        isLevelStarted = false;
+        unpauseButton.SetActive(true);
+        quitToLevelSelectButton.SetActive(true);
+    }
+
+    public void UnpauseGame() {
+        Time.timeScale = 1;
+        unpauseButton.SetActive(false);
+        quitToLevelSelectButton.SetActive(false);
+        isLevelStarted = true;
     }
 
     public void SetUpTimer()
@@ -93,10 +111,6 @@ public class LevelState : MonoBehaviour
         if (isCorrectIngredient == false)
         {
             ResetCombo();
-            //foreach (GameObject recipeCounter in recipeCounters)
-            //{
-            //    recipeCounter.GetComponent<RecipeCounter>().SubtractIngredient();
-            //}
         }
     }
 
@@ -117,17 +131,14 @@ public class LevelState : MonoBehaviour
     {
         if (savedAnimalsAmount == threeStarGoal)
         {
-            isThreeStarReached = true;
             starsUnlocked = 3;
         }
         else if (savedAnimalsAmount == twoStarGoal)
         {
-            isTwoStarReached = true;
             starsUnlocked = 2;
         }
         else if (savedAnimalsAmount == oneStarGoal)
         {
-            isOneStarReached = true;
             starsUnlocked = 1;
         }
     }
@@ -162,19 +173,21 @@ public class LevelState : MonoBehaviour
     private void LevelComplete()
     {
         isLevelStarted = false;
+        SaveLevelState();
         foreach (GameObject recipeCounter in recipeCounters)
         {
             recipeCounter.SetActive(false);
         }
         levelCompletePanel.SetActive(true);
-        //resten ska skötas av level complete panel 
         levelCompletePanel.GetComponent<LevelComplete>().ShowLevelProgression(starsUnlocked);
     }
 
     private void UpdateScore()
     {
-        levelScore += pickUpScore;
-        pickUpScore = pickUpScore * 2;
+        levelScore += pickUpScore * combo;
+        if (combo < 5) {
+            combo++;
+        }
         if (levelScore > highScore)
         { //highscore ska vi spara, det högsta spelaren har fått på leveln
             highScore = levelScore;    // levelscore är de poängen som man fått under den aktiva spelrundan//när dessa är = så uppdaterar vi 
@@ -188,7 +201,7 @@ public class LevelState : MonoBehaviour
 
     public void ResetCombo()
     {
-        pickUpScore = basePickUpScore;
+        combo = 1;
     }
 
     public int GetLevelHighScore()
@@ -211,21 +224,16 @@ public class LevelState : MonoBehaviour
         return levelNumber;
     }
 
+    public void LoadLevelState() {
 
-    /*
-     * Levelstate skickar highScore och antal stjärnor till leveldata, och inten för levelnumber
-     */
+        LevelData levelData = SaveSystem.LoadLevel(levelNumber);
+        if (levelData != null) {
+            highScore = levelData.highScore;
+            starsUnlocked = levelData.starsUnlocked;
+        } 
+    }
 
+    public void SaveLevelState() {
+        SaveSystem.SaveLevel(this);
+    }
 }
-
-/*
- * HighScore
- * 
- * Varje gång man fångar en av recept - ingredienserna får man 5 poäng
- * 
- * När man fångat 5 av de ingredienserna som finns i receptet på raken, får man 10 poäng nästa gång man fångar en ingrediens 
- * 
- * 
- * SÄGA TILL LINUS:
- * reset score ska kallas på i cauldron när man fångar en debuff eller powerup
- */
