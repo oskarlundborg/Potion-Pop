@@ -30,10 +30,6 @@ public class LevelState : MonoBehaviour
     [SerializeField] private GameObject countdownBar;
     [SerializeField] private GameObject[] recipeCounters;
     [SerializeField] private GameObject[] recipeIngredients;
-    [SerializeField] private GameObject pauseButton;
-    [SerializeField] private GameObject unpauseButton;
-    [SerializeField] private GameObject quitToLevelSelectButton;
-
     public GameObject[] ingredientsToSpawn;
     public GameObject[] debuffs;
     public GameObject[] powerups;
@@ -54,21 +50,6 @@ public class LevelState : MonoBehaviour
     {
         isLevelStarted = true;
         startLevelButton.SetActive(false);
-    }
-
-    public void PauseGame() {
-
-        Time.timeScale = 0;
-        isLevelStarted = false;
-        unpauseButton.SetActive(true);
-        quitToLevelSelectButton.SetActive(true);
-    }
-
-    public void UnpauseGame() {
-        Time.timeScale = 1;
-        unpauseButton.SetActive(false);
-        quitToLevelSelectButton.SetActive(false);
-        isLevelStarted = true;
     }
 
     public void SetUpTimer()
