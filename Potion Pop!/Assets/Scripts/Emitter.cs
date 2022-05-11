@@ -163,7 +163,7 @@ public class Emitter : MonoBehaviour {
                 max = ingredientSpawnCounter[i];
             }
         }        
-        if (ingredientSpawnCounter[minIndex] + 3 < max) {
+        if (ingredientSpawnCounter[minIndex] + 4 < max) {
             ingredientToSpawn = level.ingredientsToSpawn[minIndex]; //Om minst spawnade ingrediensen är för långt bak
             ingredientSpawnCounter[minIndex] += 1;
         } else {
