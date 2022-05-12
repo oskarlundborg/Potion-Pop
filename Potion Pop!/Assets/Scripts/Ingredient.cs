@@ -61,7 +61,7 @@ public class Ingredient : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (powerUpState.powerUpState == 4) { //isMagnetState? 
+        if (powerUpState.powerUpState == 4 && (gameObject.transform.position.y - cauldron.position.y) > -0.2f) { //isMagnetState? 
             //rb.velocity = new Vector3(rb.velocity.x, -newFallingSpeed, 0);
 
             //gör en MagnetMovementMetod
