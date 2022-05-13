@@ -6,10 +6,8 @@ public class Cauldron_Movement : MonoBehaviour {
 
     [SerializeField] private GameObject splashEffect;
     private float cauldronPosY;
-    private Vector2 pos;
     private PowerUpState powerUpState;
     public LevelState levelState;
-    private Cauldron_Magnet cauldron_Magnet;
 
     [Range(-2f, 5f)]
     [SerializeField] private float cauldronForceCameraBoundsOffset; //How far from camera edge can the cauldron be? 0 = half can be invisible 
@@ -17,13 +15,14 @@ public class Cauldron_Movement : MonoBehaviour {
     void Start() {
         powerUpState = FindObjectOfType<PowerUpState>();
         cauldronPosY = transform.position.y; //Saves Y start position    
-        cauldron_Magnet = GameObject.Find("Cauldron_Magnet").GetComponent<Cauldron_Magnet>();
         levelState = GameObject.Find("LevelState").GetComponent<LevelState>();
     }
 
     void Update() {
         if (powerUpState.powerUpState != 1 && levelState.GetIsLevelStarted() && Input.GetMouseButton(0)) { //Not frozen AND game is started AND touching
             MoveCauldron();
+        } else if (!levelState.GetIsLevelStarted()) {
+            SetDefault();
         }
     }
 
