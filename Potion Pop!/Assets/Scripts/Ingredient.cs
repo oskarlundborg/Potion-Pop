@@ -65,8 +65,10 @@ public class Ingredient : MonoBehaviour
             //rb.velocity = new Vector3(rb.velocity.x, -newFallingSpeed, 0);
 
             //gör en MagnetMovementMetod
+
             transform.position = Vector3.MoveTowards(transform.position, cauldron.position,
                 (newFallingSpeed * 2) * Time.deltaTime);
+
         } else {
             rb.velocity = new Vector3(0, -newFallingSpeed, 0);
         }
