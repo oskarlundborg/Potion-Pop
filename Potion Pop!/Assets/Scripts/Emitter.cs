@@ -14,6 +14,10 @@ public class Emitter : MonoBehaviour {
     public float minSpawnTime;
     public float maxSpawnTime;
 
+    private int[] ingredientSpawnCounter;
+    private GameObject ingredientToSpawn;
+    private int min, max, minIndex;
+
     [Header("Spawning states")]
     [SerializeField] private float chanceSwitchToWave = 7f;
     [SerializeField] private float chanceSwitchToRandom = 22f;
@@ -38,6 +42,7 @@ public class Emitter : MonoBehaviour {
         spawnPos = GetComponent<Transform>();
         spawnTime = minSpawnTime;
         level = GameObject.Find("LevelState").GetComponent<LevelState>();
+        ingredientSpawnCounter = new int[level.ingredientsToSpawn.Length];
 
         if (spawnFrenzyTime <= 0) {
             spawnFrenzyTime = minSpawnTime / 3;
@@ -47,7 +52,7 @@ public class Emitter : MonoBehaviour {
 
         //Debug feedback
         if (level.ingredientsToSpawn[0] == null) {
-            Debug.Log("Fyll \"Level State\" med ingredienser!");
+            Debug.Log("Fyll \"Level State\" med minst två ingredienser!");
             level.ingredientsToSpawn[0] = new GameObject("empty");
         }
         if (level.powerups[0] == null && level.debuffs[0] == null) {
@@ -64,7 +69,7 @@ public class Emitter : MonoBehaviour {
     }
 
     void Update() {
-        if(level.GetIsLevelStarted()) {
+        if (level.GetIsLevelStarted()) {
             UpdateEmitter();
         }
     }
@@ -74,13 +79,14 @@ public class Emitter : MonoBehaviour {
 
         //Spawnblocket
         if (timer > spawnTime && level.ingredientsToSpawn[0] != null && !isFrenzy) {
-            RandomChecks(); //Should special event happen
+            RandomChecks(); //Should special event happen and Pick ingredient to spawn
+            IngredientSpawnAlgorithm();
             if (isSpecial) {
                 SpawnSpecial();
             } else if (!isWaveSpawn) {
                 RandomSpawn();
             } else {
-                Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
+                Instantiate(ingredientToSpawn, spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
             }
             spawnTime = Random.Range(minSpawnTime, maxSpawnTime); //Ny random spawnTime                
             timer = 0f; //Reset time
@@ -103,15 +109,15 @@ public class Emitter : MonoBehaviour {
 
     private void RandomSpawn() {
         Vector3 randomizedPos = RandomSpawnPos();
-        Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], randomizedPos, spawnPos.rotation);
+        Instantiate(ingredientToSpawn, randomizedPos, spawnPos.rotation);
 
         if (chanceForDouble > Random.Range(0, 100)) {
             randomizedPos = RandomSpawnPos();
-            Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], randomizedPos, spawnPos.rotation);
+            Instantiate(ingredientToSpawn, randomizedPos, spawnPos.rotation);
 
             if (chanceForTriple > Random.Range(0, 100)) {
                 randomizedPos = RandomSpawnPos();
-                Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], randomizedPos, spawnPos.rotation);
+                Instantiate(ingredientToSpawn, randomizedPos, spawnPos.rotation);
             }
         }
     }
@@ -127,7 +133,7 @@ public class Emitter : MonoBehaviour {
     }
 
     private void FrenzyTime() {
-        Instantiate(level.ingredientsToSpawn[Random.Range(0, level.ingredientsToSpawn.Length)], spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
+        Instantiate(ingredientToSpawn, spawnPos.position, spawnPos.rotation); //Spawna random ingrediens
         spawnFrenzyCount++; //N?r detta blir lika med spawnFrenzyAmount(som v?ljs i inspector) - 1 s? slutar frenzy
         timer = 0f;
 
@@ -143,5 +149,26 @@ public class Emitter : MonoBehaviour {
         float y = Random.Range(gameObject.transform.position.y + 0.15f, gameObject.transform.position.y - 0.15f);
         Vector3 randomizedPos = new Vector3(x, y, emitter_Movement.leftTopCorner.z);
         return randomizedPos;
+    }
+
+    private void IngredientSpawnAlgorithm() {
+        int random = Random.Range(0, level.ingredientsToSpawn.Length);
+
+        for (int i = 0; i < ingredientSpawnCounter.Length; i++) {
+            if (min > ingredientSpawnCounter[i]) {
+                min = ingredientSpawnCounter[i];
+                minIndex = i;
+            }
+            if (max < ingredientSpawnCounter[i]) {
+                max = ingredientSpawnCounter[i];
+            }
+        }        
+        if (ingredientSpawnCounter[minIndex] + 4 < max) {
+            ingredientToSpawn = level.ingredientsToSpawn[minIndex]; //Om minst spawnade ingrediensen är för långt bak
+            ingredientSpawnCounter[minIndex] += 1;
+        } else {
+            ingredientToSpawn = level.ingredientsToSpawn[random];
+            ingredientSpawnCounter[random] += 1;
+        }
     }
 }

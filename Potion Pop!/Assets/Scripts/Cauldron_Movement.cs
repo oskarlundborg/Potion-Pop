@@ -14,8 +14,6 @@ public class Cauldron_Movement : MonoBehaviour {
     [Range(-2f, 5f)]
     [SerializeField] private float cauldronForceCameraBoundsOffset; //How far from camera edge can the cauldron be? 0 = half can be invisible 
 
-    private bool isCauldronActive = true;
-
     void Start() {
         powerUpState = FindObjectOfType<PowerUpState>();
         cauldronPosY = transform.position.y; //Saves Y start position    
@@ -48,6 +46,7 @@ public class Cauldron_Movement : MonoBehaviour {
                 ActivateSplash();
             } else if (collision.CompareTag("Special")) {
                 SpecialIdentifier(collision.GetComponent<Ingredient>().GetIngredientName());
+                ActivateSplash();
             }
 
             //Bad for animation, fix later :P
@@ -68,11 +67,17 @@ public class Cauldron_Movement : MonoBehaviour {
 
     }
 
-    public void setFrozen() {
+    public void SetFrozen() {
         GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.82f, 1f);
     }
-    public void setUnfrozen() {
+
+    public void SetMagnet() {
+        gameObject.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void SetDefault() {
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+        gameObject.GetComponent<ParticleSystem>().Stop();
     }
 
     private void ActivateSplash()

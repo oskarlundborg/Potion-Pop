@@ -22,9 +22,11 @@ public class Ingredient : MonoBehaviour
     private Rigidbody2D rb;
 
     private PowerUpState powerUpState;
+    private Transform cauldron;
 
     void Start() {
         powerUpState = GameObject.FindGameObjectWithTag("PowerUpState").GetComponent<PowerUpState>();
+        cauldron = GameObject.Find("Cauldron").GetComponent<BoxCollider2D>().GetComponent<Transform>();
 
         animator = gameObject.GetComponent<Animator>();
         newFallingSpeed = fallingSpeed;
@@ -59,8 +61,12 @@ public class Ingredient : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (powerUpState.powerUpState == 4) { //isMagnetState? 
-            rb.velocity = new Vector3(rb.velocity.x, -newFallingSpeed, 0);
+        if (powerUpState.powerUpState == 4 && (gameObject.transform.position.y - cauldron.position.y) > -0.2f) { //isMagnetState? 
+            //rb.velocity = new Vector3(rb.velocity.x, -newFallingSpeed, 0);
+
+            //gör en MagnetMovementMetod
+            transform.position = Vector3.MoveTowards(transform.position, cauldron.position,
+                (newFallingSpeed * 2) * Time.deltaTime);
         } else {
             rb.velocity = new Vector3(0, -newFallingSpeed, 0);
         }

@@ -32,44 +32,41 @@ public class PowerUpState : MonoBehaviour
         if (timer > timeLimit) {
             SetDefault();
         }
-        if(powerUpState == 4) {
-            magnet.SetActive(true);
-        } else {
-            magnet.SetActive(false);
-        }
     }
 
     public void SetDefault() {
+        cauldron.SetDefault();
         powerUpState = 0;
-        cauldron.setUnfrozen();
     }
 
     public void SetIce() {
         timer = 0f;
         powerUpState = 1;
         timeLimit = iceTimer;
-        cauldron.setFrozen();
+        cauldron.SetFrozen();
     }
 
     public void SetSlow() {
+        cauldron.SetDefault();
         timer = 0f;
         powerUpState = 2;
         timeLimit = slowTimer;
-        cauldron.setUnfrozen();
+
     }
 
     public void SetFast() {
+        cauldron.SetDefault();
         timer = 0f;
         powerUpState = 3;
         timeLimit = fastTimer;
-        cauldron.setUnfrozen();
     }
 
     public void SetMagnet() {
+        cauldron.SetDefault();
         timer = 0f;
         powerUpState = 4;
         timeLimit = magnetTimer;
-        cauldron.setUnfrozen();
+        cauldron.SetMagnet();
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
