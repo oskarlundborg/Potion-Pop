@@ -29,7 +29,6 @@ public class LevelState : MonoBehaviour
 
     [SerializeField] private GameObject countdownBar;
     [SerializeField] private GameObject[] recipeCounters;
-    [SerializeField] private GameObject[] recipeIngredients;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject unpauseButton;
     [SerializeField] private GameObject quitToLevelSelectButton;
@@ -37,6 +36,7 @@ public class LevelState : MonoBehaviour
     [SerializeField] private GameObject pauseIcon;
     [SerializeField] private float showPauseIconTime;
 
+    public GameObject[] recipeIngredients;
     public GameObject[] ingredientsToSpawn;
     public GameObject[] debuffs;
     public GameObject[] powerups;

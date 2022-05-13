@@ -6,15 +6,16 @@ public class EnsureQuitPopUp : MonoBehaviour
 {
     [SerializeField] private GameObject popUp;
 
+    public void EnsureQuitPopUpActivate() 
+    {
+        popUp.SetActive(true);    
+    }
 
+    public void OnNoButtonPressed() 
+    {
+        popUp.SetActive(false);
 
-
-
-
-
-
-    public void OnQuitButtonPressed() { 
-    
+         //tillbaka till pause o spel, släcka ned popup
     }
     
 }
