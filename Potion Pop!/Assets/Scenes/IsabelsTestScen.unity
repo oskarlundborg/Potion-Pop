@@ -1185,16 +1185,16 @@ MonoBehaviour:
   - {fileID: 262037617}
   - {fileID: 1650042286}
   - {fileID: 396610992}
-  recipeIngredients:
-  - {fileID: 4618159553007802104, guid: e89c58eba9893af4094cb7c84609c9fc, type: 3}
-  - {fileID: 6378051614011006565, guid: fccbcacd15015ed4ba87f9fa0d4b1d85, type: 3}
-  - {fileID: 3070088473808281766, guid: 031ab4e82bc25174c90c17313b5ad962, type: 3}
   pauseButton: {fileID: 1303701830}
   unpauseButton: {fileID: 1847503670}
   quitToLevelSelectButton: {fileID: 2092011475}
   playIcon: {fileID: 1430689347}
   pauseIcon: {fileID: 396790431}
   showPauseIconTime: 0.3
+  recipeIngredients:
+  - {fileID: 4618159553007802104, guid: e89c58eba9893af4094cb7c84609c9fc, type: 3}
+  - {fileID: 6378051614011006565, guid: fccbcacd15015ed4ba87f9fa0d4b1d85, type: 3}
+  - {fileID: 3070088473808281766, guid: 031ab4e82bc25174c90c17313b5ad962, type: 3}
   ingredientsToSpawn:
   - {fileID: 3070088473808281766, guid: 031ab4e82bc25174c90c17313b5ad962, type: 3}
   - {fileID: 6378051614011006565, guid: fccbcacd15015ed4ba87f9fa0d4b1d85, type: 3}
@@ -1328,7 +1328,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 531332774}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 208877218}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: LoadLevelSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &531332774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1453,6 +1465,7 @@ GameObject:
   - component: {fileID: 641762673}
   - component: {fileID: 641762675}
   - component: {fileID: 641762674}
+  - component: {fileID: 641762676}
   m_Layer: 5
   m_Name: AreYouSurePanel
   m_TagString: Untagged
@@ -1523,6 +1536,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641762672}
   m_CullTransparentMesh: 1
+--- !u!114 &641762676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641762672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7f15b04041b0347bc0fafdc1742730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUp: {fileID: 641762672}
 --- !u!1 &685443533
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,7 +4185,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1488977876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 641762676}
+        m_TargetAssemblyTypeName: EnsureQuitPopUp, Assembly-CSharp
+        m_MethodName: OnNoButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1488977876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5258,9 +5296,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 208877218}
+      - m_Target: {fileID: 641762672}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
