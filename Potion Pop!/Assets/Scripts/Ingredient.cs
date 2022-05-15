@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
+    private LevelState level;
+    private bool isInRecipe;
+
     [SerializeField] private string ingredientName;
 
     private Animator animator;
@@ -27,6 +30,7 @@ public class Ingredient : MonoBehaviour
     void Start() {
         powerUpState = GameObject.FindGameObjectWithTag("PowerUpState").GetComponent<PowerUpState>();
         cauldron = GameObject.Find("Cauldron").GetComponent<BoxCollider2D>().GetComponent<Transform>();
+        level = GameObject.Find("LevelState").GetComponent<LevelState>();
 
         animator = gameObject.GetComponent<Animator>();
         newFallingSpeed = fallingSpeed;
@@ -34,6 +38,13 @@ public class Ingredient : MonoBehaviour
         //Väljer randomly hur snabbt objektet ska rotera
         rotateSpeed = Random.Range(minSpeed, maxSpeed);
         newRotateSpeed = rotateSpeed;
+
+        //Is good ingredient?
+        foreach(GameObject go in level.recipeIngredients) {
+            if (go.GetComponent<Ingredient>().GetIngredientName() == ingredientName) {
+                isInRecipe = true;
+            } 
+        }
 
         //Väljer randomly vilket håll objektet ska rotera
         int temp = Random.Range(1, 10);
@@ -61,18 +72,18 @@ public class Ingredient : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (powerUpState.powerUpState == 4 && (gameObject.transform.position.y - cauldron.position.y) > -0.1f) { //isMagnetState? 
-            //rb.velocity = new Vector3(rb.velocity.x, -newFallingSpeed, 0);
-
-            //gör en MagnetMovementMetod
-
-            Vector3 magnetPoint = new Vector3(cauldron.position.x, cauldron.position.y + 0.5f, cauldron.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, magnetPoint,
-                (newFallingSpeed * 2) * Time.deltaTime);
-
+        if (powerUpState.powerUpState == 4 && (gameObject.transform.position.y - cauldron.position.y) > -0.1f &&
+            isInRecipe) { //isMagnetState? 
+            MagnetMovement();
         } else {
             rb.velocity = new Vector3(0, -newFallingSpeed, 0);
         }
+    }
+
+    private void MagnetMovement() {
+        Vector3 magnetPoint = new Vector3(cauldron.position.x, cauldron.position.y + 0.5f, cauldron.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, magnetPoint,
+            (newFallingSpeed * 2) * Time.deltaTime);
     }
 
     public string GetIngredientName() {
