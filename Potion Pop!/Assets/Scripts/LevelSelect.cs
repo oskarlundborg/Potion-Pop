@@ -6,6 +6,9 @@ using TMPro;
 
 public class LevelSelect : MonoBehaviour
 {
+
+    [SerializeField] private GameState gameState;
+    [SerializeField] private LevelLoader levelLoader;
     
     public bool isOpen;
     [SerializeField] Image locker;
@@ -53,7 +56,7 @@ public class LevelSelect : MonoBehaviour
 
         UpdateLevelImage();
 
-        // kör loadData
+        
     }
 
     public void updatePopUp()
@@ -84,7 +87,8 @@ public class LevelSelect : MonoBehaviour
             if (score >= scoreLimit + (i * scoreLimit))
             {
                 imageArray[i].GetComponent<Image>().sprite = starAwake;
-                
+                //imageArray[i].GetComponent<Image>().sprite = gameState.GetLevelStars(1); = så många stjärnor som fåtts i level
+
             }
              
           
@@ -146,6 +150,7 @@ public class LevelSelect : MonoBehaviour
     {
         LevelLocked();
         updatePopUp();
+        gameState.SaveGame();
         
         PopUpPlay.gameObject.SetActive(isOn);
 
@@ -153,6 +158,7 @@ public class LevelSelect : MonoBehaviour
 
     }
 
+   
 
 
 
