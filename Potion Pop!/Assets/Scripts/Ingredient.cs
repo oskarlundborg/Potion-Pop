@@ -66,7 +66,8 @@ public class Ingredient : MonoBehaviour
 
             //gör en MagnetMovementMetod
 
-            transform.position = Vector3.MoveTowards(transform.position, cauldron.position,
+            Vector3 magnetPoint = new Vector3(cauldron.position.x, cauldron.position.y + 0.5f, cauldron.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, magnetPoint,
                 (newFallingSpeed * 2) * Time.deltaTime);
 
         } else {
