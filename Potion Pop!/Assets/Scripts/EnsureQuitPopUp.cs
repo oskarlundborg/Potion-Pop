@@ -14,8 +14,5 @@ public class EnsureQuitPopUp : MonoBehaviour
     public void OnNoButtonPressed() 
     {
         popUp.SetActive(false);
-
-         //tillbaka till pause o spel, släcka ned popup
     }
-    
 }

@@ -62,11 +62,14 @@ public class LevelState : MonoBehaviour
 
     public void PauseGame() {
 
-        Time.timeScale = 0;
-        isLevelStarted = false;
-        unpauseButton.SetActive(true);
-        playIcon.SetActive(true);
-        quitToLevelSelectButton.SetActive(true);
+        if (isLevelStarted == true) 
+        {
+            Time.timeScale = 0;
+            isLevelStarted = false;
+            unpauseButton.SetActive(true);
+            playIcon.SetActive(true);
+            quitToLevelSelectButton.SetActive(true);
+        }
     }
 
     public void UnpauseGame() {
@@ -185,6 +188,7 @@ public class LevelState : MonoBehaviour
 
     private void LevelComplete()
     {
+        unpauseButton.SetActive(false);
         isLevelStarted = false;
         SaveLevelState();
         foreach (GameObject recipeCounter in recipeCounters)
@@ -241,8 +245,8 @@ public class LevelState : MonoBehaviour
 
         LevelData levelData = SaveSystem.LoadLevel(levelNumber);
         if (levelData != null) {
-            highScore = levelData.highScore;
-            starsUnlocked = levelData.starsUnlocked;
+            highScore = levelData.GetHighScore();
+            starsUnlocked = levelData.GetStarsUnlocked();
         } 
     }
 

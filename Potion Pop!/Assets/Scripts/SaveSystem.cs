@@ -34,8 +34,39 @@ public static class SaveSystem
 
         else
         {
-            Debug.LogError("Save file not found in " + path);
+            Debug.LogError("NOOOOO </3 Save file not found in " + path);
             return null;
         }
     }
+
+    public static void SaveGameData(GameState gameState) 
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "gamestate.pop";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        GameData gameData = new GameData(gameState);
+
+        formatter.Serialize(stream, gameData);
+        stream.Close();
+
+    }
+    public static GameData LoadGameData() {
+        string path = Application.persistentDataPath + "gamestate.pop";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            GameData gameData = formatter.Deserialize(stream) as GameData;
+            stream.Close();
+            return gameData;
+        }
+        else 
+        {
+            Debug.LogError("NOOOOO </3 Save file not found in " + path);
+            return null;
+        }
+    }
+
 }

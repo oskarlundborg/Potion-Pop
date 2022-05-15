@@ -5296,9 +5296,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 641762672}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 641762676}
+        m_TargetAssemblyTypeName: EnsureQuitPopUp, Assembly-CSharp
+        m_MethodName: EnsureQuitPopUpActivate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
