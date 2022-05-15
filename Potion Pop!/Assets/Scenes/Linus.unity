@@ -5578,14 +5578,20 @@ MonoBehaviour:
   oneStarGoal: 1
   twoStarGoal: 2
   threeStarGoal: 3
-  countdownBar: {fileID: 1361758966}
   levelNumber: 0
-  basePickUpScore: 10
+  pickUpScore: 0
   levelTimeLimit: 30
+  countdownBar: {fileID: 1361758966}
   recipeCounters:
   - {fileID: 262037617}
   - {fileID: 1650042286}
   - {fileID: 396610992}
+  pauseButton: {fileID: 0}
+  unpauseButton: {fileID: 0}
+  quitToLevelSelectButton: {fileID: 0}
+  playIcon: {fileID: 0}
+  pauseIcon: {fileID: 0}
+  showPauseIconTime: 0
   recipeIngredients:
   - {fileID: 4618159553007802104, guid: e89c58eba9893af4094cb7c84609c9fc, type: 3}
   - {fileID: 6378051614011006565, guid: fccbcacd15015ed4ba87f9fa0d4b1d85, type: 3}
@@ -5599,7 +5605,6 @@ MonoBehaviour:
   - {fileID: 4277610883332879693, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
   - {fileID: 6470761090040827119, guid: ad2baa935bd6d4341bdeea7f787f6dab, type: 3}
   powerups:
-  - {fileID: 2047935671141100263, guid: d3809c2e4692e6044a83cf56f85e7d51, type: 3}
   - {fileID: 6609024563039099520, guid: 1790a19483ac1f54d913d7fc31007bcf, type: 3}
   animalSavedText: {fileID: 857090862}
   starsCollectedText: {fileID: 994799093}

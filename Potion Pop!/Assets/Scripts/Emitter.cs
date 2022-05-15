@@ -18,6 +18,9 @@ public class Emitter : MonoBehaviour {
     private GameObject ingredientToSpawn;
     private int min, max, minIndex;
 
+    [Header("Max difference for min and max spawned ingredient")]
+    [Tooltip("Max difference for min and max spawned ingredient")] [SerializeField] private int spawnDiff = 2;
+
     [Header("Spawning states")]
     [SerializeField] private float chanceSwitchToWave = 7f;
     [SerializeField] private float chanceSwitchToRandom = 22f;
@@ -163,7 +166,7 @@ public class Emitter : MonoBehaviour {
                 max = ingredientSpawnCounter[i];
             }
         }        
-        if (ingredientSpawnCounter[minIndex] + 4 < max) {
+        if (ingredientSpawnCounter[minIndex] + spawnDiff < max) {
             ingredientToSpawn = level.ingredientsToSpawn[minIndex]; //Om minst spawnade ingrediensen är för långt bak
             ingredientSpawnCounter[minIndex] += 1;
         } else {
