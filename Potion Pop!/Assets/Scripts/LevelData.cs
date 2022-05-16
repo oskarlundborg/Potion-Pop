@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
 public class LevelData 
 {
-    private bool isLastLevel;
+    private bool isUnlocked;
     private int starsUnlocked;
     private int highScore;
 
@@ -22,14 +22,19 @@ public class LevelData
         return highScore;   
     }
     
-    public bool GetIsLastLevel()
+    public bool GetIsUnlocked()
     {
-        return isLastLevel;
+        return isUnlocked;
     }
 
-    public void SetIsLastLevel() 
+    public void UnlockLevel() 
     {
-        isLastLevel = !isLastLevel;
+        isUnlocked = true;
+    }
+
+    public void LockLevel()
+    {
+        isUnlocked = false;
     }
 
 }

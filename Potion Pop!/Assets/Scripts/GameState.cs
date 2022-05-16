@@ -9,11 +9,17 @@ public class GameState : MonoBehaviour
     private int totalAmountOfStars;
     private int lastUnlockedLevel;
 
+    [Header("Stars needed to unlock level 2-9")]
+    [SerializeField] private int[] levelStarGoals;
+    
+
+
     void Start()
     {
         ImportLevelData();
         ImportGameData();
         UpdateStarAmount();
+        UpdateLevelLocks();
         SetLastUnlockedLevel();
     }
 
@@ -50,46 +56,47 @@ public class GameState : MonoBehaviour
         return stars;
     }
 
-    private void SetLastUnlockedLevel() 
-    {
-        for (int i = 0; i < levelDataArray.Length; i++ ) {
-            if (levelDataArray[i] != null) 
-            {
-                if (levelDataArray[i].GetIsLastLevel() == true) 
-                {
-                    lastUnlockedLevel = i + 1;
-                }
-            }
-        }
-        AdjustLevelDataArray();
-    }
-
-    private void AdjustLevelDataArray() 
-    {
-        for (int i = 0; i < levelDataArray.Length; i++) {
-            if (levelDataArray[i] == levelDataArray[lastUnlockedLevel - 1] && levelDataArray[i].GetIsLastLevel() == false)
-            {
-                levelDataArray[i].SetIsLastLevel();
-            } else if (levelDataArray[i].GetIsLastLevel() == true) 
-            {
-                levelDataArray[i].SetIsLastLevel();
-            }
-        }
-    }
-
     private void UpdateStarAmount()
     {
         totalAmountOfStars = GetStarsFromLevels();
     } 
+
+    private void SetLastUnlockedLevel()
+    {
+        for(int i = 0; i < levelDataArray.Length; i++)
+        {
+            if (levelDataArray[i].GetIsUnlocked())
+            {
+                continue;
+            }
+            lastUnlockedLevel = i;
+        }
+    }
+
+    private void UpdateLevelLocks()
+    {
+        for(int i = 0; i < levelStarGoals.Length; i++)
+        {
+            if(totalAmountOfStars >= levelStarGoals[i])
+            {
+                levelDataArray[i + 1].UnlockLevel();
+            }
+        }
+    }
+
+    public int GetLastUnlockedLevel()
+    {
+        return lastUnlockedLevel;
+    }
        
     public int GetTotalStars()
     {
         return totalAmountOfStars;
     }
 
-    public int GetLastUnlockedLevel()
+    public bool IsLevelUnlocked(int levelNumber)
     {
-        return lastUnlockedLevel;
+        return levelDataArray[levelNumber - 1].GetIsUnlocked();
     }
 
     public int GetLevelStars(int levelNumber) 
