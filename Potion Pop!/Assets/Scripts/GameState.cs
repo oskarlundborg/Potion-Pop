@@ -14,7 +14,7 @@ public class GameState : MonoBehaviour
         ImportLevelData();
         ImportGameData();
         UpdateStarAmount();
-        SetLastUnlockedLevel();
+        //SetLastUnlockedLevel();
     }
 
     private void ImportLevelData()
@@ -50,6 +50,7 @@ public class GameState : MonoBehaviour
         return stars;
     }
 
+    /*
     private void SetLastUnlockedLevel() 
     {
         for (int i = 0; i < levelDataArray.Length; i++ ) {
@@ -76,6 +77,7 @@ public class GameState : MonoBehaviour
             }
         }
     }
+    */
 
     private void UpdateStarAmount()
     {
@@ -87,9 +89,9 @@ public class GameState : MonoBehaviour
         return totalAmountOfStars;
     }
 
-    public int GetLastUnlockedLevel()
+    public bool IsLevelUnlocked(int levelNumber)
     {
-        return lastUnlockedLevel;
+        return levelDataArray[levelNumber - 1].GetIsUnlocked();
     }
 
     public int GetLevelStars(int levelNumber) 
