@@ -7,6 +7,7 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime = 1f;
+    [SerializeField] private GameState gameState;
 
 
     public void LoadNextLevel()
@@ -16,17 +17,22 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        StartCoroutine(LoadLevel(1));
+        StartCoroutine(LoadLevel(10));
     }
 
     public void LoadOptionsMenu()
     {
-        StartCoroutine(LoadLevel(2));
+        StartCoroutine(LoadLevel(11));
     }
 
     public void LoadLevelSelect()
     {
-        StartCoroutine(LoadLevel(3));
+        StartCoroutine(LoadLevel(12));
+    }
+
+    public void LoadLatestUnlockedLevel()
+    {
+        StartCoroutine(LoadLevel(gameState.GetLastUnlockedLevel()));
     }
     public void LoadSpecificLevel(int i)
     {

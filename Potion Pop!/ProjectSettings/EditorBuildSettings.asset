@@ -9,6 +9,33 @@ EditorBuildSettings:
     path: Assets/Scenes/SplashScreen.unity
     guid: 58cf782e179dbfb419bba9f6ed9f8d04
   - enabled: 1
+    path: Assets/Scenes/Level One.unity
+    guid: 8c77f63d0fb96ab4f9466f490d93a955
+  - enabled: 1
+    path: Assets/Scenes/Level Two.unity
+    guid: 4dd0af937221c374da4f33ec618448d7
+  - enabled: 1
+    path: Assets/Scenes/Level Three.unity
+    guid: 1baca91a443471e4597351224017eb67
+  - enabled: 1
+    path: Assets/Scenes/Level Four.unity
+    guid: e93f4af875fc16642a60f131915cb38a
+  - enabled: 1
+    path: Assets/Scenes/Level Five.unity
+    guid: 0c8b4896421513347b6fc8cfa5f58500
+  - enabled: 1
+    path: Assets/Scenes/Level Six.unity
+    guid: 4a2b09e0edb073b48aeb2f8d6d2d837f
+  - enabled: 1
+    path: Assets/Scenes/Level Seven.unity
+    guid: f76951d0ae7022d41a7ba26e57690b58
+  - enabled: 1
+    path: Assets/Scenes/Level Eight.unity
+    guid: fe99eeddb2cea1b4e8d2d1e739704df6
+  - enabled: 1
+    path: Assets/Scenes/Level Nine.unity
+    guid: 763b45a4dc6f5b84d8059e59ee83748e
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 44a1d969d4fa0e24ab0d9b694284b7e3
   - enabled: 1
@@ -17,7 +44,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels.unity
     guid: af4e4a1b89e0e43b68ba57fed5d79b60
-  - enabled: 1
-    path: Assets/Scenes/IsabelsTestScen.unity
-    guid: 10ef8078873144c10ac4d3af5eeaae00
   m_configObjects: {}
