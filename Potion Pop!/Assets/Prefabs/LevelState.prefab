@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &936417860706062436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936417860706062442}
+  - component: {fileID: 936417860706062437}
+  m_Layer: 0
+  m_Name: LevelState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &936417860706062442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936417860706062436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &936417860706062437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936417860706062436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2cde114dcbf44af915879b4b2360c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneStarGoal: 1
+  twoStarGoal: 2
+  threeStarGoal: 3
+  levelNumber: 1
+  pickUpScore: 5
+  levelTimeLimit: 30
+  countdownBar: {fileID: 0}
+  recipeCounters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pauseButton: {fileID: 0}
+  unpauseButton: {fileID: 0}
+  quitToLevelSelectButton: {fileID: 0}
+  playIcon: {fileID: 0}
+  pauseIcon: {fileID: 0}
+  showPauseIconTime: 0.3
+  recipeIngredients:
+  - {fileID: 4618159553007802104, guid: e89c58eba9893af4094cb7c84609c9fc, type: 3}
+  - {fileID: 6378051614011006565, guid: fccbcacd15015ed4ba87f9fa0d4b1d85, type: 3}
+  - {fileID: 3070088473808281766, guid: 031ab4e82bc25174c90c17313b5ad962, type: 3}
+  ingredientsToSpawn:
+  - {fileID: 3070088473808281766, guid: 031ab4e82bc25174c90c17313b5ad962, type: 3}
+  - {fileID: 6378051614011006565, guid: fccbcacd15015ed4ba87f9fa0d4b1d85, type: 3}
+  - {fileID: 1672510721434808642, guid: 92d19e231b8f8674cb03f7d1b6fa5ca0, type: 3}
+  - {fileID: 4618159553007802104, guid: e89c58eba9893af4094cb7c84609c9fc, type: 3}
+  debuffs:
+  - {fileID: 4277610883332879693, guid: a55c72ac7d02f1940a30f24a73c1fe60, type: 3}
+  - {fileID: 6470761090040827119, guid: ad2baa935bd6d4341bdeea7f787f6dab, type: 3}
+  powerups:
+  - {fileID: 2047935671141100263, guid: d3809c2e4692e6044a83cf56f85e7d51, type: 3}
+  animalSavedText: {fileID: 0}
+  starsCollectedText: {fileID: 0}
+  levelCompletePanel: {fileID: 0}
+  startLevelButton: {fileID: 0}
