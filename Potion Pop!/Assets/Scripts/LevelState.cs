@@ -189,6 +189,7 @@ public class LevelState : MonoBehaviour
     private void LevelComplete()
     {
         unpauseButton.SetActive(false);
+        pauseButton.SetActive(false);
         isLevelStarted = false;
         SaveLevelState();
         foreach (GameObject recipeCounter in recipeCounters)
