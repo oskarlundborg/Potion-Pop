@@ -34,7 +34,6 @@ public class LevelState : MonoBehaviour
     [SerializeField] private GameObject quitToLevelSelectButton;
     [SerializeField] private GameObject playIcon;
     [SerializeField] private GameObject pauseIcon;
-    [SerializeField] private AnimalQueue AnimalQueue;
     [SerializeField] private float showPauseIconTime;
 
     public GameObject[] recipeIngredients;
@@ -169,8 +168,6 @@ public class LevelState : MonoBehaviour
         {
             recipeCounter.GetComponent<RecipeCounter>().ResetCounter();
         }
-        AnimalQueue.GetComponent<AnimalQueue>().TreatAnimals();
-
     }
 
     private void UpdateTimer()
