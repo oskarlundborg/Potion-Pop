@@ -268,14 +268,14 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 89
     mosaicPosition: {x: 0, y: 0}
   - name: BandAid
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 113
     mosaicPosition: {x: 0, y: 0}
   - name: Shape 19 copy 3
@@ -289,7 +289,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 108
     mosaicPosition: {x: 0, y: 0}
   - name: Shape 16
@@ -303,7 +303,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 59
     mosaicPosition: {x: 0, y: 0}
   - name: Shape 2 copy 2
@@ -317,7 +317,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 37
     mosaicPosition: {x: 0, y: 0}
   - name: eye_idle copy 2
@@ -331,7 +331,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 41
     mosaicPosition: {x: 0, y: 0}
   - name: Shape 12
@@ -345,7 +345,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 102
     mosaicPosition: {x: 0, y: 0}
   - name: Shape 10
@@ -359,7 +359,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 94
     mosaicPosition: {x: 0, y: 0}
   - name: Shape 10
