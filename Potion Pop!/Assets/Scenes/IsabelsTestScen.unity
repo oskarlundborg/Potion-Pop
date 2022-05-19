@@ -613,6 +613,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2cde114dcbf44af915879b4b2360c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &477527295
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4531180567895284023, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.30841973
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531180567895284023, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531180567895284023, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.95125043
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531180567895284023, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -144.072
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673145106056752943, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117580006189032974, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_Name
+      value: Racoon_Sitting
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615196738529196281, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6815497
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615196738529196281, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.11642642
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 7528254765012127254, guid: f0c2e8aecd94ef04ab567c4dbd093109, type: 3}
 --- !u!1 &706487106
 GameObject:
   m_ObjectHideFlags: 0
