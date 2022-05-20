@@ -18,9 +18,9 @@ public class GameState : MonoBehaviour
     {
         ImportLevelData();
         ImportGameData();
-        UpdateStarAmount();
+        StartCoroutine(UpdateStarAmount());
         SetLastUnlockedLevel();
-        CheckAvailableLevels();
+        GetStarsFromLevels();
     }
 
     private void ImportLevelData()
@@ -44,22 +44,23 @@ public class GameState : MonoBehaviour
         totalAmountOfStars = gameData.GetTotalAmountOfStars(); //redundant 
     }
 
-    private int GetStarsFromLevels()
+    private void GetStarsFromLevels()
     {
-        int stars = 0;
-        foreach (LevelData levelData in levelDataArray)
+        Debug.Log(levelDataArray.Length);
+      
+        for(int i = 0; i < levelDataArray.Length; i++)
         {
-            if (levelData != null)
-            {
-                stars += levelData.GetStarsUnlocked();
-            }
+            Debug.Log(levelDataArray[i].GetStarsUnlocked());
         }
-        return stars;
+        
     }
 
-    private void UpdateStarAmount()
+  
+
+     IEnumerator UpdateStarAmount()
     {
-        totalAmountOfStars = GetStarsFromLevels();
+        yield return new WaitForSeconds(0.1f);
+        //totalAmountOfStars = GetStarsFromLevels();
     }
 
     private void SetLastUnlockedLevel()
@@ -86,8 +87,10 @@ public class GameState : MonoBehaviour
 
     public bool IsLevelUnlocked(int levelNumber)
     {
+       
         if (totalAmountOfStars >= levelStarGoals[levelNumber - 1])
         {
+            Debug.Log("true");
             return true;
         }
         return false;
@@ -95,11 +98,14 @@ public class GameState : MonoBehaviour
 
     public int GetLevelStars(int levelNumber)
     {
-        if (levelDataArray[levelNumber - 1] != null)
+        if (levelDataArray[levelNumber - 1] == null)
         {
-            return levelDataArray[levelNumber - 1].GetStarsUnlocked();
+            return 0;
+          
         }
-        return 0;
+      
+        return levelDataArray[levelNumber - 1].GetStarsUnlocked();
+        
     }
     public int GetLevelHighScore(int levelNumber)
     {
@@ -115,14 +121,6 @@ public class GameState : MonoBehaviour
         SaveSystem.SaveGameData(this);
     }
 
-    public void CheckAvailableLevels()
-    {
-        foreach(LevelData levelData in levelDataArray)
-        {
-            if(levelData != null)
-            {
-                Debug.Log(levelData.GetStarsUnlocked());
-            }
-        }
-    }
+
+
 }
