@@ -506,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: chanceToSpawnSpecial
-      value: 10
+      value: 15.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
@@ -1181,6 +1181,7 @@ MonoBehaviour:
   - {fileID: 6470761090040827119, guid: ad2baa935bd6d4341bdeea7f787f6dab, type: 3}
   powerups:
   - {fileID: 2047935671141100263, guid: d3809c2e4692e6044a83cf56f85e7d51, type: 3}
+  - {fileID: 6609024563039099520, guid: 1790a19483ac1f54d913d7fc31007bcf, type: 3}
   animalSavedText: {fileID: 857090862}
   starsCollectedText: {fileID: 994799093}
   levelCompletePanel: {fileID: 1322431523}
