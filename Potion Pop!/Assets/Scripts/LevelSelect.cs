@@ -43,7 +43,7 @@ public class LevelSelect : MonoBehaviour
     private bool levelCompleted;
     private int scoreLimit = 20;
     private bool isOn;
-    private int levelIndex;
+    private static int levelIndex;
 
 
 
@@ -102,7 +102,8 @@ public class LevelSelect : MonoBehaviour
 
     private void setPopUpValues()
     {
-
+      
+        
         uiScoreText.SetText(score.ToString());
         uiLevelText.SetText( "Level "+ setLevelNumber.ToString());
         time.text = setGameTime;
@@ -132,7 +133,7 @@ public class LevelSelect : MonoBehaviour
 
     public void UpdateLevelImage()
     {
-        levelIndex = setLevelNumber;
+        
         if (isOpen)
         {
             LevelOpen();          
@@ -157,7 +158,8 @@ public class LevelSelect : MonoBehaviour
     {
         LevelLocked();
         updatePopUp();
-        
+        levelIndex = setLevelNumber;
+        Debug.Log("Level open - levelnummer = " + setLevelNumber);
         PopUpPlay.gameObject.SetActive(isOn);
 
         isOn = !isOn;
@@ -168,6 +170,8 @@ public class LevelSelect : MonoBehaviour
 
     public void loadLevel()
     {
+        Debug.Log("Load levelnummer = " + setLevelNumber);
+        
         SceneManager.LoadScene(levelIndex);
     }
 
