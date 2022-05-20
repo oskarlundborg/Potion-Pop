@@ -11,6 +11,7 @@ public class LevelSelect : MonoBehaviour
     public bool isOpen;
     [SerializeField] Image locker;
     [SerializeField] Sprite starAwake;
+    [SerializeField] Sprite starSleep;
     [SerializeField] Image[] stars;
     public Button levelButton;
     
@@ -81,15 +82,16 @@ public class LevelSelect : MonoBehaviour
     {
        // int starsEarned = gameState.GetLevelStars(setLevelNumber);
 
-       for (int i = 0; i < imageArray.Length; i++)
+
+        for (int i = 0; i < imageArray.Length; i++)
         {
            imageArray[i].gameObject.SetActive(isOpen);
-
+           imageArray[i].GetComponent<Image>().sprite = starSleep;
 
             if (score >= scoreLimit + (i * scoreLimit))
             {
                 imageArray[i].GetComponent<Image>().sprite = starAwake;
-                imageArray[i].GetComponent<Image>().sprite = starAwake;
+               
 
             }
 
