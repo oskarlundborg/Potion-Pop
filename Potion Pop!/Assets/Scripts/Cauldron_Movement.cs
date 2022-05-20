@@ -66,17 +66,14 @@ public class Cauldron_Movement : MonoBehaviour {
 
     }
 
-    public void SetFrozen() {
-        GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.82f, 1f);
-    }
 
     public void SetMagnet() {
         gameObject.GetComponent<ParticleSystem>().Play();
     }
 
     public void SetDefault() {
-        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
         gameObject.GetComponent<ParticleSystem>().Stop();
+        gameObject.GetComponent<ParticleSystem>().Clear();
     }
 
     private void ActivateSplash()
