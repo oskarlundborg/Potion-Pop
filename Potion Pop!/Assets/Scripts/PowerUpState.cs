@@ -6,6 +6,7 @@ public class PowerUpState : MonoBehaviour
 {
 
     public int powerUpState = 0;
+    Animator animator;
 
     [SerializeField] private float iceTimer = 3f;
     [SerializeField] private float slowTimer = 6f;
@@ -23,6 +24,7 @@ public class PowerUpState : MonoBehaviour
     {
         magnet = GameObject.FindGameObjectWithTag("Magnet");
         cauldron = GameObject.Find("Cauldron").GetComponent<Cauldron_Movement>();
+        animator = cauldron.GetComponent<Animator>();
         powerUpState = 0;
     }
 
@@ -32,6 +34,13 @@ public class PowerUpState : MonoBehaviour
         if (timer > timeLimit) {
             SetDefault();
         }
+
+        if(powerUpState == 1) {
+            animator.SetBool("isIceState", true);
+        } else {
+            animator.SetBool("isIceState", false);
+        }
+
     }
 
     public void SetDefault() {
@@ -43,7 +52,6 @@ public class PowerUpState : MonoBehaviour
         timer = 0f;
         powerUpState = 1;
         timeLimit = iceTimer;
-        cauldron.SetFrozen();
     }
 
     public void SetSlow() {
