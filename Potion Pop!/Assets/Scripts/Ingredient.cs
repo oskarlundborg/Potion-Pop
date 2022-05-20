@@ -6,6 +6,9 @@ public class Ingredient : MonoBehaviour
 {
     private LevelState level;
     private bool isInRecipe;
+    private bool isPowerup;
+    private ParticleSystem.MainModule settings;
+    private ParticleSystem particles;
 
     [SerializeField] private string ingredientName;
 
@@ -31,20 +34,31 @@ public class Ingredient : MonoBehaviour
         powerUpState = GameObject.FindGameObjectWithTag("PowerUpState").GetComponent<PowerUpState>();
         cauldron = GameObject.Find("Cauldron").GetComponent<BoxCollider2D>().GetComponent<Transform>();
         level = GameObject.Find("LevelState").GetComponent<LevelState>();
-
+        particles = gameObject.GetComponent<ParticleSystem>();
+        settings = gameObject.GetComponent<ParticleSystem>().main;
         animator = gameObject.GetComponent<Animator>();
+
         newFallingSpeed = fallingSpeed;
 
         //Väljer randomly hur snabbt objektet ska rotera
         rotateSpeed = Random.Range(minSpeed, maxSpeed);
         newRotateSpeed = rotateSpeed;
 
-        //Is good ingredient?
-        foreach(GameObject go in level.recipeIngredients) {
+        foreach(GameObject go in level.recipeIngredients) { //Is good ingredient?
             if (go.GetComponent<Ingredient>().GetIngredientName() == ingredientName) {
                 isInRecipe = true;
             } 
         }
+        foreach (GameObject go in level.powerups) { //Is good powerup?
+            if (go.GetComponent<Ingredient>().GetIngredientName() == ingredientName) {
+                isPowerup = true;
+            }
+        }
+
+        if (isInRecipe || isPowerup) {
+            settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0, 1, 0, 0.5f));
+        }
+        particles.Play();
 
         //Väljer randomly vilket håll objektet ska rotera
         int temp = Random.Range(1, 10);
@@ -53,9 +67,7 @@ public class Ingredient : MonoBehaviour
         } else {
             rotatesClockwise = true;
         }
-
         rb = GetComponent<Rigidbody2D>(); //For rotating
-
     }
 
     void Update() { 
@@ -93,10 +105,12 @@ public class Ingredient : MonoBehaviour
     //**ANIMATIONS
     //Feel free att även ändra saker som terminalVelocity, rotating osv för att få en bra animation! <<<<<<<<<<<<<
     public void AnimationDie() {
+        particles.Clear(true);
+        gameObject.GetComponent<ParticleSystem>().Stop();
         GetComponent<CircleCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 0.3f); //temporärt innan animation finns
         newFallingSpeed = 1;
-        animator.SetTrigger("Die"); 
+        animator.SetTrigger("Die");
     }
 
     public void AnimationCaught() { //Ingredienser blir destroyed innan denna animation blir spelad så det måste fixas om det ska animeras, skriv till Linus :)
