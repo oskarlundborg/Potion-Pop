@@ -65,7 +65,7 @@ public class GameState : MonoBehaviour
     {
         for (int i = 0; i < levelDataArray.Length; i++)
         {
-            if (levelDataArray[i].GetIsUnlocked())
+            if (levelDataArray[i]!= null && levelDataArray[i].GetIsUnlocked())
             {
                 continue;
             }

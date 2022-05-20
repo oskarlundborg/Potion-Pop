@@ -9,14 +9,15 @@ public class LevelSelect : MonoBehaviour
 {
    // public GameState gameState; 
     public bool isOpen;
+    [SerializeField] GameState gameState;
     [SerializeField] Image locker;
     [SerializeField] Sprite starAwake;
     [SerializeField] Sprite starSleep;
     [SerializeField] Image[] stars;
     public Button levelButton;
-    
-    
 
+
+    
     [SerializeField] GameObject PopUpPlay;
     public TextMeshProUGUI uiLevelText;
     public TextMeshProUGUI uiButtonText;
@@ -44,7 +45,7 @@ public class LevelSelect : MonoBehaviour
     private int scoreLimit = 20;
     private bool isOn;
     private static int levelIndex;
-
+    private int unlockedStars;
 
 
 
@@ -53,10 +54,16 @@ public class LevelSelect : MonoBehaviour
 
     public void Start()
     {
-
+        
+        
+        if (gameState.IsLevelUnlocked(setLevelNumber))
+        {
+            isOpen = true;
+        }
         UpdateLevelImage();
-
-        // kör loadData
+        unlockedStars = gameState.GetLevelStars(setLevelNumber);
+        setStarsAktive(popUpStars);
+        setStarsAktive(stars);
     }
 
     public void updatePopUp()
@@ -88,14 +95,14 @@ public class LevelSelect : MonoBehaviour
            imageArray[i].gameObject.SetActive(isOpen);
            imageArray[i].GetComponent<Image>().sprite = starSleep;
 
-            if (score >= scoreLimit + (i * scoreLimit))
+            if (unlockedStars != 0)
             {
-                imageArray[i].GetComponent<Image>().sprite = starAwake;
-               
-
+                for (int n = 0; n < unlockedStars; n++)
+                {
+                    imageArray[i].GetComponent<Image>().sprite = starAwake;
+                }
             }
-
-
+         
         }
 
     }
@@ -143,6 +150,7 @@ public class LevelSelect : MonoBehaviour
             
             LevelLocked();
         }
+
      }
 
     private void LevelLocked()
@@ -158,8 +166,7 @@ public class LevelSelect : MonoBehaviour
     {
         LevelLocked();
         updatePopUp();
-        levelIndex = setLevelNumber;
-        Debug.Log("Level open - levelnummer = " + setLevelNumber);
+        levelIndex = setLevelNumber; 
         PopUpPlay.gameObject.SetActive(isOn);
 
         isOn = !isOn;
@@ -170,7 +177,7 @@ public class LevelSelect : MonoBehaviour
 
     public void loadLevel()
     {
-        Debug.Log("Load levelnummer = " + setLevelNumber);
+        //Debug.Log("Load levelnummer = " + setLevelNumber);
         
         SceneManager.LoadScene(levelIndex);
     }
