@@ -20,6 +20,7 @@ public class GameState : MonoBehaviour
         ImportGameData();
         UpdateStarAmount();
         SetLastUnlockedLevel();
+        CheckAvailableLevels();
     }
 
     private void ImportLevelData()
@@ -112,5 +113,16 @@ public class GameState : MonoBehaviour
     public void SaveGame()
     {
         SaveSystem.SaveGameData(this);
+    }
+
+    public void CheckAvailableLevels()
+    {
+        foreach(LevelData levelData in levelDataArray)
+        {
+            if(levelData != null)
+            {
+                Debug.Log(levelData.GetStarsUnlocked());
+            }
+        }
     }
 }
