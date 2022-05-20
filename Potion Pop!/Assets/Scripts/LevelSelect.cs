@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
-    
+   // public GameState gameState; 
     public bool isOpen;
     [SerializeField] Image locker;
     [SerializeField] Sprite starAwake;
@@ -41,6 +42,7 @@ public class LevelSelect : MonoBehaviour
     private bool levelCompleted;
     private int scoreLimit = 20;
     private bool isOn;
+    private int levelIndex;
 
 
 
@@ -77,17 +79,21 @@ public class LevelSelect : MonoBehaviour
 
     public void setStarsAktive(Image[] imageArray)
     {
+       // int starsEarned = gameState.GetLevelStars(setLevelNumber);
 
-        for (int i = 0; i < imageArray.Length; i++)
+       for (int i = 0; i < imageArray.Length; i++)
         {
-            imageArray[i].gameObject.SetActive(isOpen);
+           imageArray[i].gameObject.SetActive(isOpen);
+
+
             if (score >= scoreLimit + (i * scoreLimit))
             {
                 imageArray[i].GetComponent<Image>().sprite = starAwake;
-                
+                imageArray[i].GetComponent<Image>().sprite = starAwake;
+
             }
-             
-          
+
+
         }
 
     }
@@ -96,7 +102,7 @@ public class LevelSelect : MonoBehaviour
     {
 
         uiScoreText.SetText(score.ToString());
-        uiLevelText.SetText( "Level ");
+        uiLevelText.SetText( "Level "+ setLevelNumber.ToString());
         time.text = setGameTime;
         if (score >= scoreLimit)
         {
@@ -117,11 +123,14 @@ public class LevelSelect : MonoBehaviour
         levelCompleted = true;
     }
 
-
+    public int getLevelNumber()
+    {
+        return levelIndex; 
+    }
 
     public void UpdateLevelImage()
     {
-  
+        levelIndex = setLevelNumber;
         if (isOpen)
         {
             LevelOpen();          
@@ -155,7 +164,10 @@ public class LevelSelect : MonoBehaviour
 
 
 
-
+    public void loadLevel()
+    {
+        SceneManager.LoadScene(levelIndex);
+    }
 
 
 

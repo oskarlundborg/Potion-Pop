@@ -4,12 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 public class LevelPopUp : MonoBehaviour
 {
     [SerializeField] GameObject popUp;
+    public GameObject level;
     [SerializeField] Image[] starsSleep;
     [SerializeField] Sprite starAwake;
     [SerializeField] Image[] boxIngredients;
+    
+
+    private LevelSelect levelSelect;
+    private LevelLoader levelLoader;
 
 
 
@@ -64,15 +70,8 @@ public class LevelPopUp : MonoBehaviour
       
     }
 
-    //void setActive(bool toogle)
-    //{
-    //    popUp.gameObject.SetActive(toogle);
-    //}
-
-
-
-
-
+  
+   
 
 
 
@@ -83,11 +82,8 @@ public class LevelPopUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
     }
+      
+
 }
