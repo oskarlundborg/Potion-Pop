@@ -9,9 +9,9 @@ public class GameState : MonoBehaviour
     private int totalAmountOfStars;
     private int lastUnlockedLevel;
 
-    [Header("Stars needed to unlock level 2-9")]
+    [Header("Stars needed to unlock level 1-9")]
     [SerializeField] private int[] levelStarGoals;
-    
+
 
 
     void Start()
@@ -19,13 +19,12 @@ public class GameState : MonoBehaviour
         ImportLevelData();
         ImportGameData();
         UpdateStarAmount();
-        UpdateLevelLocks();
         SetLastUnlockedLevel();
     }
 
     private void ImportLevelData()
     {
-        for(int i = 0; i < levelDataArray.Length; i++)
+        for (int i = 0; i < levelDataArray.Length; i++)
         {
             levelDataArray[i] = SaveSystem.LoadLevel(i + 1);
         }
@@ -44,11 +43,12 @@ public class GameState : MonoBehaviour
         totalAmountOfStars = gameData.GetTotalAmountOfStars(); //redundant 
     }
 
-    private int GetStarsFromLevels() 
+    private int GetStarsFromLevels()
     {
         int stars = 0;
-        foreach (LevelData levelData in levelDataArray) {
-            if (levelData != null) 
+        foreach (LevelData levelData in levelDataArray)
+        {
+            if (levelData != null)
             {
                 stars += levelData.GetStarsUnlocked();
             }
@@ -59,11 +59,11 @@ public class GameState : MonoBehaviour
     private void UpdateStarAmount()
     {
         totalAmountOfStars = GetStarsFromLevels();
-    } 
+    }
 
     private void SetLastUnlockedLevel()
     {
-        for(int i = 0; i < levelDataArray.Length; i++)
+        for (int i = 0; i < levelDataArray.Length; i++)
         {
             if (levelDataArray[i].GetIsUnlocked())
             {
@@ -73,22 +73,11 @@ public class GameState : MonoBehaviour
         }
     }
 
-    private void UpdateLevelLocks()
-    {
-        for(int i = 0; i < levelStarGoals.Length; i++)
-        {
-            if(totalAmountOfStars >= levelStarGoals[i])
-            {
-                levelDataArray[i + 1].UnlockLevel();
-            }
-        }
-    }
-
     public int GetLastUnlockedLevel()
     {
         return lastUnlockedLevel;
     }
-       
+
     public int GetTotalStars()
     {
         return totalAmountOfStars;
@@ -96,19 +85,30 @@ public class GameState : MonoBehaviour
 
     public bool IsLevelUnlocked(int levelNumber)
     {
-        return levelDataArray[levelNumber - 1].GetIsUnlocked();
+        if (totalAmountOfStars >= levelStarGoals[levelNumber - 1])
+        {
+            return true;
+        }
+        return false;
     }
 
-    public int GetLevelStars(int levelNumber) 
+    public int GetLevelStars(int levelNumber)
     {
-        return levelDataArray[levelNumber - 1].GetStarsUnlocked();
+        if (levelDataArray[levelNumber - 1] != null)
+        {
+            return levelDataArray[levelNumber - 1].GetStarsUnlocked();
+        }
+        return 0;
     }
-
     public int GetLevelHighScore(int levelNumber)
     {
-        return levelDataArray[levelNumber - 1].GetHighScore();
+        if (levelDataArray[levelNumber - 1] != null)
+        {
+            return levelDataArray[levelNumber - 1].GetHighScore();
+        }
+        return 0;
     }
-     
+
     public void SaveGame()
     {
         SaveSystem.SaveGameData(this);
