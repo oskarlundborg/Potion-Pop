@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class LevelSelect : MonoBehaviour
 {
-   // public GameState gameState; 
+   
     public bool isOpen;
     [SerializeField] GameState gameState;
     [SerializeField] Image locker;
@@ -59,21 +60,26 @@ public class LevelSelect : MonoBehaviour
         if (gameState.IsLevelUnlocked(setLevelNumber))
         {
             isOpen = true;
+            locker.gameObject.SetActive(!isOpen);
         }
-        UpdateLevelImage();
+        
+
         unlockedStars = gameState.GetLevelStars(setLevelNumber);
-        setStarsAktive(popUpStars);
-        setStarsAktive(stars);
+
+        StartCoroutine(updatePopUp());
+
     }
 
-    public void updatePopUp()
+    IEnumerator  updatePopUp()
     {
-        
+        yield return new WaitForSeconds(0.1f);
+
+        setStarsAktive(stars);
+        setStarsAktive(popUpStars);
         setPopUpValues();
         SetIngredients();
-        setStarsAktive(popUpStars);
-        setStarsAktive(stars);
        
+
     }
 
     void SetIngredients()
@@ -87,25 +93,30 @@ public class LevelSelect : MonoBehaviour
 
     public void setStarsAktive(Image[] imageArray)
     {
-       // int starsEarned = gameState.GetLevelStars(setLevelNumber);
 
-
+        unlockedStars = gameState.GetLevelStars(setLevelNumber);
         for (int i = 0; i < imageArray.Length; i++)
         {
-           imageArray[i].gameObject.SetActive(isOpen);
-           imageArray[i].GetComponent<Image>().sprite = starSleep;
-
-            if (unlockedStars != 0)
+            imageArray[i].gameObject.SetActive(isOpen);
+            if (i+1 <= unlockedStars)// 2
             {
-                for (int n = 0; n < unlockedStars; n++)
-                {
-                    imageArray[i].GetComponent<Image>().sprite = starAwake;
-                }
+                imageArray[i].GetComponent<Image>().sprite = starAwake;
             }
-         
+            else
+            {
+                imageArray[i].GetComponent<Image>().sprite = starSleep;
+            }
         }
+       
+        
+            //for (int n = 0; n < unlockedStars+1; n++)
+            //{
+            //    imageArray[n].GetComponent<Image>().sprite = starAwake;
+            //}
+        
 
     }
+
 
     private void setPopUpValues()
     {
@@ -140,33 +151,45 @@ public class LevelSelect : MonoBehaviour
 
     public void UpdateLevelImage()
     {
-        
-        if (isOpen)
-        {
-            LevelOpen();          
-        }
-        else
-        {
-            
-            LevelLocked();
-        }
-
-     }
-
-    private void LevelLocked()
-    {
         locker.gameObject.SetActive(!isOpen);
         setStarsAktive(stars);
+        setStarsAktive(popUpStars);
+
+        if (isOpen)
+        {
+            updatePopUp();
+            levelIndex = setLevelNumber;
+            PopUpPlay.gameObject.SetActive(true);
+
+            //isOn = !isOn;
+            //LevelOpen();          
+        }
+        //else
+        //{
+        //    LevelLocked();
+        //}
+
+
 
     }
 
+    public void LevelLocked()
+    {
+        locker.gameObject.SetActive(!isOpen);
+        setStarsAktive(stars);
+        setStarsAktive(popUpStars);
+    }
 
+    
 
     public void LevelOpen()
     {
         LevelLocked();
         updatePopUp();
-        levelIndex = setLevelNumber; 
+        levelIndex = setLevelNumber;
+
+        
+
         PopUpPlay.gameObject.SetActive(isOn);
 
         isOn = !isOn;
@@ -177,7 +200,6 @@ public class LevelSelect : MonoBehaviour
 
     public void loadLevel()
     {
-        //Debug.Log("Load levelnummer = " + setLevelNumber);
         
         SceneManager.LoadScene(levelIndex);
     }
