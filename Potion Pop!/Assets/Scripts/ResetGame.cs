@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class ResetGame : MonoBehaviour
 {
-    private bool popActive;
+    private bool popActive = true;
+    [SerializeField] private GameState gameState;
+    [SerializeField] private LevelLoader levelLoader;
 
     public GameObject resetButton;
 
     void Start()
     {
-        popUpState();
+        resetButton.gameObject.SetActive(false);
     }
 
-    public void popUpState()
+    public void PopUpState()
     {
+       
         resetButton.gameObject.SetActive(popActive);
         popActive = !popActive;
+
     }
+
+    public void ResetProgress()
+    {
+        //resetValues()
+        levelLoader.LoadMainMenu();
+
+    }
+
+   
 
 
 }
