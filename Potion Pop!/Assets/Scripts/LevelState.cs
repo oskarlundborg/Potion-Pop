@@ -35,6 +35,7 @@ public class LevelState : MonoBehaviour
     [SerializeField] private GameObject playIcon;
     [SerializeField] private GameObject pauseIcon;
     [SerializeField] private AnimalQueue AnimalQueue;
+    [SerializeField] private GameObject counterUI;
     [SerializeField] private float showPauseIconTime;
 
     public GameObject[] recipeIngredients;
@@ -170,7 +171,7 @@ public class LevelState : MonoBehaviour
             recipeCounter.GetComponent<RecipeCounter>().ResetCounter();
         }
         AnimalQueue.GetComponent<AnimalQueue>().TreatAnimals();
-
+       
     }
 
     private void UpdateTimer()
@@ -201,6 +202,7 @@ public class LevelState : MonoBehaviour
         }
         levelCompletePanel.SetActive(true);
         levelCompletePanel.GetComponent<LevelComplete>().ShowLevelProgression(starsUnlocked);
+        counterUI.SetActive(false);
     }
 
     private void UpdateScore()

@@ -23,13 +23,16 @@ public class Animal : MonoBehaviour
         StartCoroutine(LerpMovePosition(targetPos, 5));
     }
 
-    /*
-    IEnumerator CuredAnimationCoroutine(float time) {
-        float time = 0;
-        //animation happy animal
+    
+    IEnumerator CuredAnimationCoroutine(float timeForCured, float timeForHappy) {
+
+        //animation cured
+        yield return new WaitForSeconds(timeForCured);
+        // animal happy
+        yield return new WaitForSeconds(timeForHappy);
 
     }
-    */
+    
 
     public void MoveAnimal()
     {
