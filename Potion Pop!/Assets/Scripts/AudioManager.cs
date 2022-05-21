@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
     }
     
     void Start() {
+        /*
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         if (sceneName == "Nobi")
@@ -40,14 +41,16 @@ public class AudioManager : MonoBehaviour
         else if (sceneName == "Nobi_ljud2.0") {
             Play("SkogsområdeLevel2");
         }
+        */
+
     }
     // Update is called once per frame
-    public void Play(string name)
+    public void Play(int nr)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(sounds, sound => sound.nr == nr);
         if (s == null)
         {
-            Debug.LogWarning("Sound: " + name + " not found.");
+            Debug.LogWarning("Sound: " + nr + " not found.");
             return;
         }
         StartCoroutine(FadeIn());
