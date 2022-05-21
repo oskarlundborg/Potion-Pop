@@ -112,7 +112,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 73, y: 659}
+    uvTransform: {x: 13, y: 616}
   - name: Shape 7 copy 8
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -502,55 +502,13 @@ ScriptedImporter:
     spriteID: 421855904690fbc489d5ffa2f2152289
     layerID: 185
     mosaicPosition: {x: 252, y: 394}
-  - name: body_sitting
+  - name: FrontForwardLeg
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
-    layerID: 80
+    spriteID: 
+    layerID: 189
     mosaicPosition: {x: 0, y: 0}
-  - name: Bandage
-    spriteName: 
-    isGroup: 1
-    parentIndex: 12
-    spriteID: 00000000000000000000000000000000
-    layerID: 111
-    mosaicPosition: {x: 0, y: 0}
-  - name: Shape 19 copy 3
-    spriteName: Shape 19 copy 3
-    isGroup: 0
-    parentIndex: 13
-    spriteID: 42b8f61654ce0f34f9791097530e805d
-    layerID: 177
-    mosaicPosition: {x: 4, y: 761}
-  - name: BandAid
-    spriteName: 
-    isGroup: 1
-    parentIndex: 12
-    spriteID: 00000000000000000000000000000000
-    layerID: 120
-    mosaicPosition: {x: 0, y: 0}
-  - name: Shape 19 copy 3
-    spriteName: Shape 19 copy 3_1
-    isGroup: 0
-    parentIndex: 15
-    spriteID: 1cf59313381577543b44d93c944a160c
-    layerID: 176
-    mosaicPosition: {x: 145, y: 944}
-  - name: BackLeg
-    spriteName: 
-    isGroup: 1
-    parentIndex: 12
-    spriteID: 00000000000000000000000000000000
-    layerID: 170
-    mosaicPosition: {x: 0, y: 0}
-  - name: Shape 14
-    spriteName: Shape 14
-    isGroup: 0
-    parentIndex: 17
-    spriteID: 394454a3fe45198489bebd162e4b528a
-    layerID: 71
-    mosaicPosition: {x: 252, y: 4}
   - name: Shape 15
     spriteName: Shape 15
     isGroup: 0
@@ -558,27 +516,62 @@ ScriptedImporter:
     spriteID: 9c89f3bcc6ae8874c9caf3dc76406588
     layerID: 72
     mosaicPosition: {x: 168, y: 295}
-  - name: Shape 16
-    spriteName: Shape 16_1
-    isGroup: 0
-    parentIndex: 12
-    spriteID: 8b17a5065746e6e46967b7f0a4f50942
-    layerID: 175
-    mosaicPosition: {x: 4, y: 4}
-  - name: backleg
+  - name: Bandage
     spriteName: 
     isGroup: 1
     parentIndex: -1
     spriteID: 00000000000000000000000000000000
-    layerID: 172
+    layerID: 111
     mosaicPosition: {x: 0, y: 0}
-  - name: Shape 14 copy 2
-    spriteName: Shape 14 copy 2
+  - name: Shape 19 copy 3
+    spriteName: Shape 19 copy 3
     isGroup: 0
-    parentIndex: 21
-    spriteID: b4b610345a539ad47b82926e3068f52e
-    layerID: 82
-    mosaicPosition: {x: 252, y: 155}
+    parentIndex: 14
+    spriteID: 42b8f61654ce0f34f9791097530e805d
+    layerID: 177
+    mosaicPosition: {x: 4, y: 761}
+  - name: BandAid
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 120
+    mosaicPosition: {x: 0, y: 0}
+  - name: Shape 19 copy 3
+    spriteName: Shape 19 copy 3_1
+    isGroup: 0
+    parentIndex: 16
+    spriteID: 1cf59313381577543b44d93c944a160c
+    layerID: 176
+    mosaicPosition: {x: 145, y: 944}
+  - name: BackLeg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 170
+    mosaicPosition: {x: 0, y: 0}
+  - name: Shape 14
+    spriteName: Shape 14
+    isGroup: 0
+    parentIndex: 18
+    spriteID: 394454a3fe45198489bebd162e4b528a
+    layerID: 71
+    mosaicPosition: {x: 252, y: 4}
+  - name: body_sitting
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 80
+    mosaicPosition: {x: 0, y: 0}
+  - name: Shape 16
+    spriteName: Shape 16_1
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 8b17a5065746e6e46967b7f0a4f50942
+    layerID: 175
+    mosaicPosition: {x: 4, y: 4}
   - name: Tail
     spriteName: 
     isGroup: 1
@@ -589,10 +582,24 @@ ScriptedImporter:
   - name: Shape 17 copy
     spriteName: Shape 17 copy
     isGroup: 0
-    parentIndex: 23
+    parentIndex: 22
     spriteID: 5cd01324a9e7ed942b7f6831d72677b6
     layerID: 162
     mosaicPosition: {x: 4, y: 295}
+  - name: backleg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 172
+    mosaicPosition: {x: 0, y: 0}
+  - name: Shape 14 copy 2
+    spriteName: Shape 14 copy 2
+    isGroup: 0
+    parentIndex: 24
+    spriteID: b4b610345a539ad47b82926e3068f52e
+    layerID: 82
+    mosaicPosition: {x: 252, y: 155}
   - name: BackFrontLeg
     spriteName: 
     isGroup: 1
@@ -603,7 +610,7 @@ ScriptedImporter:
   - name: Shape 15 copy
     spriteName: Shape 15 copy
     isGroup: 0
-    parentIndex: 25
+    parentIndex: 26
     spriteID: 338024a70b51e80459a4642e23143d9b
     layerID: 73
     mosaicPosition: {x: 145, y: 761}
