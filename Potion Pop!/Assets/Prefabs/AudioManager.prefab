@@ -44,63 +44,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Meny1
-    clip: {fileID: 8300000, guid: 1f4a7ef4ea7d80c40a1d7802d53ddf5c, type: 3}
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Meny3
-    clip: {fileID: 8300000, guid: 11825d2cb7f75804c92aa2d55e2819d7, type: 3}
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Meny2
-    clip: {fileID: 8300000, guid: 4f72fc6e3691cb8409207f5352348198, type: 3}
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: "Skogsomr\xE5deLevel1"
-    clip: {fileID: 8300000, guid: ff121bd4c2362e643abe6a585897f7df, type: 3}
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: "Skogsomr\xE5deLevel2"
-    clip: {fileID: 8300000, guid: 5999e418b2cde7948b35a262b51d3225, type: 3}
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: "Skogsomr\xE5deLevel3"
-    clip: {fileID: 8300000, guid: 074c045eff110864f8bd0bd28363f64e, type: 3}
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: "Vattenfallsomr\xE5deLevel1"
-    clip: {fileID: 8300000, guid: 2818a6a0125782741937d650a5f47293, type: 3}
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: "Vattenfallsomr\xE5deLevel2"
-    clip: {fileID: 8300000, guid: 650c9b1b81c8dd8479369d769a509d61, type: 3}
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: "Vattenfallsomr\xE5deLevel3"
-    clip: {fileID: 8300000, guid: 4df418468cfc6a14f936c5c7ccc86aa0, type: 3}
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: "\xC4ngsomr\xE5deLevel1"
+  - nr: 1
     clip: {fileID: 8300000, guid: 1a7e89eed0e252943829df2b7fda898d, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
-  - name: "\xC4ngsomr\xE5deLevel2"
+  - nr: 2
     clip: {fileID: 8300000, guid: 6b62d8f8db9c28c4a96c4c91167f17fb, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
-  - name: "\xC4ngsomr\xE5deLevel3"
+  - nr: 3
     clip: {fileID: 8300000, guid: d8c4530fb12ea604390e0f284052b1e3, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - nr: 4
+    clip: {fileID: 8300000, guid: ff121bd4c2362e643abe6a585897f7df, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - nr: 5
+    clip: {fileID: 8300000, guid: 5999e418b2cde7948b35a262b51d3225, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - nr: 6
+    clip: {fileID: 8300000, guid: 074c045eff110864f8bd0bd28363f64e, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - nr: 7
+    clip: {fileID: 8300000, guid: 2818a6a0125782741937d650a5f47293, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - nr: 8
+    clip: {fileID: 8300000, guid: 650c9b1b81c8dd8479369d769a509d61, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - nr: 9
+    clip: {fileID: 8300000, guid: 4df418468cfc6a14f936c5c7ccc86aa0, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - nr: 10
+    clip: {fileID: 8300000, guid: 1f4a7ef4ea7d80c40a1d7802d53ddf5c, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - nr: 11
+    clip: {fileID: 8300000, guid: 4f72fc6e3691cb8409207f5352348198, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - nr: 12
+    clip: {fileID: 8300000, guid: 11825d2cb7f75804c92aa2d55e2819d7, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
