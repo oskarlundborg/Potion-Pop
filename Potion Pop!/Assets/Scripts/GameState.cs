@@ -18,7 +18,6 @@ public class GameState : MonoBehaviour
     {
         ImportLevelData();
         ImportGameData();
-        //StartCoroutine(UpdateStarAmount());
         SetLastUnlockedLevel();
         GetStarsFromLevels();
     }
@@ -53,14 +52,6 @@ public class GameState : MonoBehaviour
                 totalAmountOfStars += levelDataArray[i].GetStarsUnlocked();
             }
         }
-    }
-
-  
-
-     IEnumerator UpdateStarAmount()
-    {
-        yield return new WaitForSeconds(0.1f);
-        //totalAmountOfStars = GetStarsFromLevels();
     }
 
     private void SetLastUnlockedLevel()
