@@ -109,7 +109,7 @@ public class Ingredient : MonoBehaviour
         gameObject.GetComponent<ParticleSystem>().Stop();
         GetComponent<CircleCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 0.3f); //temporärt innan animation finns
-        newFallingSpeed = 1;
+        newFallingSpeed = 0.3f;
         animator.SetTrigger("Die");
     }
 
