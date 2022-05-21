@@ -55,19 +55,12 @@ public class LevelSelect : MonoBehaviour
 
     public void Start()
     {
-        
-        
-        if (gameState.IsLevelUnlocked(setLevelNumber))
-        {
-            isOpen = true;
-            locker.gameObject.SetActive(!isOpen);
-        }
-        
 
+
+        StartCoroutine(UnlockLevel());
         unlockedStars = gameState.GetLevelStars(setLevelNumber);
-
         StartCoroutine(updatePopUp());
-
+        
     }
 
     IEnumerator  updatePopUp()
@@ -80,6 +73,16 @@ public class LevelSelect : MonoBehaviour
         SetIngredients();
        
 
+    }
+
+    IEnumerator UnlockLevel()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (gameState.IsLevelUnlocked(setLevelNumber))
+        {
+            isOpen = true;
+            locker.gameObject.SetActive(!isOpen);
+        }
     }
 
     void SetIngredients()
