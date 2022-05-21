@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientName: pinecone
-  minSpeed: 50
-  maxSpeed: 50
+  minSpeed: 30
+  maxSpeed: 70
   rotateSpeed: 0
   newRotateSpeed: 0
   fallingSpeed: 3
