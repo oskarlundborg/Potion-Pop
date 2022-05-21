@@ -7,6 +7,9 @@ public class RecipeCounter : MonoBehaviour
 {
     private bool isFull;
     private int currentIngredientAmount;
+    private float sizeOfParticlesModifier;
+    [SerializeField] private float startSizeOfParticles;
+    [SerializeField] private float targetSizeOfParticles;
     [SerializeField] private Transform startPos;
     [SerializeField] private Transform endPos;
     [SerializeField] private float distanceLength;
@@ -16,18 +19,24 @@ public class RecipeCounter : MonoBehaviour
     [SerializeField] private Text valueText;
     [SerializeField] private Image image;
     [SerializeField] private RawImage imageMask;
+    [SerializeField] private UIParticleSystem uiParticles;
 
     private void Start()
     {
         SetUpCounter();
         distanceLength = Vector3.Distance(startPos.position, endPos.position);
         distanceCovered = distanceLength/currentIngredientAmount;
+        uiParticles.Size = startSizeOfParticles;
+        uiParticles.transform.localScale = new Vector3(0f, 0f);
     }
 
     public void AddIngredient() {
+        
         if (currentIngredientAmount < ingredientGoal) {
             currentIngredientAmount++;
             UpdateProgress();
+            UpdateParticleSize();
+            uiParticles.transform.localScale = new Vector3(0.3f, 0.3f);
         }
         if (currentIngredientAmount == ingredientGoal) {
             isFull = true;
@@ -59,6 +68,8 @@ public class RecipeCounter : MonoBehaviour
         UpdateProgress();
         distanceCovered = 0;
         isFull = false;
+        uiParticles.Size = 0f;
+        uiParticles.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
     public bool IsFull() {
@@ -71,6 +82,13 @@ public class RecipeCounter : MonoBehaviour
         valueText.text = currentIngredientAmount + "/" + ingredientGoal;
         float fractionOfDistance = distanceCovered / distanceLength;
         imageMask.transform.position = Vector3.Lerp(startPos.position, endPos.position, fractionOfDistance);
+    }
+
+    private void UpdateParticleSize() 
+    {
+        sizeOfParticlesModifier = targetSizeOfParticles / ingredientGoal * currentIngredientAmount;
+        float fractionOfSize = sizeOfParticlesModifier / targetSizeOfParticles;
+        uiParticles.Size = Mathf.Lerp(startSizeOfParticles, targetSizeOfParticles, fractionOfSize);
     }
 }
 
