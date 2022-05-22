@@ -10,6 +10,7 @@ public class LevelSelect : MonoBehaviour
 {
    
     public bool isOpen;
+    [SerializeField] private AudioSource playSound;
     [SerializeField] GameState gameState;
     [SerializeField] Image locker;
     [SerializeField] Sprite starAwake;
@@ -37,14 +38,16 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] int setLevelNumber;
     [SerializeField] Sprite[] setIngredients;
 
+
     private int score; 
     private int unlockedStars;
- 
 
+    
 
 
     public void Start()
     {
+        levelButton.interactable = false;
         StartCoroutine(UnlockLevel());
         unlockedStars = gameState.GetLevelStars(setLevelNumber);
         StartCoroutine(updatePopUp());
@@ -67,9 +70,11 @@ public class LevelSelect : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (gameState.IsLevelUnlocked(setLevelNumber))
         {
+            levelButton.interactable = true;
             isOpen = true;
             locker.gameObject.SetActive(!isOpen);
         }
+ 
     }
 
     void SetIngredients()
@@ -120,7 +125,9 @@ public class LevelSelect : MonoBehaviour
         {
             StartCoroutine(updatePopUp());         
             PopUpPlay.gameObject.SetActive(true);
-               
+            playSound.Play();
+            Handheld.Vibrate();
+
         }
     }
 

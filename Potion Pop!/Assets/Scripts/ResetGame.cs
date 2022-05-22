@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ResetGame : MonoBehaviour
 {
+
     private bool popActive = true;
     [SerializeField] private GameState gameState;
     [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private AudioSource playSound;
 
     public GameObject resetButton;
 
@@ -17,7 +19,11 @@ public class ResetGame : MonoBehaviour
 
     public void PopUpState()
     {
-       
+        
+        if (popActive)
+        {
+            playSound.Play();
+        }
         resetButton.gameObject.SetActive(popActive);
         popActive = !popActive;
 
@@ -26,6 +32,7 @@ public class ResetGame : MonoBehaviour
     public void ResetProgress()
     {
         //resetValues()
+        playSound.Play();
         levelLoader.LoadMainMenu();
 
     }
