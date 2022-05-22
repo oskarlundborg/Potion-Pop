@@ -36,42 +36,29 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] int setGoal; 
     [SerializeField] int setLevelNumber;
     [SerializeField] Sprite[] setIngredients;
-    [SerializeField] int score;
 
-
-
- 
-   
-    private bool levelCompleted;
-    private int scoreLimit = 20;
-    private bool isOn;
-    private static int levelIndex;
+    private int score; 
     private int unlockedStars;
-
-
-
+ 
 
 
 
     public void Start()
     {
-
-
         StartCoroutine(UnlockLevel());
         unlockedStars = gameState.GetLevelStars(setLevelNumber);
         StartCoroutine(updatePopUp());
-        
+               
     }
 
     IEnumerator  updatePopUp()
     {
         yield return new WaitForSeconds(0.1f);
-
-        setStarsAktive(stars);
-        setStarsAktive(popUpStars);
-        setPopUpValues();
-        SetIngredients();
-       
+        SetStarsAktive(stars);
+        SetStarsAktive(popUpStars);
+        SetPopUpValues();
+        SetIngredients();     
+        score = gameState.GetLevelHighScore(setLevelNumber);
 
     }
 
@@ -93,15 +80,13 @@ public class LevelSelect : MonoBehaviour
         }
     }
 
-
-    public void setStarsAktive(Image[] imageArray)
+    public void SetStarsAktive(Image[] imageArray)
     {
-
         unlockedStars = gameState.GetLevelStars(setLevelNumber);
         for (int i = 0; i < imageArray.Length; i++)
         {
             imageArray[i].gameObject.SetActive(isOpen);
-            if (i+1 <= unlockedStars)// 2
+            if (i+1 <= unlockedStars)
             {
                 imageArray[i].GetComponent<Image>().sprite = starAwake;
             }
@@ -110,101 +95,38 @@ public class LevelSelect : MonoBehaviour
                 imageArray[i].GetComponent<Image>().sprite = starSleep;
             }
         }
-       
-        
-            //for (int n = 0; n < unlockedStars+1; n++)
-            //{
-            //    imageArray[n].GetComponent<Image>().sprite = starAwake;
-            //}
-        
-
     }
 
-
-    private void setPopUpValues()
+    public void SetPopUpValues()
     {
-      
-        
+        uiButtonText.SetText("play");
+        uiLevelText.SetText("Level " + setLevelNumber.ToString());
         uiScoreText.SetText(score.ToString());
-        uiLevelText.SetText( "Level "+ setLevelNumber.ToString());
-        time.text = setGameTime;
-        if (score >= scoreLimit)
-        {
-            setScoreBoard();          
-        }
-        else
-        {
-            goal.text = "x" + setGoal.ToString();
-            uiButtonText.SetText("PLAY");
-            
-        }
+        goal.text = "x" + setGoal.ToString();   
+        time.text = setGameTime;      
     }
 
-    private void setScoreBoard()
+    public int GetLevelNumber()
     {
-        uiScoreText.SetText(score.ToString()+"000");
-        uiButtonText.SetText("replay");
-        levelCompleted = true;
-    }
-
-    public int getLevelNumber()
-    {
-        return levelIndex; 
+        return setLevelNumber; 
     }
 
     public void UpdateLevelImage()
-    {
+    {     
         locker.gameObject.SetActive(!isOpen);
-        setStarsAktive(stars);
-        setStarsAktive(popUpStars);
-
+        SetStarsAktive(stars);
+        SetStarsAktive(popUpStars);
         if (isOpen)
         {
-            updatePopUp();
-            levelIndex = setLevelNumber;
+            StartCoroutine(updatePopUp());         
             PopUpPlay.gameObject.SetActive(true);
-
-            //isOn = !isOn;
-            //LevelOpen();          
+               
         }
-        //else
-        //{
-        //    LevelLocked();
-        //}
-
-
-
     }
-
-    public void LevelLocked()
-    {
-        locker.gameObject.SetActive(!isOpen);
-        setStarsAktive(stars);
-        setStarsAktive(popUpStars);
-    }
-
-    
-
-    public void LevelOpen()
-    {
-        LevelLocked();
-        updatePopUp();
-        levelIndex = setLevelNumber;
-
-        
-
-        PopUpPlay.gameObject.SetActive(isOn);
-
-        isOn = !isOn;
-
-    }
-
-
 
     public void loadLevel()
     {
-        
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(setLevelNumber);
     }
 
 
