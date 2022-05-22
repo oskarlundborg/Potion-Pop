@@ -10,7 +10,6 @@ public class LevelSelect : MonoBehaviour
 {
    
     public bool isOpen;
-    [SerializeField] private AudioSource playSound;
     [SerializeField] GameState gameState;
     [SerializeField] Image locker;
     [SerializeField] Sprite starAwake;
@@ -37,31 +36,42 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] int setGoal; 
     [SerializeField] int setLevelNumber;
     [SerializeField] Sprite[] setIngredients;
+    [SerializeField] int score;
 
 
-    private int score; 
+
+ 
+   
+    private bool levelCompleted;
+    private int scoreLimit = 20;
+    private bool isOn;
+    private static int levelIndex;
     private int unlockedStars;
 
-    
+
+
+
 
 
     public void Start()
     {
-        levelButton.interactable = false;
+
+
         StartCoroutine(UnlockLevel());
         unlockedStars = gameState.GetLevelStars(setLevelNumber);
         StartCoroutine(updatePopUp());
-               
+        
     }
 
     IEnumerator  updatePopUp()
     {
         yield return new WaitForSeconds(0.1f);
-        SetStarsAktive(stars);
-        SetStarsAktive(popUpStars);
-        SetPopUpValues();
-        SetIngredients();     
-        score = gameState.GetLevelHighScore(setLevelNumber);
+
+        setStarsAktive(stars);
+        setStarsAktive(popUpStars);
+        setPopUpValues();
+        SetIngredients();
+       
 
     }
 
@@ -70,11 +80,9 @@ public class LevelSelect : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (gameState.IsLevelUnlocked(setLevelNumber))
         {
-            levelButton.interactable = true;
             isOpen = true;
             locker.gameObject.SetActive(!isOpen);
         }
- 
     }
 
     void SetIngredients()
@@ -85,13 +93,15 @@ public class LevelSelect : MonoBehaviour
         }
     }
 
-    public void SetStarsAktive(Image[] imageArray)
+
+    public void setStarsAktive(Image[] imageArray)
     {
+
         unlockedStars = gameState.GetLevelStars(setLevelNumber);
         for (int i = 0; i < imageArray.Length; i++)
         {
             imageArray[i].gameObject.SetActive(isOpen);
-            if (i+1 <= unlockedStars)
+            if (i+1 <= unlockedStars)// 2
             {
                 imageArray[i].GetComponent<Image>().sprite = starAwake;
             }
@@ -100,40 +110,101 @@ public class LevelSelect : MonoBehaviour
                 imageArray[i].GetComponent<Image>().sprite = starSleep;
             }
         }
+       
+        
+            //for (int n = 0; n < unlockedStars+1; n++)
+            //{
+            //    imageArray[n].GetComponent<Image>().sprite = starAwake;
+            //}
+        
+
     }
 
-    public void SetPopUpValues()
+
+    private void setPopUpValues()
     {
-        uiButtonText.SetText("play");
-        uiLevelText.SetText("Level " + setLevelNumber.ToString());
+      
+        
         uiScoreText.SetText(score.ToString());
-        goal.text = "x" + setGoal.ToString();   
-        time.text = setGameTime;      
-    }
-
-    public int GetLevelNumber()
-    {
-        return setLevelNumber; 
-    }
-
-    public void UpdateLevelImage()
-    {     
-        locker.gameObject.SetActive(!isOpen);
-        SetStarsAktive(stars);
-        SetStarsAktive(popUpStars);
-        if (isOpen)
+        uiLevelText.SetText( "Level "+ setLevelNumber.ToString());
+        time.text = setGameTime;
+        if (score >= scoreLimit)
         {
-            StartCoroutine(updatePopUp());         
-            PopUpPlay.gameObject.SetActive(true);
-            playSound.Play();
-            Handheld.Vibrate();
-
+            setScoreBoard();          
+        }
+        else
+        {
+            goal.text = "x" + setGoal.ToString();
+            uiButtonText.SetText("PLAY");
+            
         }
     }
 
+    private void setScoreBoard()
+    {
+        uiScoreText.SetText(score.ToString()+"000");
+        uiButtonText.SetText("replay");
+        levelCompleted = true;
+    }
+
+    public int getLevelNumber()
+    {
+        return levelIndex; 
+    }
+
+    public void UpdateLevelImage()
+    {
+        locker.gameObject.SetActive(!isOpen);
+        setStarsAktive(stars);
+        setStarsAktive(popUpStars);
+
+        if (isOpen)
+        {
+            updatePopUp();
+            levelIndex = setLevelNumber;
+            PopUpPlay.gameObject.SetActive(true);
+
+            //isOn = !isOn;
+            //LevelOpen();          
+        }
+        //else
+        //{
+        //    LevelLocked();
+        //}
+
+
+
+    }
+
+    public void LevelLocked()
+    {
+        locker.gameObject.SetActive(!isOpen);
+        setStarsAktive(stars);
+        setStarsAktive(popUpStars);
+    }
+
+    
+
+    public void LevelOpen()
+    {
+        LevelLocked();
+        updatePopUp();
+        levelIndex = setLevelNumber;
+
+        
+
+        PopUpPlay.gameObject.SetActive(isOn);
+
+        isOn = !isOn;
+
+    }
+
+
+
     public void loadLevel()
     {
-        SceneManager.LoadScene(setLevelNumber);
+        
+        SceneManager.LoadScene(levelIndex);
     }
 
 
