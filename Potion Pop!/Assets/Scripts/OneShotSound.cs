@@ -8,6 +8,11 @@ public class OneShotSound : MonoBehaviour
     public AudioClip iceAudioClip;
     public AudioClip magnetAudioClip;
 
+    public AudioClip healthyAudioClip;
+    public AudioClip sickAudioClip;
+    public AudioClip walkingAudioClip;
+
+
 
     public AudioSource audioSource;
 
@@ -38,6 +43,25 @@ public class OneShotSound : MonoBehaviour
             }
 
         }
+
+    }
+
+
+    public void HealthySound()
+    {
+       audioSource.PlayOneShot(healthyAudioClip);
+
+    }
+
+    public void SickSound()
+    {
+        audioSource.PlayOneShot(sickAudioClip);
+
+    }
+
+    public void WalkingSound()
+    {
+        audioSource.PlayOneShot(walkingAudioClip);
 
     }
 }
