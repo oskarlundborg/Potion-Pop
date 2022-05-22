@@ -8,10 +8,10 @@ public class MenuPanel : MonoBehaviour
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private GameObject menuPopup;
 
-    // Start is called before the first frame update
+ 
     void Start()
     {
-        menuPopup.gameObject.SetActive(false);
+        ClosePopup();
     }
 
     public void OpenPopup()
