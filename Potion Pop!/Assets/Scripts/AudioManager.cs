@@ -8,8 +8,8 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     public static AudioManager instance;
-    [SerializeField] private float delayFadeIn = 20f;
-    [SerializeField] private float delayFadeOut = 1f;
+    [SerializeField] private float delayFadeIn = 2f;
+    [SerializeField] private float delayFadeOut = 2f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -55,6 +55,18 @@ public class AudioManager : MonoBehaviour
         }
         StartCoroutine(FadeIn());
         s.source.Play();
+    }
+
+    public void Stop(int nr)
+    {
+        Sound s = Array.Find(sounds, sound => sound.nr == nr);
+        if(s == null)
+        {
+            Debug.LogWarning("Sound: " + nr + " not found.");
+            return;
+        }
+        StartCoroutine(FadeOut());
+        s.source.Stop();
     }
   
     public IEnumerator FadeIn()
