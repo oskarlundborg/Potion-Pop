@@ -16,8 +16,20 @@ public class LevelState : MonoBehaviour
     //ska bli private bool isLevelRunning;
     private bool isLevelStarted;
 
+    //Özge Stuff
+    private int wholeSeconds;
+    private bool timerStarted = false;
+    public AudioSource audioSource;
+    public AudioClip timeIsRunningOut;
+
+    public float colorChangeSpeed;
+    public Color lerpColor = Color.red;
+    public GameObject particle; 
+
+
+
     // vilka djur som ska räddas och hur många!!!
-    
+
     // mål för att få stjärnor
     [Header("2 stars = 1.5x, 3 stars = 2x")]
     [SerializeField] private int oneStarGoal;
@@ -38,6 +50,7 @@ public class LevelState : MonoBehaviour
     [SerializeField] private GameObject counterUI;
     [SerializeField] private float showPauseIconTime;
 
+
     public GameObject[] recipeIngredients;
     public GameObject[] ingredientsToSpawn;
     public GameObject[] debuffs;
@@ -53,6 +66,8 @@ public class LevelState : MonoBehaviour
     {
         LoadLevelState();
         SetUpTimer();
+        particle.SetActive(false);
+
     }
 
     public void StartGame()
@@ -95,9 +110,10 @@ public class LevelState : MonoBehaviour
         timeLeft = maxTime;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdateTimer();
+
     }
 
     public bool GetLevelStarted()
@@ -181,14 +197,49 @@ public class LevelState : MonoBehaviour
             if (timeLeft > 0)
             {
                 timeLeft -= Time.deltaTime;
+                wholeSeconds =(int) timeLeft % 60; 
                 countdownBar.GetComponent<Image>().fillAmount = timeLeft / maxTime;
+                TimedSoundAndParticles();
             }
+           
             else
             {
                 LevelComplete();
             }
         }
     }
+
+    private void TimedSoundAndParticles()
+    {
+        if (wholeSeconds == 10 && !timerStarted)
+        {
+            StartCoroutine(SoundEverySecond());
+            timerStarted = true;
+        }
+        if (wholeSeconds <= 10)
+        {
+            lerpColor = Color.Lerp(Color.red, Color.blue, Mathf.PingPong(Time.time*colorChangeSpeed, 1));
+            countdownBar.GetComponent<Image>().color = lerpColor;
+            particle.SetActive(true);
+
+
+        }
+
+
+    }
+
+    //specifikt ljud som spelas upp under de sista 10 ish sekunder
+
+    private IEnumerator SoundEverySecond()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(1);
+            audioSource.PlayOneShot(timeIsRunningOut);
+
+        }
+    }
+
 
     private void LevelComplete()
     {
