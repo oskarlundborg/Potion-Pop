@@ -221,11 +221,7 @@ public class LevelState : MonoBehaviour
             lerpColor = Color.Lerp(Color.red, Color.blue, Mathf.PingPong(Time.time*colorChangeSpeed, 1));
             countdownBar.GetComponent<Image>().color = lerpColor;
             particle.SetActive(true);
-
-
         }
-
-
     }
 
     //specifikt ljud som spelas upp under de sista 10 ish sekunder
