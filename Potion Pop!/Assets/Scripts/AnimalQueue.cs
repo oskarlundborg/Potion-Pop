@@ -11,10 +11,15 @@ public class AnimalQueue : MonoBehaviour
     [SerializeField] private float waitTime = 1f;
 
 
-
+    private void Start()
+    {
+        animalsToSaveArray[0].GetComponent<Animal>().SetIsFirstInQueueTrue();
+       // animalsToSaveArray[0].GetComponent<Animal>().CheckIfIsFirst();
+        Debug.Log("first in line = " + animalsToSaveArray[0]);
+    }
 
     //Djuren står uppradade. Det främsta djuret är det första djuret som ska räddas. Animationen på alla djur är att de är sjuka
-   
+
     public void TreatAnimals()
     {
         StartCoroutine(SaveAnimalCoroutine(waitTime));
@@ -31,6 +36,7 @@ public class AnimalQueue : MonoBehaviour
     private void CureAnimal()
     {
         animalsToSaveArray[0].GetComponent<Animal>().CureAnimal();
+        
         for (int i = 1; i < animalsToSaveArray.Length; i++) {
             animalsToSaveArray[i - 1] = animalsToSaveArray[i];
         }
@@ -39,6 +45,7 @@ public class AnimalQueue : MonoBehaviour
                 animalsToSaveArray[i] = null;
             }
         }
+        animalsToSaveArray[0].GetComponent<Animal>().SetIsFirstInQueueTrue();
     }
 
     IEnumerator SaveAnimalCoroutine(float timeToWait) {
