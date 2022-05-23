@@ -23,25 +23,6 @@ public class LevelPopUp : MonoBehaviour
     private int score = 0;
 
 
-   //public LevelPopUp(int levelnumber, string playTime, string levelGoal, Sprite [] ingredients )
-   // {
-   //     leveltxt.text = "Level " + levelnumber;
-   //     time.text = playTime;
-   //     goal.text = levelGoal;
-   //     setIngredients(ingredients);
-   // }
-
-    
-    //public void SetPopUp(int levelnumber, string playTime, string levelGoal, Sprite[] ingredients)
-    //{
-    //    levelTxt.text = "Level " + levelnumber;
-    //    time.text = playTime;
-    //    goal.text = levelGoal;
-    //    setIngredients(ingredients);
-    //    setStarsAktive();
-    //    print("set up");
-
-    //}
 
     void setIngredients(Sprite[] ingredients)
     {

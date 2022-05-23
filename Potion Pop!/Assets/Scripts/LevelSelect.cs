@@ -10,11 +10,8 @@ public class LevelSelect : MonoBehaviour
 {
    
     public bool isOpen;
-<<<<<<< Updated upstream
-=======
 
   
->>>>>>> Stashed changes
     [SerializeField] GameState gameState;
     [SerializeField] Image locker;
     [SerializeField] Sprite starAwake;
@@ -46,13 +43,7 @@ public class LevelSelect : MonoBehaviour
     private LevelLoader levelLoader;
 
 
-
- 
-   
-    private bool levelCompleted;
-    private int scoreLimit = 20;
-    private bool isOn;
-    private static int levelIndex;
+    private int score; 
     private int unlockedStars;
 
 
@@ -62,10 +53,6 @@ public class LevelSelect : MonoBehaviour
 
     public void Start()
     {
-<<<<<<< Updated upstream
-
-
-=======
         levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
         levelButton.interactable = false;
 >>>>>>> Stashed changes
@@ -175,11 +162,8 @@ public class LevelSelect : MonoBehaviour
             updatePopUp();
             levelIndex = setLevelNumber;
             PopUpPlay.gameObject.SetActive(true);
-<<<<<<< Updated upstream
-=======
            
            
->>>>>>> Stashed changes
 
             //isOn = !isOn;
             //LevelOpen();          
@@ -220,16 +204,6 @@ public class LevelSelect : MonoBehaviour
 
     public void loadLevel()
     {
-<<<<<<< Updated upstream
-        
-        SceneManager.LoadScene(levelIndex);
-    }
-
-
-
-
-=======
->>>>>>> Stashed changes
 
         levelLoader.LoadSpecificLevel(setLevelNumber);
     }

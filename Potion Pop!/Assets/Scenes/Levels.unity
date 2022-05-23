@@ -852,8 +852,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< Updated upstream
-=======
       - m_Target: {fileID: 1860459963}
         m_TargetAssemblyTypeName: MenuPanel, Assembly-CSharp
         m_MethodName: ButtonPressed
@@ -1986,8 +1984,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-<<<<<<< Updated upstream
-=======
       - m_Target: {fileID: 1860459963}
         m_TargetAssemblyTypeName: MenuPanel, Assembly-CSharp
         m_MethodName: ButtonPressed
@@ -2306,8 +2302,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< Updated upstream
-=======
       - m_Target: {fileID: 1860459963}
         m_TargetAssemblyTypeName: MenuPanel, Assembly-CSharp
         m_MethodName: GoToMain
@@ -5691,8 +5685,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< Updated upstream
-=======
       - m_Target: {fileID: 1860459963}
         m_TargetAssemblyTypeName: MenuPanel, Assembly-CSharp
         m_MethodName: ButtonPressed
@@ -5717,7 +5709,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> Stashed changes
 --- !u!114 &974622110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8486,15 +8477,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 701323007}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-=======
       - m_Target: {fileID: 1860459963}
         m_TargetAssemblyTypeName: MenuPanel, Assembly-CSharp
         m_MethodName: ClosePopup
@@ -8502,7 +8484,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 701323007}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
->>>>>>> Stashed changes
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9380,7 +9361,6 @@ GameObject:
 <<<<<<< Updated upstream
 =======
   - component: {fileID: 1872046701}
->>>>>>> Stashed changes
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -9448,8 +9428,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872046697}
   m_CullTransparentMesh: 1
-<<<<<<< Updated upstream
-=======
 --- !u!114 &1872046701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9518,7 +9496,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> Stashed changes
 --- !u!1 &1876598762
 GameObject:
   m_ObjectHideFlags: 0
@@ -10425,17 +10402,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1860459963}
         m_TargetAssemblyTypeName: MenuPanel, Assembly-CSharp
         m_MethodName: ClosePopup
-<<<<<<< Updated upstream
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-=======
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1566989106}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
->>>>>>> Stashed changes
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
