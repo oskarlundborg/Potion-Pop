@@ -49,11 +49,9 @@ public class LevelLoader : MonoBehaviour
 
         transition.SetTrigger("Start");
 
-        audioManager.Stop(SceneManager.GetActiveScene().buildIndex);
+        audioManager.FadeTrack(SceneManager.GetActiveScene().buildIndex, levelIndex);
 
         yield return new WaitForSeconds(transitionTime);
-
-        audioManager.Play(levelIndex);
 
         SceneManager.LoadScene(levelIndex);
     }

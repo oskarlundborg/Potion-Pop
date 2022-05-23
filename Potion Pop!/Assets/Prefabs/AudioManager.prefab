@@ -104,5 +104,3 @@ MonoBehaviour:
     volume: 1
     loop: 1
     source: {fileID: 0}
-  delayFadeIn: 20
-  delayFadeOut: 1
