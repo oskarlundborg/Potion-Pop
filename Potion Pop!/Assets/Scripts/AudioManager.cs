@@ -8,8 +8,6 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     public static AudioManager instance;
-    [SerializeField] private float delayFadeIn = 2f;
-    [SerializeField] private float delayFadeOut = 2f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,69 +27,40 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
     }
-    
-    void Start() {
-        /*
-        Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
-        if (sceneName == "Nobi")
+
+    IEnumerator FadeTrackCoroutine(int currentSong, int nextSong)
+    {
+        float timeToFade = 1.5f;
+        float timeElapsed = 0f;
+        Sound track02 = Array.Find(sounds, sounds => sounds.nr == nextSong);
+        Sound track01 = Array.Find(sounds, sounds => sounds.nr == currentSong);
+        if (track01!= null)
         {
-            Play("SkogsområdeLevel1");
+            track02.source.Play();
+            while (timeElapsed < timeToFade)
+            {
+                track02.source.volume = Mathf.Lerp(0, 1f, timeElapsed / timeToFade);
+                track01.source.volume = Mathf.Lerp(1f, 0, timeElapsed / timeToFade);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+            track01.source.Stop();
         }
-        else if (sceneName == "Nobi_ljud2.0") {
-            Play("SkogsområdeLevel2");
+        else { 
+            track02.source.Play();
+            while (timeElapsed < timeToFade)
+            {
+                track02.source.volume = Mathf.Lerp(0, 1f, timeElapsed / timeToFade);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+        
         }
-        */
+       
 
     }
-    // Update is called once per frame
-    public void Play(int nr)
-    {
-        Sound s = Array.Find(sounds, sound => sound.nr == nr);
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + nr + " not found.");
-            return;
-        }
-        StartCoroutine(FadeIn());
-        s.source.Play();
-    }
-
-    public void Stop(int nr)
-    {
-        Sound s = Array.Find(sounds, sound => sound.nr == nr);
-        if(s == null)
-        {
-            Debug.LogWarning("Sound: " + nr + " not found.");
-            return;
-        }
-        StartCoroutine(FadeOut());
-        s.source.Stop();
-    }
-  
-    public IEnumerator FadeIn()
-    {
-        float elapsedTime = 0;
-        float currentVolume = AudioListener.volume;
-
-        while (elapsedTime < delayFadeIn)
-        {
-            elapsedTime += Time.deltaTime;
-            AudioListener.volume = Mathf.Lerp(0, currentVolume, elapsedTime / delayFadeIn);
-            yield return null;
-        }
-    }
-    public IEnumerator FadeOut()
-    {
-        float elapsedTime = 0;
-        float currentVolume = AudioListener.volume;
-
-        while (elapsedTime < delayFadeIn)
-        {
-            elapsedTime += Time.deltaTime;
-            AudioListener.volume = Mathf.Lerp(currentVolume, 0, elapsedTime / delayFadeOut);
-            yield return null;
-        }
+    public void FadeTrack(int currentSong, int nextSong) {
+        StartCoroutine(FadeTrackCoroutine(currentSong, nextSong));
     }
 
     // in objects FindObjectOfType<AudioManager>().Play("Music");
