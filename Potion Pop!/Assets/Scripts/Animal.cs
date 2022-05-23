@@ -23,12 +23,14 @@ public class Animal : MonoBehaviour
     {
         //animalStandingAnimator = animalStanding.gameObject.GetComponent<Animator>();
         //animalSittingAnimator = animalSitting.gameObject.GetComponent<Animator>();
-        CheckIfIsFirst(); 
+        
+        StartCoroutine(CheckIfIsFirst(0.2f)); 
     }
     
 
-    public void CheckIfIsFirst() 
+    IEnumerator CheckIfIsFirst(float timeToWait) 
     {
+        yield return new WaitForSeconds(timeToWait);
         if (isFirstInQueue == true)
         {
             animalStanding.SetActive(false);
@@ -51,8 +53,7 @@ public class Animal : MonoBehaviour
     {
         StartCoroutine(CuredAnimationCoroutine(timeForCured, timeForHappyWalking));
         yield return new WaitForSeconds(timeForCured);
-        Vector3 startPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-        targetPos = new Vector3(startPos.x - 5, startPos.y, startPos.z);
+        //röra på djuret förut
         StartCoroutine(LerpMovePosition(targetPos, 5));
     }
 
@@ -64,12 +65,13 @@ public class Animal : MonoBehaviour
         //animalSitting.SetActive(true);
         //animalStanding.SetActive(false);
         animalSittingAnimator.SetTrigger("SittingHappy");
-        Debug.Log("");
         yield return new WaitForSeconds(timeForCured);
         animalSitting.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
         animalStanding.SetActive(true);
         animalStandingAnimator.SetTrigger("WalkingHappy");
+        Vector3 startPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        targetPos = new Vector3(startPos.x - 5, startPos.y, startPos.z);
+        yield return new WaitForSeconds(timeForHappyWalking); 
     }
     
 
@@ -77,12 +79,13 @@ public class Animal : MonoBehaviour
     {
         StartCoroutine(MoveAnimalQueueCoroutine(timeToMoveInQueue));
         Vector3 startPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-        targetPos = new Vector3(startPos.x - 1, startPos.y, startPos.z);
+        targetPos = new Vector3(startPos.x - 2, startPos.y, startPos.z);
         StartCoroutine(LerpMovePosition(targetPos, 5));
     }
     private IEnumerator LerpMovePosition(Vector3 targetPosition, float duration)
     {
         animalStanding.SetActive(true);
+        //animalStanding.gameObject.GetComponent<Animator>().SetTrigger("WalkingSad");
         animalStandingAnimator.SetTrigger("WalkingSad");
         float time = 0;
         Vector3 startPosition = transform.position;
