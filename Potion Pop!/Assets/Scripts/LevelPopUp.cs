@@ -8,22 +8,20 @@ using UnityEngine.UI;
 public class LevelPopUp : MonoBehaviour
 {
     [SerializeField] GameObject popUp;
-    public GameObject level;
+     public GameObject level;
     [SerializeField] Image[] starsSleep;
     [SerializeField] Sprite starAwake;
     [SerializeField] Image[] boxIngredients;
-    
+  
 
-    private LevelSelect levelSelect;
-    private LevelLoader levelLoader;
+
+
+
 
 
 
     private int score = 0;
-    private int v1;
-    //private string v2;
-    //private string v3;
-    private Sprite[] tempArray;
+
 
    //public LevelPopUp(int levelnumber, string playTime, string levelGoal, Sprite [] ingredients )
    // {
@@ -71,7 +69,6 @@ public class LevelPopUp : MonoBehaviour
     }
 
   
-   
 
 
 
