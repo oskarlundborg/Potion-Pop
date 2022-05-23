@@ -7,6 +7,7 @@ public class LevelsUi : MonoBehaviour
 {
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private GameObject menuPopup;
+    [SerializeField] private GameObject LevelPopUp;
     [SerializeField] private AudioSource ambiance;
     //[SerializeField] private AudioSource backgroundMusic;
   
@@ -35,17 +36,18 @@ public class LevelsUi : MonoBehaviour
         menuPopup.gameObject.SetActive(true);
     }
 
-    public void ClosePopup(GameObject popUp)
+    public void ClosePopup()
     {
         //SetAudio(exit);
-        StartCoroutine(PopUpInactivate(popUp));
+        StartCoroutine(PopUpInactivate());
     }
 
      
-    IEnumerator PopUpInactivate(GameObject popUp)
+    IEnumerator PopUpInactivate()
     {
         yield return new WaitForSeconds(0.1f);
-        popUp.gameObject.SetActive(false);
+        menuPopup.gameObject.SetActive(false);
+        LevelPopUp.gameObject.SetActive(false);
     }
 
     public void GoToMain()

@@ -63,12 +63,14 @@ public class LevelSelect : MonoBehaviour
     IEnumerator  updatePopUp()
     {
         yield return new WaitForSeconds(0.1f);
-
+        levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
+        unlockedStars = gameState.GetLevelStars(setLevelNumber);
+        score = gameState.GetLevelHighScore(setLevelNumber);
         setStarsAktive(stars);
         setStarsAktive(popUpStars);
-        setPopUpValues();
+        StartCoroutine(setPopUpValues());
         SetIngredients();
-       
+        
 
     }
 
@@ -79,9 +81,11 @@ public class LevelSelect : MonoBehaviour
         {
             isOpen = true;
             locker.gameObject.SetActive(!isOpen);
-            score = gameState.GetLevelHighScore(setLevelNumber);
+            levelButton.interactable = isOpen;
+            
         }
     }
+
 
     void SetIngredients()
     {
@@ -113,16 +117,16 @@ public class LevelSelect : MonoBehaviour
     }
 
 
-    private void setPopUpValues()
+    IEnumerator setPopUpValues()
     {
-      
-        
+
+        yield return new WaitForSeconds(0.01f);
         uiScoreText.SetText(score.ToString());
         uiLevelText.SetText( "Level "+ setLevelNumber.ToString());
         uiButtonText.SetText("PLAY");
         time.text = setGameTime;
         goal.text = "x" + setGoal.ToString();
-        
+      
             
         
     }
@@ -141,8 +145,10 @@ public class LevelSelect : MonoBehaviour
 
         if (isOpen)
         {
-            updatePopUp();
+            StartCoroutine(updatePopUp());
+           
             PopUpPlay.gameObject.SetActive(true);
+
       
         }
 
