@@ -7,66 +7,61 @@ public class LevelsUi : MonoBehaviour
 {
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private GameObject menuPopup;
+    [SerializeField] private GameObject LevelPopUp;
     [SerializeField] private AudioSource ambiance;
-    //[SerializeField] private AudioSource backgroundMusic;
+
   
   
-    private AudioSource audio;
-    private bool isPlaying = true;
+    private bool isPlaying;
    
-    //[SerializeField] private AudioClip exit;
-    //[SerializeField] private AudioClip playLevel;
-    //[SerializeField] private AudioClip goToMain;
-    //[SerializeField] private AudioClip buttonPressed;
+
   
 
  
     void Start()
     {
+        
         menuPopup.gameObject.SetActive(false);
-        audio = gameObject.GetComponent<AudioSource>();
-        SetBackgroundMusic();
+        LevelPopUp.gameObject.SetActive(false);
+       
 
     }
 
-    public void OpenPopup()
+    public void OpenPopup(GameObject popUp)
     {
-      
-        menuPopup.gameObject.SetActive(true);
+        MakeVibration();
+        popUp.gameObject.SetActive(true);
     }
 
-    public void ClosePopup(GameObject popUp)
+    public void ClosePopup()
     {
-        //SetAudio(exit);
-        StartCoroutine(PopUpInactivate(popUp));
+        MakeVibration();
+        menuPopup.gameObject.SetActive(false);
+        LevelPopUp.gameObject.SetActive(false);
+
     }
 
-     
-    IEnumerator PopUpInactivate(GameObject popUp)
-    {
-        yield return new WaitForSeconds(0.1f);
-        popUp.gameObject.SetActive(false);
-    }
 
     public void GoToMain()
     {
-        //SetAudio(goToMain);
+        MakeVibration();
         levelLoader.LoadMainMenu();
     }
 
     public void PlayLevel()
-    {      
-        //SetAudio(playLevel);
-    
+    {
+        MakeVibration();
+
     }
 
     public void ButtonPressed()
     {
-        //SetAudio(buttonPressed);
+        MakeVibration();
     }
 
     public void SetBackgroundMusic()
     {
+      
         if (isPlaying)
         {
             
@@ -77,25 +72,28 @@ public class LevelsUi : MonoBehaviour
             SetMusicOff();
         }
         isPlaying = !isPlaying;
+        
     }
 
     private void SetMusicOff()
     {
         ambiance.Stop();
+        MakeVibration();
         //backgroundMusic.Stop();
     }
 
     private void SetMusicOn()
     {
         ambiance.Play();
-        //backgroundMusic.Play();
+        MakeVibration();
+        
     }
 
-    private void SetAudio(AudioClip sound)
+    private void MakeVibration()
     {
         Handheld.Vibrate();
-        audio.clip = sound;
-        audio.Play();
     }
+
+
 }
 
