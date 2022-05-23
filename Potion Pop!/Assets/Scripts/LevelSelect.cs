@@ -38,7 +38,6 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] int setGoal; 
     [SerializeField] int setLevelNumber;
     [SerializeField] Sprite[] setIngredients;
-    [SerializeField] int score;
 
     private LevelLoader levelLoader;
 
@@ -55,7 +54,6 @@ public class LevelSelect : MonoBehaviour
     {
         levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
         levelButton.interactable = false;
->>>>>>> Stashed changes
         StartCoroutine(UnlockLevel());
         unlockedStars = gameState.GetLevelStars(setLevelNumber);
         StartCoroutine(updatePopUp());
@@ -81,6 +79,7 @@ public class LevelSelect : MonoBehaviour
         {
             isOpen = true;
             locker.gameObject.SetActive(!isOpen);
+            score = gameState.GetLevelHighScore(setLevelNumber);
         }
     }
 
@@ -111,12 +110,6 @@ public class LevelSelect : MonoBehaviour
         }
        
         
-            //for (int n = 0; n < unlockedStars+1; n++)
-            //{
-            //    imageArray[n].GetComponent<Image>().sprite = starAwake;
-            //}
-        
-
     }
 
 
@@ -126,29 +119,18 @@ public class LevelSelect : MonoBehaviour
         
         uiScoreText.SetText(score.ToString());
         uiLevelText.SetText( "Level "+ setLevelNumber.ToString());
+        uiButtonText.SetText("PLAY");
         time.text = setGameTime;
-        if (score >= scoreLimit)
-        {
-            setScoreBoard();          
-        }
-        else
-        {
-            goal.text = "x" + setGoal.ToString();
-            uiButtonText.SetText("PLAY");
+        goal.text = "x" + setGoal.ToString();
+        
             
-        }
+        
     }
 
-    private void setScoreBoard()
-    {
-        uiScoreText.SetText(score.ToString()+"000");
-        uiButtonText.SetText("replay");
-        levelCompleted = true;
-    }
 
     public int getLevelNumber()
     {
-        return levelIndex; 
+        return setLevelNumber; 
     }
 
     public void UpdateLevelImage()
@@ -160,45 +142,37 @@ public class LevelSelect : MonoBehaviour
         if (isOpen)
         {
             updatePopUp();
-            levelIndex = setLevelNumber;
             PopUpPlay.gameObject.SetActive(true);
-           
-           
-
-            //isOn = !isOn;
-            //LevelOpen();          
+      
         }
-        //else
-        //{
-        //    LevelLocked();
-        //}
 
+        LevelLocked();
 
 
     }
 
     public void LevelLocked()
     {
-        locker.gameObject.SetActive(!isOpen);
+        locker.gameObject.SetActive(false);
         setStarsAktive(stars);
         setStarsAktive(popUpStars);
     }
 
-    
 
-    public void LevelOpen()
-    {
-        LevelLocked();
-        updatePopUp();
-        levelIndex = setLevelNumber;
 
-        
+    //public void LevelOpen()
+    //{
+    //    LevelLocked();
+    //    updatePopUp();
 
-        PopUpPlay.gameObject.SetActive(isOn);
 
-        isOn = !isOn;
 
-    }
+
+    //    PopUpPlay.gameObject.SetActive(isOpen);
+
+    //    isOn = !isOn;
+
+    //}
 
 
 
