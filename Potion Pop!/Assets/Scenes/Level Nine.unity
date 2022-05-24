@@ -144,6 +144,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1197879462}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: counterUI
+      value: 
+      objectReference: {fileID: 948762106}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: pauseIcon
       value: 
       objectReference: {fileID: 964494981}
@@ -156,9 +160,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 461722263}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: twoStarGoal
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: countdownBar
       value: 
       objectReference: {fileID: 928429203}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: threeStarGoal
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: unpauseButton
       value: 
@@ -184,6 +196,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1397385624}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: recipeCounters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: recipeCounters.Array.data[0]
       value: 
       objectReference: {fileID: 479698022}
@@ -195,6 +211,46 @@ PrefabInstance:
       propertyPath: recipeCounters.Array.data[2]
       value: 
       objectReference: {fileID: 41637510}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: recipeCounters.Array.data[3]
+      value: 
+      objectReference: {fileID: 864546520}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: recipeIngredients.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: recipeIngredients.Array.data[0]
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: 00bb1a8d454bef14cb31f77999c743b4, type: 3}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: recipeIngredients.Array.data[1]
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: c5cccdeb87fdd334faa8bb7eac892a78, type: 3}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: recipeIngredients.Array.data[2]
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: 10579426bd9b63d45bf5b0c19d50f8e9, type: 3}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: recipeIngredients.Array.data[3]
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: a91b4badc1e739442a9f3281de43a5db, type: 3}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: ingredientsToSpawn.Array.data[0]
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: 00bb1a8d454bef14cb31f77999c743b4, type: 3}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: ingredientsToSpawn.Array.data[1]
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: c5cccdeb87fdd334faa8bb7eac892a78, type: 3}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: ingredientsToSpawn.Array.data[2]
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: 10579426bd9b63d45bf5b0c19d50f8e9, type: 3}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: ingredientsToSpawn.Array.data[3]
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: a91b4badc1e739442a9f3281de43a5db, type: 3}
     - target: {fileID: 936417860706062442, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -394,6 +450,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &864546520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 877055241325495757, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+  m_PrefabInstance: {fileID: 948762105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &885809384 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5277095464240177225, guid: 5716b02319dceaa4485e98191dffa6b1, type: 3}
@@ -505,10 +566,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2408588227524920092, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34ee35ed81bb86944b31d592abc590ae, type: 3}
+    - target: {fileID: 3822439653521983577, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredient
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: a91b4badc1e739442a9f3281de43a5db, type: 3}
+    - target: {fileID: 3822439653521983577, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredientGoal
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574857231932082217, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredient
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: 10579426bd9b63d45bf5b0c19d50f8e9, type: 3}
+    - target: {fileID: 5574857231932082217, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredientGoal
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574857232511455758, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredient
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: 00bb1a8d454bef14cb31f77999c743b4, type: 3}
+    - target: {fileID: 5574857232511455758, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredientGoal
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574857233152580983, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredient
+      value: 
+      objectReference: {fileID: 3070088473808281766, guid: c5cccdeb87fdd334faa8bb7eac892a78, type: 3}
+    - target: {fileID: 5574857233152580983, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredientGoal
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6430244964815356780, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd930c74aee92804182c982c03d6623f, type: 3}
+    - target: {fileID: 6430244965528951115, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07413bd5c9eecb04691d57839d714e74, type: 3}
+    - target: {fileID: 6430244966044767794, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 32fcb3012fafb174b8d3c7a1c3a60e40, type: 3}
     - target: {fileID: 8674679120058136806, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 885809384}
+    - target: {fileID: 8674679120439980705, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8674679120439980732, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
       propertyPath: levelState
       value: 
@@ -639,6 +752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+--- !u!1 &948762106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8674679121702652774, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+  m_PrefabInstance: {fileID: 948762105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &964494981 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8674679120622203379, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}

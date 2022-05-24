@@ -48,7 +48,7 @@ MonoBehaviour:
   timeIsRunningOut: {fileID: 8300000, guid: 3608508b3c0720549b8fa80dbd09836d, type: 3}
   colorChangeSpeed: 1.6
   lerpColor: {r: 1, g: 0, b: 0, a: 1}
-  particle: {fileID: 0}
+  particle: {fileID: 5182743614637954682, guid: 1ac2cb27b14c940878065f7e86ee4afa, type: 3}
   oneStarGoal: 1
   twoStarGoal: 2
   threeStarGoal: 3
@@ -65,7 +65,7 @@ MonoBehaviour:
   quitToLevelSelectButton: {fileID: 0}
   playIcon: {fileID: 0}
   pauseIcon: {fileID: 0}
-  AnimalQueue: {fileID: 0}
+  AnimalQueue: {fileID: 2268456518629248898, guid: cd0a90a2856512b40865e91b5e24c30e, type: 3}
   counterUI: {fileID: 0}
   showPauseIconTime: 0.3
   recipeIngredients:
