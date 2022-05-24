@@ -43,6 +43,11 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel(i));
     }
 
+    public void LoadSameLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+    }
+
     IEnumerator LoadLevel(int levelIndex)
     {
         Time.timeScale = 1;

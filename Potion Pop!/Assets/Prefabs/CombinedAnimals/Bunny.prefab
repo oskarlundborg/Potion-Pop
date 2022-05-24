@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651d2aa903bd5834d8bc28f044bd6ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForCured: 0
-  timeForHappyWalking: 0
-  timeToMoveInQueue: 0
-  speed: 0
-  duration: 0
+  timeForCured: 2
+  timeForHappyWalking: 5
+  timeToMoveInQueue: 5
+  speed: 5
+  duration: 4
   animalStanding: {fileID: 5839041231458322688}
   animalSitting: {fileID: 30280443807243239}
   animalStandingAnimator: {fileID: 2971947568748000371}
@@ -80,6 +80,10 @@ PrefabInstance:
     - target: {fileID: 687721632872089701, guid: 82d66c039b1f6884bbd480b9f7ec0d77, type: 3}
       propertyPath: m_Name
       value: BunnyStanding
+      objectReference: {fileID: 0}
+    - target: {fileID: 687721632872089701, guid: 82d66c039b1f6884bbd480b9f7ec0d77, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1332873117381561333, guid: 82d66c039b1f6884bbd480b9f7ec0d77, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -372,6 +376,10 @@ PrefabInstance:
     - target: {fileID: 8954991495604750869, guid: 3f3d9d53b2c10484b87c299214d12133, type: 3}
       propertyPath: m_Name
       value: BunnySitting
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954991495604750869, guid: 3f3d9d53b2c10484b87c299214d12133, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f3d9d53b2c10484b87c299214d12133, type: 3}
