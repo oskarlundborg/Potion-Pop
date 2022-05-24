@@ -55,8 +55,10 @@ public class Ingredient : MonoBehaviour
             }
         }
 
-        if (isInRecipe || isPowerup) {
+        if (isInRecipe) {
             settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0, 1, 0, 0.5f));
+        } else if (isPowerup) {
+            settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.7f, 0.3f, 0, 1f));
         }
         particles.Play();
 
