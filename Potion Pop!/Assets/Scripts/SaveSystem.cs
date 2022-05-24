@@ -68,5 +68,61 @@ public static class SaveSystem
             return null;
         }
     }
+    /*public static void ResetAllLevels(LevelState levelState)
+    {
+        string path = Application.persistentDataPath + "levelstate" + levelState.GetLevelNumber() + ".pop";
+        try {
 
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            else
+            {
+                Debug.Log("Sorry </3 " + path + "does not exist");
+            }
+        } 
+        catch(IOException IOe)
+        {
+            Debug.Log(IOe.Message);
+        }
+    }
+    */
+    private static void ResetGameData()
+    {
+        string path = Application.persistentDataPath + "gamestate.pop";
+        try
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            else
+            {
+                Debug.Log("Sorry </3 " + path + "does not exist");
+            }
+        }
+        catch (IOException IOe)
+        {
+            Debug.Log(IOe.Message);
+        }
+    }
+
+    public static void ResetAll()
+    {
+
+        ResetGameData();
+        for (int i = 1; i < 10; i++)
+        {
+            string path = Application.persistentDataPath + "levelstate" + i + ".pop";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            else
+            {
+                Debug.Log("Sorry </3 " + path + "does not exist");
+            }
+        }
+    }
 }

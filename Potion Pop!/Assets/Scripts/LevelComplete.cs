@@ -31,8 +31,14 @@ public class LevelComplete : MonoBehaviour
     public void ShowLevelProgression(int starsCollected)
     {
 
-        levelText.text = "Level " + levelState.GetLevelNumber();
-        if (starsCollected == 1)
+        levelText.text = "Level " + levelState.GetLevelNumber().ToString();
+        if (starsCollected == 0) 
+        {
+            star1Off.SetActive(true);
+            star2Off.SetActive(true);
+            star3Off.SetActive(true);
+        }
+        else if (starsCollected == 1)
         {
             star1On.SetActive(true);
             star2Off.SetActive(true);

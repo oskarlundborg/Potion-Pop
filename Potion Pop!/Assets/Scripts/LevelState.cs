@@ -113,7 +113,6 @@ public class LevelState : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateTimer();
-
     }
 
     public bool GetLevelStarted()
@@ -146,6 +145,11 @@ public class LevelState : MonoBehaviour
         {
             ResetCombo();
         }
+    }
+
+    public void AddSeconds()
+    {
+        timeLeft += 5f;
     }
 
     private bool IsRecipeComplete()
@@ -224,15 +228,12 @@ public class LevelState : MonoBehaviour
         }
     }
 
-    //specifikt ljud som spelas upp under de sista 10 ish sekunder
-
     private IEnumerator SoundEverySecond()
     {
         for (int i = 0; i < 10; i++)
         {
             yield return new WaitForSeconds(1);
             audioSource.PlayOneShot(timeIsRunningOut);
-
         }
     }
 
@@ -259,8 +260,8 @@ public class LevelState : MonoBehaviour
             combo++;
         }
         if (levelScore > highScore)
-        { //highscore ska vi spara, det högsta spelaren har fått på leveln
-            highScore = levelScore;    // levelscore är de poängen som man fått under den aktiva spelrundan//när dessa är = så uppdaterar vi 
+        { 
+            highScore = levelScore; 
         }
     }
 

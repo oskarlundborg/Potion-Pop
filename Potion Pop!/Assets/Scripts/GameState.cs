@@ -111,6 +111,8 @@ public class GameState : MonoBehaviour
         SaveSystem.SaveGameData(this);
     }
 
-
-
+    public void ResetGame()
+    {
+        SaveSystem.ResetAll();
+    }
 }
