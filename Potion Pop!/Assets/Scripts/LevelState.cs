@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//levels faktiskt tilltåld
 public class LevelState : MonoBehaviour
 {
     private int savedAnimalsAmount;
@@ -13,24 +12,18 @@ public class LevelState : MonoBehaviour
     private int combo = 1;
     private float maxTime;
     private float timeLeft;
-    //ska bli private bool isLevelRunning;
-    private bool isLevelStarted;
+    private bool isLevelStarted; //borde verkligen heta isPaused
 
     //Özge Stuff
     private int wholeSeconds;
     private bool timerStarted = false;
     public AudioSource audioSource;
     public AudioClip timeIsRunningOut;
-
     public float colorChangeSpeed;
     public Color lerpColor = Color.red;
     public GameObject particle; 
 
 
-
-    // vilka djur som ska räddas och hur många!!!
-
-    // mål för att få stjärnor
     [Header("2 stars = 1.5x, 3 stars = 2x")]
     [SerializeField] private int oneStarGoal;
     [SerializeField] private int twoStarGoal;
@@ -154,15 +147,15 @@ public class LevelState : MonoBehaviour
 
     private bool IsRecipeComplete()
     {
-        bool isComplete = true;
+        bool isRecipeComplete;
         foreach (GameObject recipeCounter in recipeCounters)
         {
             if (recipeCounter.GetComponent<RecipeCounter>().IsFull() == false)
             {
-                isComplete = false;
+                return isRecipeComplete = false;
             }
         }
-        return isComplete;
+        return isRecipeComplete = true;
     }
 
     private void UpdateStarsStatus()
@@ -181,17 +174,17 @@ public class LevelState : MonoBehaviour
         }
     }
 
-    private void RecipeCompleted()
+    private void UpdateScore()
     {
-        savedAnimalsAmount++;
-        UpdateStarsStatus();
-        animalSavedText.text = "Animals saved: " + savedAnimalsAmount.ToString();
-        foreach (GameObject recipeCounter in recipeCounters)
+        levelScore += pickUpScore * combo;
+        if (combo < 5)
         {
-            recipeCounter.GetComponent<RecipeCounter>().ResetCounter();
+            combo++;
         }
-        AnimalQueue.GetComponent<AnimalQueue>().TreatAnimals();
-       
+        if (levelScore > highScore)
+        {
+            highScore = levelScore;
+        }
     }
 
     private void UpdateTimer()
@@ -205,14 +198,14 @@ public class LevelState : MonoBehaviour
                 countdownBar.GetComponent<Image>().fillAmount = timeLeft / maxTime;
                 TimedSoundAndParticles();
             }
-           
             else
             {
                 LevelComplete();
             }
         }
     }
-
+    
+    //Özge
     private void TimedSoundAndParticles()
     {
         if (wholeSeconds == 10 && !timerStarted)
@@ -228,6 +221,7 @@ public class LevelState : MonoBehaviour
         }
     }
 
+    //Özge
     private IEnumerator SoundEverySecond()
     {
         for (int i = 0; i < 10; i++)
@@ -237,34 +231,42 @@ public class LevelState : MonoBehaviour
         }
     }
 
+    private void RecipeCompleted()
+    {
+        savedAnimalsAmount++;
+        UpdateStarsStatus();
+        animalSavedText.text = "Animals saved: " + savedAnimalsAmount.ToString();
+        foreach (GameObject recipeCounter in recipeCounters)
+        {
+            recipeCounter.GetComponent<RecipeCounter>().ResetCounter();
+        }
+        AnimalQueue.GetComponent<AnimalQueue>().TreatAnimals();
+        if (savedAnimalsAmount >= threeStarGoal)
+        {
+            LevelComplete();
+        }
+    }
 
     private void LevelComplete()
     {
+        isLevelStarted = false; 
+        SaveLevelState();
+        StartCoroutine(LevelCompleteCoroutine(4));
+    }
+
+    IEnumerator LevelCompleteCoroutine(float timeToWait)
+    {
         unpauseButton.SetActive(false);
         pauseButton.SetActive(false);
-        isLevelStarted = false;
-        SaveLevelState();
         foreach (GameObject recipeCounter in recipeCounters)
         {
             recipeCounter.SetActive(false);
         }
+        yield return new WaitForSeconds(timeToWait);
         levelCompletePanel.SetActive(true);
         levelCompletePanel.GetComponent<LevelComplete>().ShowLevelProgression(starsUnlocked);
         counterUI.SetActive(false);
     }
-
-    private void UpdateScore()
-    {
-        levelScore += pickUpScore * combo;
-        if (combo < 5) {
-            combo++;
-        }
-        if (levelScore > highScore)
-        { 
-            highScore = levelScore; 
-        }
-    }
-
     public bool GetIsLevelStarted()
     {
         return isLevelStarted;
