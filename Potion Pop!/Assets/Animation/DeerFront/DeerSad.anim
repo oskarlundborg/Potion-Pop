@@ -290,7 +290,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -301,7 +301,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Shape 16
+    path: Ellipse 21
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -320,7 +320,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Shape 19 copy 3
+    path: Ellipse 21_2
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -339,7 +339,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Shape 19 copy 3_1
+    path: Ellipse 21_1
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -393,21 +393,21 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 33211908
+      path: 2238703780
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2373855730
+      path: 3499594796
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1226622323
+      path: 1235142038
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -1362,7 +1362,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -1373,7 +1373,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Shape 16
+    path: Ellipse 21
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -1392,7 +1392,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Shape 19 copy 3
+    path: Ellipse 21_2
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -1411,7 +1411,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Shape 19 copy 3_1
+    path: Ellipse 21_1
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves:
