@@ -8,6 +8,7 @@ public class PowerUpState : MonoBehaviour
     public int powerUpState = 0;
     Animator animator;
 
+    [SerializeField] private LevelState levelState;
     [SerializeField] private float iceTimer = 3f;
     [SerializeField] private float slowTimer = 6f;
     [SerializeField] private float fastTimer = 6f;
@@ -59,7 +60,7 @@ public class PowerUpState : MonoBehaviour
         timer = 0f;
         powerUpState = 2;
         timeLimit = slowTimer;
-
+        levelState.AddSeconds();
     }
 
     public void SetFast() {
