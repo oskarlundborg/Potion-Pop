@@ -12,25 +12,20 @@ public class LevelsUi : MonoBehaviour
     [SerializeField] private GameObject levelPopUp;
     [SerializeField] private AudioSource ambiance;
     [SerializeField] private Button [] levelButtons;
+    [SerializeField] private AudioManager audioManager;
 
-  
-  
+
     private bool isPlaying;
-    //private LevelSelect levelSelect;
-
-    private GameObject openPopUp;
-    
+    private bool vibrate = true;
   
+    private GameObject openPopUp;
 
  
     void Start()
     {
         
         menuPopup.gameObject.SetActive(false);
-        
-
-
-
+     
     }
 
     public void OpenPopMenu()
@@ -58,16 +53,6 @@ public class LevelsUi : MonoBehaviour
         popUp.gameObject.SetActive(false);
         ButtonHandler(true);
         
-
-
-    }
-
-    private void ButtonHandler(bool toggle)
-    {
-        for(int i = 0; i < levelButtons.Length; i++)
-        {
-            levelButtons[i].gameObject.SetActive(toggle);
-        }
     }
 
 
@@ -77,10 +62,10 @@ public class LevelsUi : MonoBehaviour
         levelLoader.LoadMainMenu();
     }
 
-    public void PlayLevel()
+    public void PlayLevel(int level)
     {
         MakeVibration();
-
+        levelLoader.LoadSpecificLevel(level);
     }
 
     public void ButtonPressed()
@@ -88,41 +73,60 @@ public class LevelsUi : MonoBehaviour
         MakeVibration();
     }
 
-    public void SetBackgroundMusic()
+    public void SetVibrations()
     {
-      
+        MakeVibration();
+        vibrate = !vibrate;
+     
+    }
+
+    public void SetBackgroundMusic(int i)
+    {
+        MakeVibration();
         if (isPlaying)
         {
-            
-            SetMusicOn();
+            //SetMusicOn();
         }
         else
         {
-            SetMusicOff();
+            //setMusicOff(i);
+            SetMusicOff(i);  
         }
         isPlaying = !isPlaying;
-        
+
     }
 
-    private void SetMusicOff()
+    private void ButtonHandler(bool toggle)
     {
-        ambiance.Stop();
-        MakeVibration();
-        //backgroundMusic.Stop();
+        for (int i = 0; i < levelButtons.Length; i++)
+        {
+            levelButtons[i].gameObject.SetActive(toggle);
+        }
     }
+
+    private void SetMusicOff(int i)
+    {
+        //ambiance.Stop();
+    }
+
 
     private void SetMusicOn()
     {
-        ambiance.Play();
-        MakeVibration();
-        
+        //ambiance.Play();
     }
 
     private void MakeVibration()
     {
-        Handheld.Vibrate();
+        if (vibrate)
+        {
+            Handheld.Vibrate();
+        }
+
     }
 
 
+
+
 }
+
 

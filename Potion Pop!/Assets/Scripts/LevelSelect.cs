@@ -41,14 +41,6 @@ public class LevelSelect : MonoBehaviour
     private int score; 
     private int unlockedStars;
 
-    
-
-
-    
-
-
-    
-
 
 
     public void Start()
@@ -57,10 +49,10 @@ public class LevelSelect : MonoBehaviour
         levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
         levelButton.interactable = false;
         score = gameState.GetLevelHighScore(level);
-        unlockedStars = gameState.GetLevelStars(level);
-        setPopUpValues();
+        unlockedStars = gameState.GetLevelStars(level);  
         StartCoroutine(UnlockLevel());             
         StartCoroutine(UpdatePopUp());
+        StartCoroutine(setPopUpValues());
      
     }
 
@@ -71,11 +63,7 @@ public class LevelSelect : MonoBehaviour
         setStarsAktive(stars);
         setStarsAktive(popUpStars);
         score = gameState.GetLevelHighScore(level);
-
-
-
-
-
+        
     }
 
     IEnumerator UnlockLevel()
@@ -87,25 +75,17 @@ public class LevelSelect : MonoBehaviour
             locker.gameObject.SetActive(!isOpen);
             levelButton.interactable = true;
 
-            Debug.Log(level);
+            
         }
     }
 
-
-    public void LevelUnolock()
+    IEnumerator setPopUpValues()
     {
-        UnlockLevel();
-    }
- 
+        yield return new WaitForSeconds(0.1f);
+        uiScoreText.SetText(score.ToString());
+        time.text = setGameTime;
+        goal.text = "x" + setGoal.ToString();
 
-    public Button GetButton()
-    {
-        return levelButton;
-    }
-
-    public GameObject GetPopUp()
-    {
-        return PopUp;
     }
 
 
@@ -132,40 +112,34 @@ public class LevelSelect : MonoBehaviour
     }
 
 
-    private void setPopUpValues()
-    {
-        uiScoreText.SetText(score.ToString());   
-        time.text = setGameTime;
-        goal.text = "x" + setGoal.ToString();          
-        
-    }
 
 
 
 
 
-    public void UpdateLevelImage(int level)
-    {
-        //setLevelNumber = level;
-        locker.gameObject.SetActive(!isOpen);
-        setStarsAktive(stars);
-        setStarsAktive(popUpStars);
+
+    //public void UpdateLevelImage(int level)
+    //{
+    //    //setLevelNumber = level;
+    //    locker.gameObject.SetActive(!isOpen);
+    //    setStarsAktive(stars);
+    //    setStarsAktive(popUpStars);
         
 
-        if (isOpen)
-        {
-            //score = gameState.GetLevelHighScore(level);
-            //StartCoroutine(UpdatePopUp());         
-            PopUp.gameObject.SetActive(true);
+    //    if (isOpen)
+    //    {
+    //        //score = gameState.GetLevelHighScore(level);
+    //        //StartCoroutine(UpdatePopUp());         
+    //        PopUp.gameObject.SetActive(true);
            
      
 
       
-        }
+    //    }
 
-        LevelLocked();
+    //    LevelLocked();
 
-    }
+    //}
 
     public void LevelLocked()
     {
@@ -174,17 +148,4 @@ public class LevelSelect : MonoBehaviour
         setStarsAktive(popUpStars);
     }
 
-
-
-    public void loadLevel()
-    {
-
-        levelLoader.LoadSpecificLevel(level);
-    }
-
-
-    public int getLevelNumber()
-    {
-        return level;
-    }
 }
