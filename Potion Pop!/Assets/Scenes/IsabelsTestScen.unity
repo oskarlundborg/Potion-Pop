@@ -1261,7 +1261,7 @@ PrefabInstance:
       objectReference: {fileID: 1847503670}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: levelTimeLimit
-      value: 3
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: animalSavedText
@@ -2342,6 +2342,18 @@ PrefabInstance:
     - target: {fileID: 3862162049933084972, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
       propertyPath: m_Text
       value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574857231932082217, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredientGoal
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574857232511455758, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredientGoal
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574857233152580983, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: ingredientGoal
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6536455584895372810, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
       propertyPath: m_IsActive
