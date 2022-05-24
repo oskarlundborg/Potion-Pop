@@ -2,35 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
+
 
 public class LevelComplete : MonoBehaviour
 {
-    [SerializeField] Text starsCollectedText;
-    [SerializeField] Button buttonToMainLevel;
-    [SerializeField] Button replayButton;
-    [SerializeField] GameObject star1;
-    [SerializeField] GameObject star2;
-    [SerializeField] GameObject star3;
+    [SerializeField] private Text levelText;
+    [SerializeField] private Button buttonToMainLevel;
+    [SerializeField] private Button replayButton;
+    [SerializeField] private GameObject star1On;
+    [SerializeField] private GameObject star1Off;
+    [SerializeField] private GameObject star2On;
+    [SerializeField] private GameObject star2Off;
+    [SerializeField] private GameObject star3On;
+    [SerializeField] private GameObject star3Off;
+    [SerializeField] private LevelState levelState;
 
+    [SerializeField] private Image animal1;
+    [SerializeField] private Image animal2;
+    [SerializeField] private Image animal3;
+
+
+    private void Start()
+    {
+        levelText = gameObject.GetComponentInChildren<Text>();
+    }
     public void ShowLevelProgression(int starsCollected)
     {
+
+        levelText.text = "Level " + levelState.GetLevelNumber();
         if (starsCollected == 1)
         {
-            star1.SetActive(true);
-            starsCollectedText.text = "Stars collected: " + starsCollected.ToString();
+            star1On.SetActive(true);
+            star2Off.SetActive(true);
+            star3Off.SetActive(true);
         }
         else if (starsCollected == 2)
         {
-            star1.SetActive(true);
-            star2.SetActive(true);
-            starsCollectedText.text = "Stars collected: " + starsCollected.ToString();
+            star1On.SetActive(true);
+            star2On.SetActive(true);
+            star3Off.SetActive(true);
         }
         else if (starsCollected == 3)
         {
-            star1.SetActive(true);
-            star2.SetActive(true);
-            star3.SetActive(true);
-            starsCollectedText.text = "Stars collected: " + starsCollected.ToString();
+            star1On.SetActive(true);
+            star2On.SetActive(true);
+            star3On.SetActive(true);
         }
     }
 }
