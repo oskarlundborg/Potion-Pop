@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class LevelsUi : MonoBehaviour
 {
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private GameObject menuPopup;
-    [SerializeField] private GameObject LevelPopUp;
+    [SerializeField] private GameObject levelPopUp;
     [SerializeField] private AudioSource ambiance;
+    [SerializeField] private Button [] levelButtons;
 
   
   
     private bool isPlaying;
-   
+    //private LevelSelect levelSelect;
 
+    private GameObject openPopUp;
+    
   
 
  
@@ -22,23 +27,47 @@ public class LevelsUi : MonoBehaviour
     {
         
         menuPopup.gameObject.SetActive(false);
-        LevelPopUp.gameObject.SetActive(false);
-       
+        
+
+
 
     }
+
+    public void OpenPopMenu()
+    {
+        menuPopup.gameObject.SetActive(true);
+    }
+
 
     public void OpenPopup(GameObject popUp)
     {
         MakeVibration();
+        ButtonHandler(false);
+        if (openPopUp != null)
+        {
+            openPopUp.gameObject.SetActive(false);
+        }
         popUp.gameObject.SetActive(true);
+        openPopUp = popUp;
     }
 
-    public void ClosePopup()
+    public void ClosePopup(GameObject popUp)
     {
         MakeVibration();
         menuPopup.gameObject.SetActive(false);
-        LevelPopUp.gameObject.SetActive(false);
+        popUp.gameObject.SetActive(false);
+        ButtonHandler(true);
+        
 
+
+    }
+
+    private void ButtonHandler(bool toggle)
+    {
+        for(int i = 0; i < levelButtons.Length; i++)
+        {
+            levelButtons[i].gameObject.SetActive(toggle);
+        }
     }
 
 
