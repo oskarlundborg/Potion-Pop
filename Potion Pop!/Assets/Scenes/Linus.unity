@@ -538,6 +538,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f395389ec5a63e743b4ac582b51db6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &243219100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3488831033132219277, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
+  m_PrefabInstance: {fileID: 1085324254666066383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &262037617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8393085285324201882, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
@@ -609,11 +614,6 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8674679120622203379, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
   m_PrefabInstance: {fileID: 8674679120846240620}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &410983783 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5476976695076455409, guid: 07572c73b664f6146943fcf23ace8b04, type: 3}
-  m_PrefabInstance: {fileID: 3643500070012954395}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &422777927 stripped
 MonoBehaviour:
@@ -825,30 +825,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1518698830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2169655168246229558, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-  m_PrefabInstance: {fileID: 1085324254666066383}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1518698832
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518698830}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4bdf62e3b8a0fcc42b4b0c12e9702bae, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1650042286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8393085284744824253, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
@@ -872,7 +848,7 @@ PrefabInstance:
     - target: {fileID: 2268456518629248898, guid: cd0a90a2856512b40865e91b5e24c30e, type: 3}
       propertyPath: animalsToSaveArray.Array.data[0]
       value: 
-      objectReference: {fileID: 410983783}
+      objectReference: {fileID: 243219100}
     - target: {fileID: 2268456518629248898, guid: cd0a90a2856512b40865e91b5e24c30e, type: 3}
       propertyPath: animalsToSaveArray.Array.data[1]
       value: 
@@ -1693,22 +1669,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 763714554841366455, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Eye Sad
-      objectReference: {fileID: 0}
-    - target: {fileID: 787750334841220855, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Front Back
-      objectReference: {fileID: 0}
-    - target: {fileID: 923097961240163550, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Neck
-      objectReference: {fileID: 0}
-    - target: {fileID: 940487389705241430, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Body (bones)
-      objectReference: {fileID: 0}
     - target: {fileID: 1386042700456191400, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -1753,105 +1713,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2169655168246229558, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2790281036626531850, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Front Leg
-      objectReference: {fileID: 0}
-    - target: {fileID: 3267721803845921429, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: head
-      objectReference: {fileID: 0}
     - target: {fileID: 3488831033132219277, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
       propertyPath: m_Name
       value: Duck
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739981752316162305, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Beak
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778204264457395434, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Back Leg
-      objectReference: {fileID: 0}
-    - target: {fileID: 4183177560677016917, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: body to neck
-      objectReference: {fileID: 0}
-    - target: {fileID: 5774345082044769871, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: neck
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886194675122645314, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.519
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886194675122645314, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 6448063326209765579, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Body
-      objectReference: {fileID: 0}
-    - target: {fileID: 6490511212739267036, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6490511212739267036, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6897103693237643030, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: body
-      objectReference: {fileID: 0}
-    - target: {fileID: 6920907930933494697, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Bandage
-      objectReference: {fileID: 0}
-    - target: {fileID: 8129045238073933603, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8129045238073933603, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 8129045238073933603, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8348437482012544153, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Leg Back
-      objectReference: {fileID: 0}
-    - target: {fileID: 8348437482012544153, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455705522419787458, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455705522419787458, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.412
-      objectReference: {fileID: 0}
-    - target: {fileID: 8556616284636561719, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Eye Happy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8921642990483043607, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Eye Neutral
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171277935624102162, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
-      propertyPath: m_Name
-      value: Tear
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
