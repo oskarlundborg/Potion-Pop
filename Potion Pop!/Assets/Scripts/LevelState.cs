@@ -21,7 +21,8 @@ public class LevelState : MonoBehaviour
     public AudioClip timeIsRunningOut;
     public float colorChangeSpeed;
     public Color lerpColor = Color.red;
-    public GameObject particle; 
+    public GameObject particle;
+    private Coroutine timeCoroutine = null; 
 
 
     [Header("2 stars = 1.5x, 3 stars = 2x")]
@@ -59,7 +60,11 @@ public class LevelState : MonoBehaviour
     {
         LoadLevelState();
         SetUpTimer();
-        particle.SetActive(false);
+        
+        //loopar igenom alla ps - (componentS för alla)
+        foreach (ParticleSystem particleSystem in particle.GetComponentsInChildren<ParticleSystem>()) {
+            particleSystem.Stop();
+        }
 
     }
 
@@ -143,6 +148,7 @@ public class LevelState : MonoBehaviour
     public void AddSeconds()
     {
         timeLeft += 5f;
+
     }
 
     private bool IsRecipeComplete()
@@ -193,8 +199,10 @@ public class LevelState : MonoBehaviour
         {
             if (timeLeft > 0)
             {
+                //özge
                 timeLeft -= Time.deltaTime;
-                wholeSeconds =(int) timeLeft % 60; 
+                wholeSeconds =(int) timeLeft % 60;
+                //
                 countdownBar.GetComponent<Image>().fillAmount = timeLeft / maxTime;
                 TimedSoundAndParticles();
             }
@@ -210,22 +218,39 @@ public class LevelState : MonoBehaviour
     {
         if (wholeSeconds == 10 && !timerStarted)
         {
-            StartCoroutine(SoundEverySecond());
+            timeCoroutine = StartCoroutine(SoundEverySecond());
             timerStarted = true;
         }
         if (wholeSeconds <= 10)
         {
-            lerpColor = Color.Lerp(Color.red, Color.blue, Mathf.PingPong(Time.time*colorChangeSpeed, 1));
+            lerpColor = Color.Lerp(Color.red, Color.blue, Mathf.PingPong(Time.time * colorChangeSpeed, 1));
             countdownBar.GetComponent<Image>().color = lerpColor;
-            particle.SetActive(true);
+            foreach (ParticleSystem particleSystem in particle.GetComponentsInChildren<ParticleSystem>())
+            {
+                particleSystem.Play();
+            }
+
+        }
+        else if (wholeSeconds > 10)
+        {
+            countdownBar.GetComponent<Image>().color = Color.white;
+            StopCoroutine(timeCoroutine);
+            timerStarted = false;
+            foreach (ParticleSystem particleSystem in particle.GetComponentsInChildren<ParticleSystem>())
+            {
+                particleSystem.Stop();
+            }
         }
     }
+
+    //To Do, se till att när man tar buffs som förlänger tid ska lerp försvinna
+    //Maybe use a bool och lägg in i update??
 
     //Özge
     private IEnumerator SoundEverySecond()
     {
-        for (int i = 0; i < 10; i++)
-        {
+        //infinite istället för for loopen innan med 10
+        while (true) {
             yield return new WaitForSeconds(1);
             audioSource.PlayOneShot(timeIsRunningOut);
         }
@@ -256,6 +281,14 @@ public class LevelState : MonoBehaviour
 
     IEnumerator LevelCompleteCoroutine(float timeToWait)
     {
+        //Özge
+        StopCoroutine(timeCoroutine);
+
+        foreach (ParticleSystem particleSystem in particle.GetComponentsInChildren<ParticleSystem>())
+        {
+            particleSystem.Stop();
+        }
+        //
         unpauseButton.SetActive(false);
         pauseButton.SetActive(false);
         foreach (GameObject recipeCounter in recipeCounters)
