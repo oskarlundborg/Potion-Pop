@@ -12,7 +12,7 @@ public class GameState : MonoBehaviour
     [Header("Stars needed to unlock level 1-9")]
     [SerializeField] private int[] levelStarGoals;
 
-
+    
 
     void Start()
     {

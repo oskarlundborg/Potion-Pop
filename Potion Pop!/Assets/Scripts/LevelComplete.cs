@@ -11,6 +11,7 @@ public class LevelComplete : MonoBehaviour
     [SerializeField] private Text levelText;
     [SerializeField] private Button buttonToMainLevel;
     [SerializeField] private Button replayButton;
+    [SerializeField] private Button playNextButton;
     [SerializeField] private GameObject star1On;
     [SerializeField] private GameObject star1Off;
     [SerializeField] private GameObject star2On;
@@ -23,10 +24,12 @@ public class LevelComplete : MonoBehaviour
     [SerializeField] private Image animal2;
     [SerializeField] private Image animal3;
 
+    private GameState gameState;
 
     private void Start()
     {
         levelText = gameObject.GetComponentInChildren<Text>();
+        gameState = GameObject.Find("GameState").GetComponent<GameState>();
     }
     public void ShowLevelProgression(int starsCollected)
     {
@@ -57,4 +60,6 @@ public class LevelComplete : MonoBehaviour
             star3On.SetActive(true);
         }
     }
+
+
 }

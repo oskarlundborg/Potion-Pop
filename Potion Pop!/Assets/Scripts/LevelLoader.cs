@@ -8,15 +8,20 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private GameState gameState;
+
     private AudioManager audioManager;
 
     private void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
+
     public void LoadNextLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        if (gameState.IsLevelUnlocked(SceneManager.GetActiveScene().buildIndex + 1))
+        {
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        }
     }
 
     public void LoadMainMenu()
