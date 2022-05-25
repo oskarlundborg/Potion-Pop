@@ -8,16 +8,23 @@ using UnityEngine.UI;
 public class LevelsUi : MonoBehaviour
 {
     [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private GameObject menuPopup;
-    [SerializeField] private GameObject levelPopUp;
     [SerializeField] private AudioSource ambiance;
     [SerializeField] private Button [] levelButtons;
-    [SerializeField] private AudioManager audioManager;
 
+    [SerializeField] private AudioClip Xbutton;
+    [SerializeField] private AudioClip openPop;
+    [SerializeField] private AudioClip pressPlayButton;
+    [SerializeField] private AudioClip togglePress;
+    [SerializeField] private AudioClip changeScene;
+    [SerializeField] private AudioClip warning;
 
+    private AudioSource audioSource;
+
+   
     private bool isPlaying;
-    private bool vibrate = true;
-  
+    private bool vibrate = true;  
     private GameObject openPopUp;
 
  
@@ -25,18 +32,15 @@ public class LevelsUi : MonoBehaviour
     {
         
         menuPopup.gameObject.SetActive(false);
-     
+        audioSource = GetComponent<AudioSource>();
     }
 
-    public void OpenPopMenu()
-    {
-        menuPopup.gameObject.SetActive(true);
-    }
 
 
     public void OpenPopup(GameObject popUp)
     {
-        MakeVibration();
+
+        MakeVibration(openPop);
         ButtonHandler(false);
         if (openPopUp != null)
         {
@@ -46,43 +50,57 @@ public class LevelsUi : MonoBehaviour
         openPopUp = popUp;
     }
 
+    public void openMenuPop()
+    {
+   
+        menuPopup.gameObject.SetActive(true);
+        MakeVibration(openPop);
+    }
+
     public void ClosePopup(GameObject popUp)
     {
-        MakeVibration();
+       
+        MakeVibration(Xbutton);
         menuPopup.gameObject.SetActive(false);
         popUp.gameObject.SetActive(false);
         ButtonHandler(true);
         
     }
 
+   
+
 
     public void GoToMain()
     {
-        MakeVibration();
+      
+        MakeVibration(changeScene);
         levelLoader.LoadMainMenu();
     }
 
     public void PlayLevel(int level)
     {
-        MakeVibration();
+        
+        MakeVibration(pressPlayButton);
         levelLoader.LoadSpecificLevel(level);
     }
 
     public void ButtonPressed()
     {
-        MakeVibration();
+   
+        MakeVibration(openPop);
     }
 
     public void SetVibrations()
     {
-        MakeVibration();
+        MakeVibration(openPop);
         vibrate = !vibrate;
      
     }
 
     public void SetBackgroundMusic(int i)
     {
-        MakeVibration();
+        
+        MakeVibration(openPop);
         if (isPlaying)
         {
             //SetMusicOn();
@@ -94,6 +112,16 @@ public class LevelsUi : MonoBehaviour
         }
         isPlaying = !isPlaying;
 
+    }
+
+    public void playAlert()
+    {
+        MakeVibration(warning);
+    }
+
+    public void toggleSwitch()
+    {
+        MakeVibration(togglePress);
     }
 
     private void ButtonHandler(bool toggle)
@@ -115,14 +143,17 @@ public class LevelsUi : MonoBehaviour
         //ambiance.Play();
     }
 
-    private void MakeVibration()
+    private void MakeVibration(AudioClip sfx)
     {
+        audioSource.clip = sfx;
+        audioSource.Play();
         if (vibrate)
         {
             Handheld.Vibrate();
         }
 
     }
+
 
 
 
