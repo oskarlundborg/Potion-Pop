@@ -79,7 +79,7 @@ public class Animal : MonoBehaviour
     {
         StartCoroutine(MoveAnimalQueueCoroutine(timeToMoveInQueue));
         Vector3 startPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-        targetPos = new Vector3(startPos.x - 2, startPos.y, startPos.z);
+        targetPos = new Vector3(startPos.x - 2.5f, startPos.y, startPos.z);
         StartCoroutine(LerpMovePosition(targetPos, 5));
     }
     private IEnumerator LerpMovePosition(Vector3 targetPosition, float duration)
