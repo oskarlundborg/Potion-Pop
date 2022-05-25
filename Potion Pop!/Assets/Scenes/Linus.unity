@@ -331,6 +331,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 422777927}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
+      propertyPath: spawnDiff
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: maxSpawnTime
       value: 0.5
       objectReference: {fileID: 0}
@@ -1666,6 +1670,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1101339463, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1386042700456191400, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -1710,9 +1718,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2169655168246229558, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3488831033132219277, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
       propertyPath: m_Name
       value: Duck
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213306599035617809, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe40c3623e0b6e4aa6668957a27f8d9, type: 3}

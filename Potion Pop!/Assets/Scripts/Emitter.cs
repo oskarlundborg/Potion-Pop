@@ -161,6 +161,7 @@ public class Emitter : MonoBehaviour {
             if (min > ingredientSpawnCounter[i]) {
                 min = ingredientSpawnCounter[i];
                 minIndex = i;
+                Debug.Log("least spawned is: ", level.ingredientsToSpawn[minIndex]);
             }
             if (max < ingredientSpawnCounter[i]) {
                 max = ingredientSpawnCounter[i];
@@ -169,6 +170,7 @@ public class Emitter : MonoBehaviour {
         if (ingredientSpawnCounter[minIndex] + spawnDiff < max) {
             ingredientToSpawn = level.ingredientsToSpawn[minIndex]; //Om minst spawnade ingrediensen är för långt bak
             ingredientSpawnCounter[minIndex] += 1;
+            Debug.Log(ingredientToSpawn);
         } else {
             ingredientToSpawn = level.ingredientsToSpawn[random];
             ingredientSpawnCounter[random] += 1;
