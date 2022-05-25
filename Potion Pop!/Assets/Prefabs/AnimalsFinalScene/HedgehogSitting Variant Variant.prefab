@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &2361674512421322489
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5318998360739608225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b2fdd0ca25831243abe5b48cb7ebf4d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7637397082402884554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21,7 +40,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2318681995317509483, guid: 1cd64eabd1d6e4a429fd476fb5d5744e, type: 3}
       propertyPath: m_Name
-      value: HedgehogSitting Variant
+      value: HedgehogSitting Variant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3005800425354380039, guid: 1cd64eabd1d6e4a429fd476fb5d5744e, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -109,3 +128,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cd64eabd1d6e4a429fd476fb5d5744e, type: 3}
+--- !u!1 &5318998360739608225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2318681995317509483, guid: 1cd64eabd1d6e4a429fd476fb5d5744e, type: 3}
+  m_PrefabInstance: {fileID: 7637397082402884554}
+  m_PrefabAsset: {fileID: 0}

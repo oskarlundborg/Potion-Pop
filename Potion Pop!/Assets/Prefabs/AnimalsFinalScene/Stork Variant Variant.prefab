@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &2160570690394436983
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5336017439993997695}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c395584cb506325439bb8b6076ef8880, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4033734388470453623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -317,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9076973828398038024, guid: 4b1ca3cc27f468642a819fad9bf545a0, type: 3}
       propertyPath: m_Name
-      value: Stork Variant
+      value: Stork Variant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9115657355218674573, guid: 4b1ca3cc27f468642a819fad9bf545a0, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -335,5 +354,12 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.y
       value: 0.23317459
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6817073253108759948, guid: 4b1ca3cc27f468642a819fad9bf545a0, type: 3}
+    - {fileID: 6960068330801745788, guid: 4b1ca3cc27f468642a819fad9bf545a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4b1ca3cc27f468642a819fad9bf545a0, type: 3}
+--- !u!1 &5336017439993997695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9076973828398038024, guid: 4b1ca3cc27f468642a819fad9bf545a0, type: 3}
+  m_PrefabInstance: {fileID: 4033734388470453623}
+  m_PrefabAsset: {fileID: 0}

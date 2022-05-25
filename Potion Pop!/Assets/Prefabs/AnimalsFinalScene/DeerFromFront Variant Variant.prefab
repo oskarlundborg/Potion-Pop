@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &931180078827749730
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080894295478924023}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 294bc04e41f1a4f4dbaecf6906724e53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1209443879089344830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17,7 +36,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 875981579129480137, guid: 82df7d17d622ac24ba7ac83ea72aa156, type: 3}
       propertyPath: m_Name
-      value: DeerFromFront Variant
+      value: DeerFromFront Variant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1050992449539187508, guid: 82df7d17d622ac24ba7ac83ea72aa156, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -461,3 +480,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82df7d17d622ac24ba7ac83ea72aa156, type: 3}
+--- !u!1 &2080894295478924023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 875981579129480137, guid: 82df7d17d622ac24ba7ac83ea72aa156, type: 3}
+  m_PrefabInstance: {fileID: 1209443879089344830}
+  m_PrefabAsset: {fileID: 0}

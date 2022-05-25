@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &6375555243179182432
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567534919611885637}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9bcf4e856c130844c95cf953b16929f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &944157684739129000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4636888936262145773, guid: 41eca35bf860eda4c967906250a59fcf, type: 3}
       propertyPath: m_Name
-      value: BeaverSittingFinal Variant
+      value: BeaverSittingFinal Variant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5159052834967543615, guid: 41eca35bf860eda4c967906250a59fcf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -247,5 +266,12 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Center.x
       value: -0.1804567
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4388826207422664422, guid: 41eca35bf860eda4c967906250a59fcf, type: 3}
+    - {fileID: 6333054992641151293, guid: 41eca35bf860eda4c967906250a59fcf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 41eca35bf860eda4c967906250a59fcf, type: 3}
+--- !u!1 &5567534919611885637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4636888936262145773, guid: 41eca35bf860eda4c967906250a59fcf, type: 3}
+  m_PrefabInstance: {fileID: 944157684739129000}
+  m_PrefabAsset: {fileID: 0}
