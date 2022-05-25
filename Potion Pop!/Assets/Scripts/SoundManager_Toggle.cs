@@ -8,6 +8,21 @@ public class SoundManager_Toggle : MonoBehaviour
     [SerializeField] Image soundOffIcon;
     private bool muted = false;
 
+    static SoundManager_Toggle instance = null;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            GameObject.DontDestroyOnLoad(gameObject);
+        }
+    }
+
     void Start()
     {
         UpdateButtonIcon();
