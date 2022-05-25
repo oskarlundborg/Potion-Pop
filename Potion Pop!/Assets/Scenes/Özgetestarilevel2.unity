@@ -135,6 +135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 614753486, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6938e78cd435f4e4cb4caf3ad33d346b, type: 3}
     - target: {fileID: 936417860706062436, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: m_Name
       value: LevelState
@@ -180,6 +184,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798381036}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: levelTimeLimit
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: animalSavedText
       value: 
       objectReference: {fileID: 1031288376}
@@ -187,6 +195,10 @@ PrefabInstance:
       propertyPath: startLevelButton
       value: 
       objectReference: {fileID: 897260532}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: timeIsRunningOut
+      value: 
+      objectReference: {fileID: 8300000, guid: 6938e78cd435f4e4cb4caf3ad33d346b, type: 3}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: levelCompletePanel
       value: 
@@ -809,6 +821,10 @@ PrefabInstance:
       propertyPath: level
       value: 
       objectReference: {fileID: 223654771}
+    - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
+      propertyPath: chanceToSpawnSpecial
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
 --- !u!1001 &729170025
