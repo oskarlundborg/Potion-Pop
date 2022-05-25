@@ -332,15 +332,15 @@ PrefabInstance:
       objectReference: {fileID: 422777927}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: spawnDiff
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: maxSpawnTime
-      value: 0.5
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: minSpawnTime
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: chanceForDouble
@@ -352,7 +352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: chanceSwitchToWave
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: chanceForSpawnFrenzy
@@ -360,11 +360,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: chanceToSpawnSpecial
-      value: 12.26
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: powerupToDebuffRatio
       value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441842489744888812, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
+      propertyPath: xOffset
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441842489744888812, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
+      propertyPath: uiPositionOffset
+      value: 0.14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}

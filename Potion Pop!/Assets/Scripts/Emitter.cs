@@ -16,10 +16,10 @@ public class Emitter : MonoBehaviour {
 
     private int[] ingredientSpawnCounter;
     private GameObject ingredientToSpawn;
-    private int min, max, minIndex;
+
 
     [Header("Max difference for min and max spawned ingredient")]
-    [Tooltip("Max difference for min and max spawned ingredient")] [SerializeField] private int spawnDiff = 2;
+    [Tooltip("Max difference for min and max spawned ingredient. Recommended value: 2")] [SerializeField] private int spawnDiff = 2;
 
     [Header("Spawning states")]
     [SerializeField] private float chanceSwitchToWave = 7f;
@@ -27,6 +27,9 @@ public class Emitter : MonoBehaviour {
     [SerializeField] private float chanceForDouble = 25f;
     [SerializeField] private float chanceForTriple = 15f;
     private bool isWaveSpawn = false;
+    int min;
+    int max;
+    int minIndex; 
 
     [Header("Frenzy!")]
     [Tooltip("Hur stor chans (av 100) att det blir frenzy efter varje spawn")] public float chanceForSpawnFrenzy = 3f;
@@ -46,7 +49,6 @@ public class Emitter : MonoBehaviour {
         spawnTime = minSpawnTime;
         level = GameObject.Find("LevelState").GetComponent<LevelState>();
         ingredientSpawnCounter = new int[level.ingredientsToSpawn.Length];
-
         if (spawnFrenzyTime <= 0) {
             spawnFrenzyTime = minSpawnTime / 3;
         }
@@ -97,6 +99,7 @@ public class Emitter : MonoBehaviour {
 
         if (isFrenzy && (timer > spawnFrenzyTime)) { //Om det ?r frenzy och timer ?verskrider spawnFrenzyTime
             FrenzyTime();
+            IngredientSpawnAlgorithm();
         }
     }
 
@@ -156,24 +159,27 @@ public class Emitter : MonoBehaviour {
 
     private void IngredientSpawnAlgorithm() {
         int random = Random.Range(0, level.ingredientsToSpawn.Length);
-
         for (int i = 0; i < ingredientSpawnCounter.Length; i++) {
-            if (min > ingredientSpawnCounter[i]) {
+            min = ingredientSpawnCounter[0];
+            max = ingredientSpawnCounter[0];
+            if (ingredientSpawnCounter[i] <= min) {
                 min = ingredientSpawnCounter[i];
                 minIndex = i;
-                Debug.Log("least spawned is: ", level.ingredientsToSpawn[minIndex]);
             }
-            if (max < ingredientSpawnCounter[i]) {
+            if (ingredientSpawnCounter[i] > max ) {
                 max = ingredientSpawnCounter[i];
-            }
-        }        
-        if (ingredientSpawnCounter[minIndex] + spawnDiff < max) {
-            ingredientToSpawn = level.ingredientsToSpawn[minIndex]; //Om minst spawnade ingrediensen är för långt bak
+            } 
+        }
+        if (min + spawnDiff < max) {
+            Debug.Log("Spawn because difference too high = " + ingredientToSpawn + 
+                "\n and its count: " + ingredientSpawnCounter[minIndex] + " minSpawned: " + min + ". compared to maxSpawned: " + max );
             ingredientSpawnCounter[minIndex] += 1;
-            Debug.Log(ingredientToSpawn);
+            ingredientToSpawn = level.ingredientsToSpawn[minIndex];
+
         } else {
             ingredientToSpawn = level.ingredientsToSpawn[random];
             ingredientSpawnCounter[random] += 1;
         }
     }
+
 }
