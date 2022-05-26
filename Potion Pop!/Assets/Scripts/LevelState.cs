@@ -231,7 +231,7 @@ public class LevelState : MonoBehaviour
             }
 
         }
-        else if (wholeSeconds > 10)
+        else if (wholeSeconds > 10 && timerStarted)
         {
             countdownBar.GetComponent<Image>().color = Color.white;
             StopCoroutine(timeCoroutine);
@@ -282,7 +282,10 @@ public class LevelState : MonoBehaviour
     IEnumerator LevelCompleteCoroutine(float timeToWait)
     {
         //Özge
-        StopCoroutine(timeCoroutine);
+        if (timerStarted)
+        {
+            StopCoroutine(timeCoroutine);
+        }
 
         foreach (ParticleSystem particleSystem in particle.GetComponentsInChildren<ParticleSystem>())
         {

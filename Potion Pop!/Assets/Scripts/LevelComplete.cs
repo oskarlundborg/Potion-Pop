@@ -10,7 +10,6 @@ using TMPro;
 public class LevelComplete : MonoBehaviour
 {
     [SerializeField] private Text levelText;
-    [SerializeField] private Button buttonToMainLevel;
     [SerializeField] private Button replayButton;
     [SerializeField] private Button buttonToPlayNext;
     [SerializeField] private GameObject star1On;
