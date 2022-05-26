@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -26,22 +27,23 @@ public class LevelsUi : MonoBehaviour
     [SerializeField] private AudioClip togglePress;
     [SerializeField] private AudioClip changeScene;
     [SerializeField] private AudioClip warning;
+    [SerializeField] private AudioClip tempVibration;
     
-    private static bool isMusicPlaying = true;
-    private static bool isSoundPlaying = true;
-    private static bool vibrate = true;
-    private AudioSource audioSource;
 
    
-    //private bool isPlaying;
+    private AudioSource audioSource;
+  
+
+   
     
     private GameObject openPopUp;
+    public static bool isVibrating = true;
+    private static int previousLevel;
 
 
 
     void Start()
     {
-        
         menuPopup.gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
 
@@ -79,18 +81,36 @@ public class LevelsUi : MonoBehaviour
         
     }
 
-
-
     public void SwitchScene()
-    {     
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        previousLevel = scene.buildIndex;
+        MakeVibration(changeScene);
+        Debug.Log(previousLevel);
+        
+    }
+
+    public void LoadPreviousLevel()
+    {
         MakeVibration(changeScene);
         
+        if (previousLevel != 0)
+        {
+            levelLoader.LoadSpecificLevel(previousLevel);
+        }
+        else
+        {
+            levelLoader.LoadMainMenu();
+        }
+
+        Debug.Log(previousLevel);
     }
 
     public void PlayLevel(int level)
     {   
         MakeVibration(playButton);
         levelLoader.LoadSpecificLevel(level);
+
     }
 
     public void PlayGame()
@@ -106,28 +126,15 @@ public class LevelsUi : MonoBehaviour
 
     public void SetVibrations()
     {
+        isVibrating = !isVibrating;      
+        Debug.Log("isVibrating = " +isVibrating);
         MakeVibration(openPop);
-        vibrate = !vibrate;     
-    }
-
-    public void SetBackgroundMusic(int i)
-    {     
-        MakeVibration(openPop);
-        if( i == 1)
-        {
-            isSoundPlaying = !isSoundPlaying;
-        }
-        if (i == 2)
-        {
-            isMusicPlaying = !isMusicPlaying;
-        }
-      
-
     }
 
     public void PlayAlert()
     {
         MakeVibration(warning);
+        
     }
 
     public void ToggleSwitch()
@@ -149,12 +156,16 @@ public class LevelsUi : MonoBehaviour
 
     private void MakeVibration(AudioClip sfx)
     {
+     
         audioSource.clip = sfx;
         audioSource.Play();
-        if (vibrate)
+        if (isVibrating)
         {
             Handheld.Vibrate();
+            //audioSource.clip = tempVibration;
+
         }
+
 
     }
 

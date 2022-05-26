@@ -5,28 +5,38 @@ using UnityEngine.UI;
 
 public class IkonState : MonoBehaviour
 {
-    [SerializeField] private Button button;
+    [SerializeField] private  Button button;
     [SerializeField] private   Sprite ikonOn;
     [SerializeField] private  Sprite ikonOff;
 
-    private  bool ikonState = true;
-    
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        SetIkonState();
     }
 
 
     public void SetIkonState()
     {
-        button.image.sprite = (button.image.sprite == ikonOff) ? ikonOn : ikonOff;
-        ikonState = !ikonState;
-    }
 
- 
+        button.image.sprite = (LevelsUi.isVibrating) ? ikonOn : ikonOff;
+
+
+        if (LevelsUi.isVibrating == false)
+        {
+           
+            //Debug.Log("ikonOff =" + LevelsUi.isVibrating);
+            
+        }
+        if(LevelsUi.isVibrating == true)
+        {
+          
+            //Debug.Log("ikonOn =" + LevelsUi.isVibrating);
+          
+        }
+
+      
+    }
 
  
 }
