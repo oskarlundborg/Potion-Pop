@@ -6,15 +6,12 @@ using UnityEngine.UI;
 public class IkonState : MonoBehaviour
 {
     [SerializeField] private Button button;
-    [SerializeField] private Sprite ikonOn;
-    [SerializeField] private Sprite ikonOff;
+    [SerializeField] private   Sprite ikonOn;
+    [SerializeField] private  Sprite ikonOff;
 
+    private  bool ikonState = true;
     
-   public void SetIkonState()
-    {
-        button.image.sprite = (button.image.sprite == ikonOff) ? ikonOn : ikonOff;
 
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +20,13 @@ public class IkonState : MonoBehaviour
     }
 
 
+    public void SetIkonState()
+    {
+        button.image.sprite = (button.image.sprite == ikonOff) ? ikonOn : ikonOff;
+        ikonState = !ikonState;
+    }
 
+ 
 
+ 
 }
