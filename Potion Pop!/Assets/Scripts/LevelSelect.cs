@@ -36,26 +36,25 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] private int setGoal; 
     
     
-
-    private LevelLoader levelLoader;
-    private int score; 
+    public static int score; 
     private int unlockedStars;
-    
 
 
-    public void Start()
+
+
+    void Start()
     {
-        
-        levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
         levelButton.interactable = false;
         unlockedStars = gameState.GetLevelStars(level);
         score = gameState.GetLevelHighScore(level);
-        StartCoroutine(UnlockLevel());             
+        StartCoroutine(UnlockLevel());
         StartCoroutine(UpdatePopUp());
         StartCoroutine(setPopUpValues());
-       
-     
+        Debug.Log("hej start");
     }
+
+
+
 
     IEnumerator  UpdatePopUp()
     {
@@ -84,13 +83,10 @@ public class LevelSelect : MonoBehaviour
 
     IEnumerator setPopUpValues()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         uiScoreText.SetText(score.ToString());
         time.text = setGameTime;
         goal.text = "x" + setGoal.ToString();
-      
-       
-
 
     }
 
