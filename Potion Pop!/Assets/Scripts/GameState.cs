@@ -6,7 +6,7 @@ public class GameState : MonoBehaviour
 {
     private LevelData[] levelDataArray = new LevelData[9];
     private GameData gameData;
-    public int totalAmountOfStars;
+    public int totalAmountOfStars; //Ska vara private i slutet
     private int lastUnlockedLevel;
 
     [Header("Stars needed to unlock level 1-9")]

@@ -22,8 +22,12 @@ public class LevelState : MonoBehaviour
     public float colorChangeSpeed;
     public Color lerpColor = Color.red;
     public GameObject particle;
-    private Coroutine timeCoroutine = null; 
+    private Coroutine timeCoroutine = null;
 
+    //Oskar Stuff
+    [SerializeField] private AudioClip potionCompleteClip;
+    [SerializeField] private AudioClip levelCompleteClip;
+    [SerializeField] private AudioClip pausSoundClip;
 
     [Header("2 stars = 1.5x, 3 stars = 2x")]
     [SerializeField] private int oneStarGoal;
@@ -79,6 +83,7 @@ public class LevelState : MonoBehaviour
 
         if (isLevelStarted == true) 
         {
+            audioSource.PlayOneShot(pausSoundClip);
             Time.timeScale = 0;
             isLevelStarted = false;
             unpauseButton.SetActive(true);
@@ -88,6 +93,7 @@ public class LevelState : MonoBehaviour
     }
 
     public void UnpauseGame() {
+        audioSource.PlayOneShot(pausSoundClip);
         Time.timeScale = 1;
         unpauseButton.SetActive(false);
         quitToLevelSelectButton.SetActive(false);
@@ -258,6 +264,7 @@ public class LevelState : MonoBehaviour
 
     private void RecipeCompleted()
     {
+        audioSource.PlayOneShot(potionCompleteClip);
         savedAnimalsAmount++;
         UpdateStarsStatus();
         animalSavedText.text = "Animals saved: " + savedAnimalsAmount.ToString();
@@ -274,6 +281,7 @@ public class LevelState : MonoBehaviour
 
     private void LevelComplete()
     {
+        audioSource.PlayOneShot(levelCompleteClip);
         isLevelStarted = false; 
         SaveLevelState();
         StartCoroutine(LevelCompleteCoroutine(4));
