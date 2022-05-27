@@ -17,7 +17,6 @@ public class Emitter : MonoBehaviour {
     private int[] ingredientSpawnCounter;
     private GameObject ingredientToSpawn;
 
-
     [Header("Max difference for min and max spawned ingredient")]
     [Tooltip("Max difference for min and max spawned ingredient. Recommended value: 2")] [SerializeField] private int spawnDiff = 2;
 
