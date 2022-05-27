@@ -13,12 +13,7 @@ public class LevelsUi : MonoBehaviour
     [SerializeField] private GameObject menuPopup;
     [SerializeField] private AudioSource ambiance;
 
-
-
-
-
     [SerializeField] private Button [] levelButtons;
-
 
 
     [SerializeField] private AudioClip Xbutton;
@@ -27,7 +22,6 @@ public class LevelsUi : MonoBehaviour
     [SerializeField] private AudioClip togglePress;
     [SerializeField] private AudioClip changeScene;
     [SerializeField] private AudioClip warning;
-    [SerializeField] private AudioClip tempVibration;
     
 
    
@@ -44,14 +38,11 @@ public class LevelsUi : MonoBehaviour
     {
         menuPopup.gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
-
-
     }
 
 
     public void OpenPopup(GameObject popUp)
     {
-      
         MakeVibration(openPop);
         ButtonHandler(false);
         if (openPopUp != null)
@@ -63,20 +54,17 @@ public class LevelsUi : MonoBehaviour
     }
 
     public void openMenuPop()
-    { 
-   
+    {  
         menuPopup.gameObject.SetActive(true);
         MakeVibration(openPop);
     }
 
     public void ClosePopup(GameObject popUp)
-    {
-       
+    {       
         MakeVibration(Xbutton);
         menuPopup.gameObject.SetActive(false);
         popUp.gameObject.SetActive(false);
         ButtonHandler(true);
-        
     }
 
     public void SwitchScene()
@@ -84,14 +72,11 @@ public class LevelsUi : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         previousLevel = scene.buildIndex;
         MakeVibration(changeScene);
-        Debug.Log(previousLevel);
-        
     }
 
     public void LoadPreviousLevel()
     {
-        MakeVibration(changeScene);
-        
+        MakeVibration(changeScene);    
         if (previousLevel != 0)
         {
             levelLoader.LoadSpecificLevel(previousLevel);
@@ -100,21 +85,17 @@ public class LevelsUi : MonoBehaviour
         {
             levelLoader.LoadMainMenu();
         }
-
-        Debug.Log(previousLevel);
     }
 
     public void PlayLevel(int level)
     {   
         MakeVibration(playButton);
         levelLoader.LoadSpecificLevel(level);
-
     }
 
     public void PlayGame()
     {
         MakeVibration(playButton);
-
     }
 
     public void ButtonPressed()
@@ -125,7 +106,6 @@ public class LevelsUi : MonoBehaviour
     public void SetVibrations()
     {
         isVibrating = !isVibrating;      
-        //Debug.Log("isVibrating = " +isVibrating);
         MakeVibration(openPop);
     }
 
@@ -160,13 +140,7 @@ public class LevelsUi : MonoBehaviour
         {
             Handheld.Vibrate();
         }
-
     }
-
-
-
-
-
 
 }
 
