@@ -1373,6 +1373,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[4]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[5]
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[6]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[7]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[8]
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
 --- !u!114 &1151300489 stripped

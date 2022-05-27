@@ -36,7 +36,7 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] private int setGoal; 
     
     
-    public static int score; 
+    private int score; 
     private int unlockedStars;
 
 

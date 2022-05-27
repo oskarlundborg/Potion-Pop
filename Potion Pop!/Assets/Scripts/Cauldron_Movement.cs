@@ -63,7 +63,6 @@ public class Cauldron_Movement : MonoBehaviour {
         } else if (name == "magnet") { //4
             powerUpState.SetMagnet();
         }
-
     }
 
 

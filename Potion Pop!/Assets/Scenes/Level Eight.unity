@@ -197,6 +197,10 @@ PrefabInstance:
       value: LevelState
       objectReference: {fileID: 0}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 774137164}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: playIcon
       value: 
       objectReference: {fileID: 1197879462}
@@ -928,6 +932,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &774137164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5182743614637954682, guid: 1ac2cb27b14c940878065f7e86ee4afa, type: 3}
+  m_PrefabInstance: {fileID: 1663313289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &798381036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8674679121551757402, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
@@ -1225,31 +1234,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
       propertyPath: levelStarGoals.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[3]
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[4]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[5]
+      propertyPath: levelStarGoals.Array.data[3]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[4]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
+      propertyPath: levelStarGoals.Array.data[5]
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
       propertyPath: levelStarGoals.Array.data[6]
-      value: 6
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
       propertyPath: levelStarGoals.Array.data[7]
-      value: 7
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
       propertyPath: levelStarGoals.Array.data[8]
-      value: 8
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}

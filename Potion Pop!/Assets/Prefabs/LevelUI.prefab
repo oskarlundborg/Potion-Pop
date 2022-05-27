@@ -4347,7 +4347,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 3862162049933084972}
-  buttonToMainLevel: {fileID: 8674679120058136806}
   replayButton: {fileID: 8674679121219346373}
   buttonToPlayNext: {fileID: 0}
   star1On: {fileID: 1663897497}

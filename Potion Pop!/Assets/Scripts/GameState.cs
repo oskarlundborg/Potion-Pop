@@ -63,6 +63,11 @@ public class GameState : MonoBehaviour
                 continue;
             }
             lastUnlockedLevel = i;
+            break;
+        }
+        if (lastUnlockedLevel == 0)
+        {
+            lastUnlockedLevel = 1;
         }
     }
 
