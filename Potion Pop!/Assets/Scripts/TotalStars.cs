@@ -25,7 +25,8 @@ public class TotalStars : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         totalStars = gameState.GetTotalStars();
-
+        Debug.Log(totalStars);
+        Debug.Log(gameState.GetLevelHighScore(1));
         numberStars.SetText(totalStars.ToString());
     }
 

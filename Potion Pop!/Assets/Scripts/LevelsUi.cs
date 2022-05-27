@@ -32,8 +32,6 @@ public class LevelsUi : MonoBehaviour
 
    
     private AudioSource audioSource;
-  
-
    
     
     private GameObject openPopUp;
@@ -53,7 +51,7 @@ public class LevelsUi : MonoBehaviour
 
     public void OpenPopup(GameObject popUp)
     {
-        menuPopup.gameObject.SetActive(false);
+      
         MakeVibration(openPop);
         ButtonHandler(false);
         if (openPopUp != null)
@@ -127,7 +125,7 @@ public class LevelsUi : MonoBehaviour
     public void SetVibrations()
     {
         isVibrating = !isVibrating;      
-        Debug.Log("isVibrating = " +isVibrating);
+        //Debug.Log("isVibrating = " +isVibrating);
         MakeVibration(openPop);
     }
 
@@ -155,19 +153,16 @@ public class LevelsUi : MonoBehaviour
 
 
     private void MakeVibration(AudioClip sfx)
-    {
-     
+    {    
         audioSource.clip = sfx;
         audioSource.Play();
         if (isVibrating)
         {
             Handheld.Vibrate();
-            //audioSource.clip = tempVibration;
-
         }
 
-
     }
+
 
 
 
