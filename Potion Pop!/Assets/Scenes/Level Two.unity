@@ -346,6 +346,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798381036}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+      propertyPath: levelTimeLimit
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: animalSavedText
       value: 
       objectReference: {fileID: 1031288376}
@@ -403,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 3070088473808281766, guid: 0ed143d7a86616047b940d9b4587c846, type: 3}
     - target: {fileID: 936417860706062442, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 936417860706062442, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -776,7 +780,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 510297091858412544, guid: e9e607dd71238f84b93962500fbbc69b, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 510297091858412544, guid: e9e607dd71238f84b93962500fbbc69b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -975,6 +979,22 @@ PrefabInstance:
       propertyPath: level
       value: 
       objectReference: {fileID: 223654771}
+    - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
+      propertyPath: spawnDiff
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
+      propertyPath: maxSpawnTime
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
+      propertyPath: chanceToSpawnSpecial
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
+      propertyPath: powerupToDebuffRatio
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
 --- !u!1001 &729170025
@@ -1116,7 +1136,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &885809384 stripped
 MonoBehaviour:
@@ -1210,7 +1230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &897260532 stripped
 GameObject:

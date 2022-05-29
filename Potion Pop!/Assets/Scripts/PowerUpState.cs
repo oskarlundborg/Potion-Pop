@@ -9,12 +9,12 @@ public class PowerUpState : MonoBehaviour
     Animator animator;
 
     [SerializeField] private LevelState levelState;
-    [SerializeField] private float iceTimer = 3f;
-    [SerializeField] private float slowTimer = 6f;
-    [SerializeField] private float fastTimer = 6f;
-    [SerializeField] private float magnetTimer = 6f;
+    [SerializeField] private float iceDuration = 2f;
+    [SerializeField] private float slowDuration = 4f;
+    [SerializeField] private float fastDuration = 4f;
+    [SerializeField] private float magnetDuration = 3f;
 
-    private float timeLimit = 5f;
+    private float duration = 5f;
 
     private float timer;
 
@@ -32,7 +32,7 @@ public class PowerUpState : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > timeLimit) {
+        if (timer > duration) {
             SetDefault();
         }
 
@@ -52,14 +52,14 @@ public class PowerUpState : MonoBehaviour
     public void SetIce() {
         timer = 0f;
         powerUpState = 1;
-        timeLimit = iceTimer;
+        duration = iceDuration;
     }
 
     public void SetSlow() {
         cauldron.SetDefault();
         timer = 0f;
         powerUpState = 2;
-        timeLimit = slowTimer;
+        duration = slowDuration;
         levelState.AddSeconds();
     }
 
@@ -67,14 +67,14 @@ public class PowerUpState : MonoBehaviour
         cauldron.SetDefault();
         timer = 0f;
         powerUpState = 3;
-        timeLimit = fastTimer;
+        duration = fastDuration;
     }
 
     public void SetMagnet() {
         cauldron.SetDefault();
         timer = 0f;
         powerUpState = 4;
-        timeLimit = magnetTimer;
+        duration = magnetDuration;
         cauldron.SetMagnet();
     }
 
@@ -90,7 +90,7 @@ public class PowerUpState : MonoBehaviour
             collision.GetComponent<Ingredient>().newRotateSpeed = collision.GetComponent<Ingredient>().rotateSpeed / 2;
 
         } else if(powerUpState == 3) { //Fast
-            collision.GetComponent<Ingredient>().newFallingSpeed = collision.GetComponent<Ingredient>().fallingSpeed + 3;
+            collision.GetComponent<Ingredient>().newFallingSpeed = collision.GetComponent<Ingredient>().fallingSpeed + 8;
             collision.GetComponent<Ingredient>().newRotateSpeed = collision.GetComponent<Ingredient>().rotateSpeed * 2;
 
         } else if(powerUpState == 4) {
