@@ -477,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 223654771}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: spawnDiff
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1441842489744888802, guid: 25fe923607ca87a4b897306f44b7819e, type: 3}
       propertyPath: maxSpawnTime
