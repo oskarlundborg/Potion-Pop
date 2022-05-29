@@ -159,14 +159,15 @@ public class LevelState : MonoBehaviour
 
     private bool IsRecipeComplete()
     {
+        bool isRecipeComplete;
         foreach (GameObject recipeCounter in recipeCounters)
         {
             if (recipeCounter.GetComponent<RecipeCounter>().IsFull() == false)
             {
-                return  false;
+                return isRecipeComplete = false;
             }
         }
-        return  true;
+        return isRecipeComplete = true;
     }
 
     private void UpdateStarsStatus()
@@ -205,6 +206,10 @@ public class LevelState : MonoBehaviour
             if (timeLeft > 0)
             {
                 //özge
+                if (timeLeft > maxTime)
+                {
+                    timeLeft = maxTime;
+                }
                 timeLeft -= Time.deltaTime;
                 wholeSeconds =(int) timeLeft;
                 //
