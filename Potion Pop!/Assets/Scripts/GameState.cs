@@ -83,6 +83,18 @@ public class GameState : MonoBehaviour
 
     public bool IsLevelUnlocked(int levelNumber)
     {
+        if (levelNumber > 0 && levelNumber < 10)
+        {
+            LevelState levelState = GameObject.Find("LevelState").GetComponent<LevelState>();
+            totalAmountOfStars += levelState.GetStarsUnlocked();
+            if (totalAmountOfStars >= levelStarGoals[levelNumber - 1])
+            {
+                totalAmountOfStars -= levelState.GetStarsUnlocked();
+                return true;
+            }
+            totalAmountOfStars -= levelState.GetStarsUnlocked();
+            return false;
+        }
         if (totalAmountOfStars >= levelStarGoals[levelNumber - 1])
         {
             return true;
@@ -108,6 +120,15 @@ public class GameState : MonoBehaviour
             return levelDataArray[levelNumber - 1].GetHighScore();
         }
         return 0;
+    }
+
+    public bool DoesSaveFileExist(int levelNumber)
+    {
+        if(levelDataArray[levelNumber -1] != null)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void SaveGame()

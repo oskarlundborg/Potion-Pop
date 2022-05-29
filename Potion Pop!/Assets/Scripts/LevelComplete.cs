@@ -62,6 +62,8 @@ public class LevelComplete : MonoBehaviour
             star3On.SetActive(true);
         }
 
+
+        
         if (!gameState.IsLevelUnlocked(SceneManager.GetActiveScene().buildIndex + 1))
         {
             buttonToPlayNext.interactable = false;
