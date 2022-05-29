@@ -159,15 +159,14 @@ public class LevelState : MonoBehaviour
 
     private bool IsRecipeComplete()
     {
-        bool isRecipeComplete;
         foreach (GameObject recipeCounter in recipeCounters)
         {
             if (recipeCounter.GetComponent<RecipeCounter>().IsFull() == false)
             {
-                return isRecipeComplete = false;
+                return  false;
             }
         }
-        return isRecipeComplete = true;
+        return  true;
     }
 
     private void UpdateStarsStatus()
