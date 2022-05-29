@@ -1453,7 +1453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8674679120058136806, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8674679120439980705, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
       propertyPath: m_IsActive
@@ -2354,6 +2354,10 @@ PrefabInstance:
     - target: {fileID: 5277095464240177224, guid: 5716b02319dceaa4485e98191dffa6b1, type: 3}
       propertyPath: m_Name
       value: LevelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277095464240177224, guid: 5716b02319dceaa4485e98191dffa6b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5277095464240177225, guid: 5716b02319dceaa4485e98191dffa6b1, type: 3}
       propertyPath: gameState
