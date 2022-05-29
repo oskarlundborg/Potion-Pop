@@ -1395,6 +1395,10 @@ PrefabInstance:
       propertyPath: levelState
       value: 
       objectReference: {fileID: 223654771}
+    - target: {fileID: 5023449776190440580, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5574857231932082217, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
       propertyPath: ingredient
       value: 
