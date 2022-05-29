@@ -206,7 +206,7 @@ public class LevelState : MonoBehaviour
             {
                 //özge
                 timeLeft -= Time.deltaTime;
-                wholeSeconds =(int) timeLeft % 60;
+                wholeSeconds =(int) timeLeft;
                 //
                 countdownBar.GetComponent<Image>().fillAmount = timeLeft / maxTime;
                 TimedSoundAndParticles();
