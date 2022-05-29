@@ -58,11 +58,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Xbutton: {fileID: 8300000, guid: e3451e75146034a9fad38afdfdd7e03c, type: 3}
-  openPop: {fileID: 8300000, guid: 50758ec7590204f408b0419525117491, type: 3}
-  pressPlayButton: {fileID: 8300000, guid: 87c0c168545af4edfae01d930b525317, type: 3}
-  togglePress: {fileID: 8300000, guid: 4cce9eb56fc1c4f9a883c7b4cf89cd08, type: 3}
-  changeScene: {fileID: 8300000, guid: 4a4f06f77275643d3995c6cef2563335, type: 3}
+  Xbutton: {fileID: 8300000, guid: 4b9d3d9f7712d433ca86635c4d2bdb45, type: 3}
+  openPop: {fileID: 8300000, guid: 53c7aaa825716aa44ac4943d1861b547, type: 3}
+  playButton: {fileID: 8300000, guid: f2054a5811a434d4caa1d3793d9173c0, type: 3}
+  togglePress: {fileID: 8300000, guid: 5c8ddcf55dff203489526a32ef41125c, type: 3}
+  changeScene: {fileID: 8300000, guid: 66a3e664c6f807a4283dd911f52846d3, type: 3}
   warning: {fileID: 8300000, guid: d91bef33054b54e3ba7b5948b267e0d3, type: 3}
 --- !u!82 &4438036825446619038
 AudioSource:

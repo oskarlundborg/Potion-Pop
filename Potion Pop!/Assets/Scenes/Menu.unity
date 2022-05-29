@@ -302,7 +302,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 721762568}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadOptionsMenu
+        m_MethodName: LoadLevelSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 619578285}
         m_TargetAssemblyTypeName: LevelsUi, Assembly-CSharp
         m_MethodName: SwitchScene
         m_Mode: 1
