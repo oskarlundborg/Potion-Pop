@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 798381036}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: levelTimeLimit
-      value: 2
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
       propertyPath: animalSavedText

@@ -57,7 +57,7 @@ MonoBehaviour:
   threeStarGoal: 3
   levelNumber: 1
   pickUpScore: 5
-  levelTimeLimit: 30
+  levelTimeLimit: 40
   countdownBar: {fileID: 0}
   recipeCounters:
   - {fileID: 0}
