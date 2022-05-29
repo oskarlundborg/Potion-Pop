@@ -43,7 +43,7 @@ public class LevelsUi : MonoBehaviour
 
     public void OpenPopup(GameObject popUp)
     {
-        MakeVibration(openPop);
+       // MakeVibration(openPop);
         ButtonHandler(false);
         if (openPopUp != null)
         {
@@ -56,12 +56,12 @@ public class LevelsUi : MonoBehaviour
     public void openMenuPop()
     {  
         menuPopup.gameObject.SetActive(true);
-        MakeVibration(openPop);
+      //  MakeVibration(openPop);
     }
 
     public void ClosePopup(GameObject popUp)
     {       
-        MakeVibration(Xbutton);
+       // MakeVibration(Xbutton);
         menuPopup.gameObject.SetActive(false);
         popUp.gameObject.SetActive(false);
         ButtonHandler(true);
@@ -71,12 +71,12 @@ public class LevelsUi : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         previousLevel = scene.buildIndex;
-        MakeVibration(changeScene);
+       // MakeVibration(changeScene);
     }
 
     public void LoadPreviousLevel()
     {
-        MakeVibration(changeScene);    
+        //MakeVibration(changeScene);    
         if (previousLevel != 0)
         {
             levelLoader.LoadSpecificLevel(previousLevel);
@@ -89,37 +89,37 @@ public class LevelsUi : MonoBehaviour
 
     public void PlayLevel(int level)
     {   
-        MakeVibration(playButton);
+       // MakeVibration(playButton);
         levelLoader.LoadSpecificLevel(level);
     }
 
     public void PlayGame()
     {
-        MakeVibration(playButton);
+        //MakeVibration(playButton);
     }
 
     public void ButtonPressed()
     {  
-        MakeVibration(openPop);
+        //MakeVibration(openPop);
     }
 
     public void SetVibrations()
     {
         isVibrating = !isVibrating;      
-        MakeVibration(openPop);
+        //MakeVibration(openPop);
     }
 
     public void PlayAlert()
     {
-        MakeVibration(warning);
+        //MakeVibration(warning);
         
     }
-
+    /*
     public void ToggleSwitch()
     {
         MakeVibration(togglePress);
     }
-
+    */
     private void ButtonHandler(bool toggle)
     {
         if (levelButtons != null)
@@ -131,7 +131,7 @@ public class LevelsUi : MonoBehaviour
         }
     }
 
-
+    /*
     private void MakeVibration(AudioClip sfx)
     {    
         audioSource.clip = sfx;
@@ -141,7 +141,7 @@ public class LevelsUi : MonoBehaviour
             Handheld.Vibrate();
         }
     }
-
+    */
 }
 
 

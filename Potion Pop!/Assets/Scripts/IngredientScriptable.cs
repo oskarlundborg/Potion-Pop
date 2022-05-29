@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Ingredient", menuName = "Ingredient")]
 public class IngredientScriptable : ScriptableObject 
 {
+    /*
     public string nameOfIngredient;
     public Sprite Sprite;
     public int maxSpeed;
@@ -14,7 +15,7 @@ public class IngredientScriptable : ScriptableObject
     private bool rotatesClockwise;
     private float speed;
     private Rigidbody2D rb;
-
+    
     void Start()
     {
 
@@ -33,7 +34,7 @@ public class IngredientScriptable : ScriptableObject
         }
     }
 
-    /*
+    
     void Update()
     {
         if (rotatesClockwise)
@@ -47,9 +48,10 @@ public class IngredientScriptable : ScriptableObject
 
     }
 
-    */
+    
     public void IncreaseTimesCollected()
     {
         timesCollected++;
     }
+    */
 }

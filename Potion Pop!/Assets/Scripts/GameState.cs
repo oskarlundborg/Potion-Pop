@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
@@ -83,7 +84,7 @@ public class GameState : MonoBehaviour
 
     public bool IsLevelUnlocked(int levelNumber)
     {
-        if (levelNumber > 0 && levelNumber < 10)
+        if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 10)
         {
             LevelState levelState = GameObject.Find("LevelState").GetComponent<LevelState>();
             totalAmountOfStars += levelState.GetStarsUnlocked();

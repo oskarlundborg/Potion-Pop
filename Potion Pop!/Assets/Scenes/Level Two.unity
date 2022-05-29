@@ -1261,6 +1261,22 @@ PrefabInstance:
       propertyPath: levelState
       value: 
       objectReference: {fileID: 223654771}
+    - target: {fileID: 5023449776190440580, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 885809384}
+    - target: {fileID: 5023449776190440580, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevelSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023449776190440580, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023449776190440580, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5574857231932082217, guid: 17d91f55eddfd7c4391a82dcb504816c, type: 3}
       propertyPath: ingredient
       value: 
