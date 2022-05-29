@@ -6,13 +6,13 @@ public class GameState : MonoBehaviour
 {
     private LevelData[] levelDataArray = new LevelData[9];
     private GameData gameData;
-    private int totalAmountOfStars;
+    public int totalAmountOfStars; //Ska vara private i slutet
     private int lastUnlockedLevel;
 
     [Header("Stars needed to unlock level 1-9")]
     [SerializeField] private int[] levelStarGoals;
 
-
+    
 
     void Start()
     {
@@ -63,6 +63,11 @@ public class GameState : MonoBehaviour
                 continue;
             }
             lastUnlockedLevel = i;
+            break;
+        }
+        if (lastUnlockedLevel == 0)
+        {
+            lastUnlockedLevel = 1;
         }
     }
 
@@ -78,7 +83,6 @@ public class GameState : MonoBehaviour
 
     public bool IsLevelUnlocked(int levelNumber)
     {
-       
         if (totalAmountOfStars >= levelStarGoals[levelNumber - 1])
         {
             return true;

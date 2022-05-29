@@ -45,16 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 614753486}
-  timeIsRunningOut: {fileID: 8300000, guid: 3608508b3c0720549b8fa80dbd09836d, type: 3}
+  timeIsRunningOut: {fileID: 8300000, guid: 6938e78cd435f4e4cb4caf3ad33d346b, type: 3}
   colorChangeSpeed: 1.6
   lerpColor: {r: 1, g: 0, b: 0, a: 1}
   particle: {fileID: 5182743614637954682, guid: 1ac2cb27b14c940878065f7e86ee4afa, type: 3}
+  potionCompleteClip: {fileID: 8300000, guid: 93098ed8081c63344b38b088c5d4e986, type: 3}
+  levelCompleteClip: {fileID: 8300000, guid: f36be0cd2835f514eb4619dc83e91d9c, type: 3}
+  pausSoundClip: {fileID: 8300000, guid: 998b37b67a42d41e48d3b116c052c3e9, type: 3}
   oneStarGoal: 1
   twoStarGoal: 2
   threeStarGoal: 3
   levelNumber: 1
   pickUpScore: 5
-  levelTimeLimit: 30
+  levelTimeLimit: 40
   countdownBar: {fileID: 0}
   recipeCounters:
   - {fileID: 0}
@@ -96,7 +99,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3608508b3c0720549b8fa80dbd09836d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6938e78cd435f4e4cb4caf3ad33d346b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

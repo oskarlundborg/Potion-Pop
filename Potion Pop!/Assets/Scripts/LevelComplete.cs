@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -9,8 +10,8 @@ using TMPro;
 public class LevelComplete : MonoBehaviour
 {
     [SerializeField] private Text levelText;
-    [SerializeField] private Button buttonToMainLevel;
     [SerializeField] private Button replayButton;
+    [SerializeField] private Button buttonToPlayNext;
     [SerializeField] private GameObject star1On;
     [SerializeField] private GameObject star1Off;
     [SerializeField] private GameObject star2On;
@@ -18,16 +19,20 @@ public class LevelComplete : MonoBehaviour
     [SerializeField] private GameObject star3On;
     [SerializeField] private GameObject star3Off;
     [SerializeField] private LevelState levelState;
-
+    [SerializeField] private GameState gameState;
     [SerializeField] private Image animal1;
     [SerializeField] private Image animal2;
     [SerializeField] private Image animal3;
 
+    
 
     private void Start()
     {
         levelText = gameObject.GetComponentInChildren<Text>();
     }
+
+    
+        
     public void ShowLevelProgression(int starsCollected)
     {
 
@@ -56,5 +61,13 @@ public class LevelComplete : MonoBehaviour
             star2On.SetActive(true);
             star3On.SetActive(true);
         }
+
+        if (!gameState.IsLevelUnlocked(SceneManager.GetActiveScene().buildIndex + 1))
+        {
+            buttonToPlayNext.interactable = false;
+        }
+
     }
+
+
 }

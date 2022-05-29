@@ -106,7 +106,6 @@ public class Animal : MonoBehaviour
             yield return new WaitForSeconds(timeToMoveInQueue);
             animalSitting.SetActive(true);
             animalStanding.SetActive(false);
-            animalSittingAnimator.SetTrigger("SittingSad");
         }
         else
         {

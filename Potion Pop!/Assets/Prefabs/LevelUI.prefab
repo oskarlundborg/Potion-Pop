@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 874184e73a24ff54b95e3ffecb43c007, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4695f611dcd92e418d4af5047b73343, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4347,8 +4347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 3862162049933084972}
-  buttonToMainLevel: {fileID: 8674679120058136806}
   replayButton: {fileID: 8674679121219346373}
+  buttonToPlayNext: {fileID: 0}
   star1On: {fileID: 1663897497}
   star1Off: {fileID: 2015716897}
   star2On: {fileID: 634179189}
@@ -4356,6 +4356,7 @@ MonoBehaviour:
   star3On: {fileID: 864872992}
   star3Off: {fileID: 1708688836}
   levelState: {fileID: 936417860706062437, guid: b19c2cbd8d7c73e4090c8f28e30f619b, type: 3}
+  gameState: {fileID: 0}
   animal1: {fileID: 6432469992211090429}
   animal2: {fileID: 1256190531157616684}
   animal3: {fileID: 5222346457056046125}

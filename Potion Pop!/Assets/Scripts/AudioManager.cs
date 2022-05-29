@@ -29,7 +29,11 @@ public class AudioManager : MonoBehaviour
     }
 
     IEnumerator FadeTrackCoroutine(int currentSong, int nextSong)
-    {
+    { 
+        if(currentSong == nextSong)
+        {
+            yield break;
+        }
         float timeToFade = 1.5f;
         float timeElapsed = 0f;
         Sound track02 = Array.Find(sounds, sounds => sounds.nr == nextSong);
