@@ -302,7 +302,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 721762568}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadOptionsMenu
+        m_MethodName: LoadLevelSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 619578285}
         m_TargetAssemblyTypeName: LevelsUi, Assembly-CSharp
         m_MethodName: SwitchScene
         m_Mode: 1
@@ -1189,42 +1189,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[2]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[3]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[4]
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[5]
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[6]
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[7]
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225881469516160079, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
-      propertyPath: levelStarGoals.Array.data[8]
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9deb336597d1eec46836cf5f3d792d75, type: 3}
 --- !u!114 &951407391 stripped
@@ -1292,26 +1256,6 @@ PrefabInstance:
     - target: {fileID: 510297091858412546, guid: e9e607dd71238f84b93962500fbbc69b, type: 3}
       propertyPath: m_Name
       value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 510297091858412547, guid: e9e607dd71238f84b93962500fbbc69b, type: 3}
-      propertyPath: sounds.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 510297091858412547, guid: e9e607dd71238f84b93962500fbbc69b, type: 3}
-      propertyPath: sounds.Array.data[12].nr
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 510297091858412547, guid: e9e607dd71238f84b93962500fbbc69b, type: 3}
-      propertyPath: sounds.Array.data[12].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 11825d2cb7f75804c92aa2d55e2819d7, type: 3}
-    - target: {fileID: 510297091858412547, guid: e9e607dd71238f84b93962500fbbc69b, type: 3}
-      propertyPath: sounds.Array.data[12].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 510297091858412547, guid: e9e607dd71238f84b93962500fbbc69b, type: 3}
-      propertyPath: sounds.Array.data[12].volume
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e607dd71238f84b93962500fbbc69b, type: 3}
@@ -1817,6 +1761,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 721762568}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: LoadCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

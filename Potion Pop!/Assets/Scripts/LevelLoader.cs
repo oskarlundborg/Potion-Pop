@@ -43,6 +43,11 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(LoadLevel(gameState.GetLastUnlockedLevel()));
     }
+
+    public void LoadCredits()
+    {
+        StartCoroutine(LoadLevel(13));
+    }
     public void LoadSpecificLevel(int i)
     {
         StartCoroutine(LoadLevel(i));
